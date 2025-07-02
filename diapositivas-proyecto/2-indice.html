@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Índice - Plan de Transformación Digital</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Poppins", sans-serif;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			.slide-container {
+    width: 100vw;
+    position: inherit;
+    background-color: #ffffff;
+    overflow: hidden;
+			}
+			.accent-yellow {
+				background-color: #ffd100;
+			}
+			.accent-blue {
+				background-color: #0052cc;
+			}
+			.text-blue {
+				color: #0052cc;
+			}
+			.text-yellow {
+				color: #ffd100;
+			}
+			.top-accent {
+				height: 8px;
+				width: 100%;
+			}
+			.bottom-accent {
+				height: 8px;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.index-item {
+				transition: all 0.3s ease;
+				border-left: 4px solid transparent;
+				padding-left: 16px;
+			}
+			.index-item:hover {
+				border-left: 4px solid #ffd100;
+				background-color: rgba(0, 82, 204, 0.05);
+			}
+			.index-icon {
+				width: 40px;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50%;
+				margin-right: 16px;
+				color: white;
+				flex-shrink: 0;
+			}
+			.index-icon.blue {
+				background-color: #0052cc;
+			}
+			.index-icon.yellow {
+				background-color: #ffd100;
+				color: #333;
+			}
+			.index-number {
+				font-weight: 700;
+				font-size: 20px;
+				opacity: 0.8;
+				width: 30px;
+				text-align: right;
+				margin-right: 14px;
+				color: #555;
+			}
+			.side-accent {
+				position: absolute;
+				top: 15%;
+				right: 0;
+				bottom: 15%;
+				width: 350px;
+				background-color: rgba(0, 82, 204, 0.03);
+				border-left: 3px solid rgba(0, 82, 204, 0.1);
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide-container">
+			<!-- Accents -->
+			<div class="top-accent accent-yellow"></div>
+			<div class="bottom-accent accent-blue"></div>
+			<div class="side-accent"></div>
+
+			<!-- Main content -->
+			<div class="mx-auto px-32 py-8">
+				<div class="mb-14">
+					<h1 class="text-5xl font-bold">
+						<span class="text-blue">Índice</span>
+						<span class="text-gray-700"> | Plan de Transformación Digital</span>
+					</h1>
+					<div class="w-24 h-2 bg-yellow-400 mt-4"></div>
+				</div>
+
+				<div class="grid grid-cols-2 gap-x-10 gap-y-6">
+					<!-- Primera columna -->
+					<div>
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">01</div>
+							<div class="index-icon blue">
+								<i class="fas fa-building"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Presentación de la Marca
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Propósito, visión, misión y valores
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">02</div>
+							<div class="index-icon yellow">
+								<i class="fas fa-puzzle-piece"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Modelo de Negocio Canvas
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Propuesta de valor y segmentos clave
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">03</div>
+							<div class="index-icon blue">
+								<i class="fas fa-bullseye"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Objetivos SMART
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Metas específicas para 2025-2026
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">04</div>
+							<div class="index-icon yellow">
+								<i class="fas fa-globe"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Análisis Macro: PESTEL
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Factores externos que afectan al negocio
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">05</div>
+							<div class="index-icon blue">
+								<i class="fas fa-chart-line"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Análisis de Competencia
+								</h3>
+								<p class="text-gray-600 mt-1">Benchmark y posicionamiento</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">06</div>
+							<div class="index-icon yellow">
+								<i class="fas fa-user-circle"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Buyer Persona
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Perfil de cliente y mapa de empatía
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">07</div>
+							<div class="index-icon blue">
+								<i class="fas fa-route"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Customer Journey
+								</h3>
+								<p class="text-gray-600 mt-1">Puntos de contacto y emociones</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Segunda columna -->
+					<div>
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">08</div>
+							<div class="index-icon yellow">
+								<i class="fas fa-swatchbook"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Análisis SWOT & VUCA
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Fortalezas, debilidades y entorno
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">09</div>
+							<div class="index-icon blue">
+								<i class="fas fa-lightbulb"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Macro-Tendencias
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Conexiones con tendencias actuales
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">10</div>
+							<div class="index-icon yellow">
+								<i class="fas fa-map-signs"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Roadmap (18 meses)
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Plan de implementación por fases
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">11</div>
+							<div class="index-icon blue">
+								<i class="fas fa-tasks"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									KPIs y Gestión de Riesgos
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Métricas de seguimiento y plan B
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">12</div>
+							<div class="index-icon yellow">
+								<i class="fas fa-coins"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Recursos y Costes
+								</h3>
+								<p class="text-gray-600 mt-1">
+									Inversiones y partners estratégicos
+								</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">13</div>
+							<div class="index-icon blue">
+								<i class="fas fa-images"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Ejemplos Visuales
+								</h3>
+								<p class="text-gray-600 mt-1">Casos de éxito y muestras</p>
+							</div>
+						</div>
+
+						<div class="index-item flex items-center py-4">
+							<div class="index-number">14</div>
+							<div class="index-icon yellow">
+								<i class="fas fa-play-circle"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-gray-800">
+									Cierre & Call to Action
+								</h3>
+								<p class="text-gray-600 mt-1">Próximos pasos y contacto</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="absolute bottom-24 right-32 flex items-center">
+					<div class="ml-8">
+						<div
+							class="logo bg-blue-600 h-16 w-16 rounded-full flex items-center justify-center text-white font-bold text-xl"
+						>
+							AFA
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

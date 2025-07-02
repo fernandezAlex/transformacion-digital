@@ -1,0 +1,83 @@
+# Archivos del sistema macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archivos de configuración local
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencias
+node_modules/
+.npm
+.yarn-integrity
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de configuración del sistema
+.CFUserTextEncoding
+.gitconfig
+.zshrc
+.zprofile
+.zsh_history
+.zsh_sessions/
+.zcompdump*
+.babel*
+.browserstack/
+.cache/
+.codeium/
+.composer/
+.config/
+.console-ninja/
+.cursor/
+.docker/
+.gk/
+.gnupg/
+.gnupg_pre_2.1/
+.lesshst
+.npm/
+.nvm/
+.oh-my-zsh/
+.swiftpm/
+.viminfo
+.yarnrc
+
+# Directorios del sistema
+Applications/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+mytheresa/
+
+# Archivos de build y distribución
+dist/
+build/
+coverage/
+.nyc_output
+
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local 

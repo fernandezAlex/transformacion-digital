@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Modelo de Negocio: Business Model Canvas</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Poppins", sans-serif;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			.slide-container {
+				width: 1920px;
+				min-height: 1080px;
+				position: relative;
+				background-color: #ffffff;
+				overflow: hidden;
+			}
+			.accent-yellow {
+				background-color: #ffd100;
+			}
+			.accent-blue {
+				background-color: #0052cc;
+			}
+			.text-brand-blue {
+				color: #0052cc;
+			}
+			.text-brand-yellow {
+				color: #ffd100;
+			}
+			.border-brand-blue {
+				border-color: #0052cc;
+			}
+			.border-brand-yellow {
+				border-color: #ffd100;
+			}
+			.bg-brand-blue {
+				background-color: #0052cc;
+			}
+			.bg-brand-yellow {
+				background-color: #ffd100;
+			}
+			.top-accent {
+				height: 8px;
+				width: 100%;
+			}
+			.bottom-accent {
+				height: 8px;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.canvas-block {
+				background-color: white;
+				border-radius: 8px;
+				padding: 16px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+				transition: all 0.3s ease;
+				height: 100%;
+			}
+			.canvas-block:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+			}
+			.canvas-icon {
+				width: 48px;
+				height: 48px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 12px;
+				color: white;
+				font-size: 20px;
+			}
+			.section-title::after {
+				content: "";
+				display: block;
+				width: 80px;
+				height: 4px;
+				background-color: #ffd100;
+				margin-top: 10px;
+			}
+			.corner-accent {
+				position: absolute;
+				width: 150px;
+				height: 150px;
+				background-color: rgba(0, 82, 204, 0.05);
+				z-index: 0;
+			}
+			.corner-accent.top-right {
+				top: 0;
+				right: 0;
+				border-bottom-left-radius: 100%;
+				border-top: 5px solid #ffd100;
+				border-right: 5px solid #ffd100;
+			}
+			.corner-accent.bottom-left {
+				bottom: 0;
+				left: 0;
+				border-top-right-radius: 100%;
+				border-bottom: 5px solid #ffd100;
+				border-left: 5px solid #ffd100;
+			}
+			.tag {
+				display: inline-block;
+				padding: 4px 10px;
+				margin: 3px;
+				border-radius: 30px;
+				font-size: 12px;
+				font-weight: 500;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide-container">
+			<!-- Accents -->
+			<div class="top-accent accent-yellow"></div>
+			<div class="bottom-accent accent-blue"></div>
+			<div class="corner-accent top-right"></div>
+			<div class="corner-accent bottom-left"></div>
+
+			<!-- Main content -->
+			<div class="pt-2 px-4 pb-0 relative z-10">
+				<div class="mb-4">
+					<h1 class="text-5xl font-bold section-title">
+						<span class="text-brand-blue">Modelo de Negocio</span>: Business
+						Model Canvas
+					</h1>
+				</div>
+
+				<!-- Business Model Canvas Grid -->
+				<div class="grid grid-cols-12 gap-2 h-4/5">
+					<!-- Primera fila -->
+					<div class="col-span-3 row-span-2">
+						<div class="canvas-block border-t-4 border-brand-yellow p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-yellow text-gray-800 w-8 h-8 text-sm mr-2">
+									<i class="fas fa-handshake"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Socios Clave</h3>
+							</div>
+							<ul class="text-xs text-gray-700 space-y-1">
+								<li class="flex items-start">
+									<i class="fas fa-check text-brand-blue mt-1 mr-1 text-xs"></i>
+									<span>Proveedores cloud (Contabo/AWS)</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check text-brand-blue mt-1 mr-1 text-xs"></i>
+									<span>Registradores de dominios</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check text-brand-blue mt-1 mr-1 text-xs"></i>
+									<span>OpenAI API</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check text-brand-blue mt-1 mr-1 text-xs"></i>
+									<span>Imprenta local (branding físico)</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check text-brand-blue mt-1 mr-1 text-xs"></i>
+									<span>Fotógrafos colaborativos</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check text-brand-blue mt-1 mr-1 text-xs"></i>
+									<span>Agentes Kit Digital</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check text-brand-blue mt-1 mr-1 text-xs"></i>
+									<span>Partners SEO/SEM y marketing</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-span-3 row-span-1">
+						<div class="canvas-block border-t-4 border-brand-blue p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-blue w-8 h-8 text-sm mr-2">
+									<i class="fas fa-tasks"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Actividades Clave</h3>
+							</div>
+							<div class="flex flex-wrap gap-1">
+								<span class="tag bg-blue-100 text-blue-800 text-xs px-2 py-1">Diseño UI/UX</span>
+								<span class="tag bg-blue-100 text-blue-800 text-xs px-2 py-1"
+									>Desarrollo Full-Stack</span
+								>
+								<span class="tag bg-blue-100 text-blue-800 text-xs px-2 py-1">SEO</span>
+								<span class="tag bg-blue-100 text-blue-800 text-xs px-2 py-1">Contenidos</span>
+								<span class="tag bg-blue-100 text-blue-800 text-xs px-2 py-1">Fotografía</span>
+								<span class="tag bg-blue-100 text-blue-800 text-xs px-2 py-1"
+									>Integración IA</span
+								>
+								<span class="tag bg-blue-100 text-blue-800 text-xs px-2 py-1"
+									>Soporte técnico</span
+								>
+								<span class="tag bg-blue-100 text-blue-800 text-xs px-2 py-1">Branding</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-span-3 row-span-2">
+						<div class="canvas-block border-t-4 border-brand-yellow h-full p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-yellow text-gray-800 w-8 h-8 text-sm mr-2">
+									<i class="fas fa-gift"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Propuesta de Valor</h3>
+							</div>
+
+							<div class="mb-3">
+								<div class="flex items-center mb-1">
+									<div class="w-6 h-6 rounded-full bg-brand-blue flex items-center justify-center mr-2">
+										<i class="fas fa-sync-alt text-white text-xs"></i>
+									</div>
+									<h4 class="font-semibold text-gray-800 text-sm">Servicio 360º</h4>
+								</div>
+								<p class="text-xs text-gray-600 pl-8">
+									Branding, web, SEO, foto/vídeo y chatbots IA en un único
+									proveedor.
+								</p>
+							</div>
+
+							<div class="mb-3">
+								<div class="flex items-center mb-1">
+									<div class="w-6 h-6 rounded-full bg-brand-blue flex items-center justify-center mr-2">
+										<i class="fas fa-euro-sign text-white text-xs"></i>
+									</div>
+									<h4 class="font-semibold text-gray-800 text-sm">
+										Calidad "agencia" a precio freelance
+									</h4>
+								</div>
+								<p class="text-xs text-gray-600 pl-8">
+									Web llave en mano ≈ 900€ + mantenimiento 150€/mes
+								</p>
+							</div>
+
+							<div>
+								<div class="flex items-center mb-1">
+									<div class="w-6 h-6 rounded-full bg-brand-blue flex items-center justify-center mr-2">
+										<i class="fas fa-bolt text-white text-xs"></i>
+									</div>
+									<h4 class="font-semibold text-gray-800 text-sm">Entrega rápida</h4>
+								</div>
+								<p class="text-xs text-gray-600 pl-8">
+									Branding: 1-2 meses <br />Web: 3-4 meses
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-span-3 row-span-1">
+						<div class="canvas-block border-t-4 border-brand-blue p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-blue w-8 h-8 text-sm mr-2">
+									<i class="fas fa-users"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Relación con Clientes</h3>
+							</div>
+							<ul class="text-xs text-gray-700">
+								<li class="flex items-center mb-1">
+									<i class="fas fa-user-tie text-brand-blue mr-1 text-xs"></i>
+									<span>Trato 1-a-1 del fundador durante todo el ciclo</span>
+								</li>
+								<li class="flex items-center">
+									<i class="fab fa-whatsapp text-brand-blue mr-1 text-xs"></i>
+									<span>Grupos privados de WhatsApp y Drive compartido</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Segunda fila -->
+					<div class="col-span-3 row-span-1">
+						<div class="canvas-block border-t-4 border-brand-yellow p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-yellow text-gray-800 w-8 h-8 text-sm mr-2">
+									<i class="fas fa-tools"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Recursos Clave</h3>
+							</div>
+							<div class="grid grid-cols-2 gap-1">
+								<div class="bg-gray-50 p-1 rounded">
+									<h4 class="font-semibold text-xs">Técnicos</h4>
+									<p class="text-xs text-gray-600">
+										HTML, CSS, JS, React, WordPress, Node
+									</p>
+								</div>
+								<div class="bg-gray-50 p-1 rounded">
+									<h4 class="font-semibold text-xs">Hardware</h4>
+									<p class="text-xs text-gray-600">Cámara Lumix DC-FZ83</p>
+								</div>
+								<div class="bg-gray-50 p-1 rounded">
+									<h4 class="font-semibold text-xs">Software</h4>
+									<p class="text-xs text-gray-600">
+										Figma, OpenAI, Semrush, CRM
+									</p>
+								</div>
+								<div class="bg-gray-50 p-1 rounded">
+									<h4 class="font-semibold text-xs">Red</h4>
+									<p class="text-xs text-gray-600">Partners especializados</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-span-3 row-span-1">
+						<div class="canvas-block border-t-4 border-brand-blue p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-blue w-8 h-8 text-sm mr-2">
+									<i class="fas fa-bullhorn"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Canales</h3>
+							</div>
+							<ul class="text-xs text-gray-700">
+								<li class="flex items-center mb-1">
+									<i class="fas fa-globe text-brand-blue mr-1 text-xs"></i>
+									<span>Web afacreations.com (portfolio + formulario)</span>
+								</li>
+								<li class="flex items-center mb-1">
+									<i class="fas fa-comments text-brand-blue mr-1 text-xs"></i>
+									<span>Boca-a-boca / networking local</span>
+								</li>
+								<li class="flex items-center mb-1">
+									<i class="fas fa-hashtag text-brand-blue mr-1 text-xs"></i>
+									<span>Redes sociales (IG, TikTok, Youtube, LinkedIn)</span>
+								</li>
+								<li class="flex items-center">
+									<i class="fas fa-shopping-cart text-brand-blue mr-1 text-xs"></i>
+									<span>Marketplaces freelance (Fiverr, Workana)</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-span-4 row-span-1">
+						<div class="canvas-block border-t-4 border-brand-yellow p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-yellow text-gray-800 w-8 h-8 text-sm mr-2">
+									<i class="fas fa-users"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Segmentos de Cliente</h3>
+							</div>
+							<div class="space-y-3">
+								<div class="flex items-center">
+									<div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+										<i class="fas fa-store text-yellow-600"></i>
+									</div>
+									<div>
+										<h4 class="font-semibold text-sm">Micropymes locales</h4>
+										<p class="text-xs text-gray-600">Peluquerías, centros de belleza, yoga, inmobiliarias</p>
+									</div>
+								</div>
+								<div class="flex items-center">
+									<div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+										<i class="fas fa-user-tie text-yellow-600"></i>
+									</div>
+									<div>
+										<h4 class="font-semibold text-sm">Profesionales independientes</h4>
+										<p class="text-xs text-gray-600">Autónomos, startups, emprendedores</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-span-4 row-span-1">
+						<div class="canvas-block border-t-4 border-brand-blue p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-blue w-8 h-8 text-sm mr-2">
+									<i class="fas fa-euro-sign"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Estructura de Costes</h3>
+							</div>
+							<div class="grid grid-cols-2 gap-2">
+								<div class="bg-gray-50 p-2 rounded text-center">
+									<h4 class="font-semibold text-sm">Licencias software</h4>
+									<p class="text-lg font-bold text-brand-blue">1.800€/año</p>
+								</div>
+								<div class="bg-gray-50 p-2 rounded text-center">
+									<h4 class="font-semibold text-sm">Tokens IA</h4>
+									<p class="text-lg font-bold text-brand-blue">600€/año</p>
+								</div>
+								<div class="bg-gray-50 p-2 rounded text-center">
+									<h4 class="font-semibold text-sm">Cuota autónomo</h4>
+									<p class="text-lg font-bold text-brand-blue">3.960€/año</p>
+								</div>
+								<div class="bg-gray-50 p-2 rounded text-center">
+									<h4 class="font-semibold text-sm">Otros gastos</h4>
+									<p class="text-lg font-bold text-red-600">-2.500€/año</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-span-4 row-span-1">
+						<div class="canvas-block border-t-4 border-brand-yellow p-2">
+							<div class="flex items-center mb-2">
+								<div class="canvas-icon bg-brand-yellow text-gray-800 w-8 h-8 text-sm mr-2">
+									<i class="fas fa-hand-holding-usd"></i>
+								</div>
+								<h3 class="text-lg font-semibold">Fuentes de Ingresos</h3>
+							</div>
+							<div class="space-y-2">
+								<div class="bg-gray-50 p-2 rounded flex items-center">
+									<div class="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center mr-2 flex-shrink-0">
+										<i class="fas fa-store text-white text-xs"></i>
+									</div>
+									<div>
+										<h4 class="font-semibold text-sm">Proyectos one-shot</h4>
+										<p class="text-xs text-gray-600">Web, branding, foto/vídeo, IA</p>
+									</div>
+								</div>
+								<div class="bg-gray-50 p-2 rounded flex items-center">
+									<div class="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center mr-2 flex-shrink-0">
+										<i class="fas fa-sync text-white text-xs"></i>
+									</div>
+									<div>
+										<h4 class="font-semibold text-sm">Cuotas recurrentes</h4>
+										<p class="text-xs text-gray-600">Hosting, mantenimiento, chatbots</p>
+									</div>
+								</div>
+								<div class="bg-gray-50 p-2 rounded flex items-center">
+									<div class="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center mr-2 flex-shrink-0">
+										<i class="fas fa-arrow-up text-white text-xs"></i>
+									</div>
+									<div>
+										<h4 class="font-semibold text-sm">Upsell de módulos</h4>
+										<p class="text-xs text-gray-600">E-commerce, funnels, agendas</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

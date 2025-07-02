@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Análisis de Competencia & Benchmark</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Poppins", sans-serif;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			.slide-container {
+				width: 1920px;
+				min-height: 1080px;
+				position: relative;
+				background-color: #ffffff;
+				overflow: hidden;
+			}
+			.accent-yellow {
+				background-color: #ffd100;
+			}
+			.accent-blue {
+				background-color: #0052cc;
+			}
+			.text-brand-blue {
+				color: #0052cc;
+			}
+			.text-brand-yellow {
+				color: #ffd100;
+			}
+			.border-brand-blue {
+				border-color: #0052cc;
+			}
+			.border-brand-yellow {
+				border-color: #ffd100;
+			}
+			.bg-brand-blue {
+				background-color: #0052cc;
+			}
+			.bg-brand-yellow {
+				background-color: #ffd100;
+			}
+			.top-accent {
+				height: 8px;
+				width: 100%;
+			}
+			.bottom-accent {
+				height: 8px;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.section-title::after {
+				content: "";
+				display: block;
+				width: 80px;
+				height: 4px;
+				background-color: #ffd100;
+				margin-top: 10px;
+			}
+			.corner-accent {
+				position: absolute;
+				width: 150px;
+				height: 150px;
+				background-color: rgba(0, 82, 204, 0.05);
+				z-index: 0;
+			}
+			.corner-accent.top-right {
+				top: 0;
+				right: 0;
+				border-bottom-left-radius: 100%;
+				border-top: 5px solid #ffd100;
+				border-right: 5px solid #ffd100;
+			}
+			.corner-accent.bottom-left {
+				bottom: 0;
+				left: 0;
+				border-top-right-radius: 100%;
+				border-bottom: 5px solid #ffd100;
+				border-left: 5px solid #ffd100;
+			}
+			.comparison-table th {
+				background-color: #f3f4f6;
+				padding: 12px;
+				font-weight: 600;
+			}
+			.comparison-table td {
+				padding: 16px 12px;
+				vertical-align: top;
+				border-bottom: 1px solid #e5e7eb;
+			}
+			.highlight-cell {
+				background-color: rgba(255, 209, 0, 0.1);
+				font-weight: 500;
+			}
+			.badge {
+				display: inline-block;
+				padding: 4px 8px;
+				border-radius: 4px;
+				font-size: 12px;
+				font-weight: 500;
+			}
+			.badge-blue {
+				background-color: rgba(0, 82, 204, 0.1);
+				color: #0052cc;
+			}
+			.badge-yellow {
+				background-color: rgba(255, 209, 0, 0.2);
+				color: #333;
+			}
+			.badge-green {
+				background-color: rgba(34, 197, 94, 0.1);
+				color: #16a34a;
+			}
+			.badge-red {
+				background-color: rgba(239, 68, 68, 0.1);
+				color: #dc2626;
+			}
+			.company-logo {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: 700;
+				font-size: 16px;
+				margin-right: 12px;
+			}
+			.company-name {
+				font-weight: 600;
+				font-size: 18px;
+			}
+			.advantage-card {
+				border-left: 4px solid #0052cc;
+				padding: 16px;
+				background-color: #f9fafb;
+				border-radius: 0 8px 8px 0;
+			}
+			.benchmark-grid {
+				display: grid;
+				grid-template-columns: 100px repeat(3, 1fr);
+				gap: 12px;
+				margin-top: 24px;
+			}
+			.benchmark-header {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 12px;
+				font-weight: 600;
+				color: white;
+				border-radius: 8px;
+				text-align: center;
+			}
+			.benchmark-cell {
+				padding: 12px;
+				background-color: #f3f4f6;
+				border-radius: 8px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide-container">
+			<!-- Accents -->
+			<div class="top-accent accent-yellow"></div>
+			<div class="bottom-accent accent-blue"></div>
+			<div class="corner-accent top-right"></div>
+			<div class="corner-accent bottom-left"></div>
+
+			<!-- Main content -->
+			<div class="pt-2 px-4 pb-0 relative z-10">
+				<div class="mb-4">
+					<h1 class="text-5xl font-bold section-title">
+						<span class="text-brand-blue">Análisis de Competencia</span> &
+						Benchmark
+					</h1>
+				</div>
+
+				<!-- Main comparison table -->
+				<div class="mb-6 overflow-hidden rounded-lg shadow-sm">
+					<table class="w-full comparison-table text-sm">
+						<thead>
+							<tr class="text-left">
+								<th class="px-3 py-2"></th>
+								<th class="px-3 py-2">
+									<div class="flex items-center">
+										<div
+											class="company-logo bg-gradient-to-r from-blue-600 to-blue-500 w-10 h-10 text-sm mr-2"
+										>
+											AFA
+										</div>
+										<div>
+											<div class="company-name text-brand-blue text-sm">
+												AFA Creations
+											</div>
+											<div class="text-xs text-gray-600">Freelance 360°</div>
+										</div>
+									</div>
+								</th>
+								<th class="px-3 py-2">
+									<div class="flex items-center">
+										<div class="company-logo bg-gray-600 w-10 h-10 text-sm mr-2">NA</div>
+										<div>
+											<div class="company-name text-sm">Nicola – Alocin.org</div>
+											<div class="text-xs text-gray-600">
+												Freelance WP & SEO
+											</div>
+										</div>
+									</div>
+								</th>
+								<th class="px-3 py-2">
+									<div class="flex items-center">
+										<div class="company-logo bg-gray-800 w-10 h-10 text-sm mr-2">MB</div>
+										<div>
+											<div class="company-name text-sm">Mountain Barcelona</div>
+											<div class="text-xs text-gray-600">
+												Agencia full-service
+											</div>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="font-medium text-gray-700 text-xs px-3 py-2">Modelo</td>
+								<td class="highlight-cell text-xs px-3 py-2">Freelance 360° + mantenimiento</td>
+								<td class="text-xs px-3 py-2">Freelance WP & SEO</td>
+								<td class="text-xs px-3 py-2">Agencia full-service</td>
+							</tr>
+							<tr>
+								<td class="font-medium text-gray-700 text-xs px-3 py-2">Precios</td>
+								<td class="highlight-cell px-3 py-2">
+									<div class="font-semibold text-brand-blue text-xs">
+										Web 900€ + 150€/mes
+									</div>
+									<div class="text-xs text-gray-600">
+										Mantenimiento incluye soporte 24/7
+									</div>
+								</td>
+								<td class="px-3 py-2">
+									<div class="font-semibold text-xs">
+										Presupuesto a medida (≈1.200€)
+									</div>
+									<div class="text-xs text-gray-600">
+										Sin cuota de mantenimiento fija
+									</div>
+								</td>
+								<td class="px-3 py-2">
+									<div class="font-semibold text-xs">Web básica 2.500€ + cuotas</div>
+									<div class="text-xs text-gray-600">
+										Mantenimiento 300€+/mes
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="font-medium text-gray-700 text-xs px-3 py-2">Fortalezas</td>
+								<td class="highlight-cell px-3 py-2">
+									<div class="flex items-start mb-1">
+										<i
+											class="fas fa-check-circle text-brand-blue mr-1 mt-1 text-xs"
+										></i>
+										<div class="text-xs">Pack completo + IA + foto/vídeo</div>
+									</div>
+									<div class="flex items-start mb-1">
+										<i
+											class="fas fa-check-circle text-brand-blue mr-1 mt-1 text-xs"
+										></i>
+										<div class="text-xs">Precio asequible para startups y micropymes</div>
+									</div>
+									<div class="flex items-start">
+										<i
+											class="fas fa-check-circle text-brand-blue mr-1 mt-1 text-xs"
+										></i>
+										<div class="text-xs">Trato personal y cercano</div>
+									</div>
+								</td>
+								<td class="px-3 py-2">
+									<div class="flex items-start mb-1">
+										<i class="fas fa-check-circle text-gray-500 mr-1 mt-1 text-xs"></i>
+										<div class="text-xs">Especialista SEO, 15 años exp.</div>
+									</div>
+									<div class="flex items-start">
+										<i class="fas fa-check-circle text-gray-500 mr-1 mt-1 text-xs"></i>
+										<div class="text-xs">Posicionamiento avanzado</div>
+									</div>
+								</td>
+								<td class="px-3 py-2">
+									<div class="flex items-start mb-1">
+										<i class="fas fa-check-circle text-gray-500 mr-1 mt-1 text-xs"></i>
+										<div class="text-xs">Equipo multidisciplinar, portfolios</div>
+									</div>
+									<div class="flex items-start">
+										<i class="fas fa-check-circle text-gray-500 mr-1 mt-1 text-xs"></i>
+										<div class="text-xs">Marca reconocida en Barcelona</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="font-medium text-gray-700 text-xs px-3 py-2">Debilidades</td>
+								<td class="px-3 py-2">
+									<div class="flex items-start">
+										<i
+											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
+										></i>
+										<div class="text-xs">Capacidad 1 persona, visibilidad baja</div>
+									</div>
+								</td>
+								<td class="px-3 py-2">
+									<div class="flex items-start mb-1">
+										<i
+											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
+										></i>
+										<div class="text-xs">Sin IA, sin multimedia</div>
+									</div>
+									<div class="flex items-start">
+										<i
+											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
+										></i>
+										<div class="text-xs">Enfoque limitado a WordPress</div>
+									</div>
+								</td>
+								<td class="px-3 py-2">
+									<div class="flex items-start mb-1">
+										<i
+											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
+										></i>
+										<div class="text-xs">Coste alto, trato menos cercano</div>
+									</div>
+									<div class="flex items-start">
+										<i
+											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
+										></i>
+										<div class="text-xs">Tiempos de respuesta más lentos</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="font-medium text-gray-700 text-xs px-3 py-2">
+									Estrategia competitiva
+								</td>
+								<td class="highlight-cell px-3 py-2">
+									<div class="badge badge-blue mb-1 text-xs">Precio-boutique</div>
+									<div class="badge badge-yellow mb-1 text-xs">Demo IA gratuita</div>
+									<div class="text-xs">
+										Claim de precio asequible con calidad de agencia y plazos
+										cortos
+									</div>
+								</td>
+								<td class="px-3 py-2">
+									<div class="badge badge-green mb-1 text-xs">WordPress Express</div>
+									<div class="text-xs">Paquete 'WP-Express + IA' 4 sem.</div>
+								</td>
+								<td class="px-3 py-2">
+									<div class="badge badge-red mb-1 text-xs">Premium</div>
+									<div class="text-xs">Webs micro-pymes 50% menos precio + fotos gratis</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- Bottom section: Benchmark 4P and Competitive Advantage side by side -->
+				<div class="grid grid-cols-2 gap-6">
+					<!-- Left column: Benchmark 4P Section -->
+					<div>
+						<h2 class="text-2xl font-semibold mb-3 text-brand-blue">
+							Benchmark 4P
+						</h2>
+
+						<div class="grid grid-cols-4 gap-2 text-xs">
+							<!-- Headers -->
+							<div class="benchmark-cell font-semibold bg-gray-100 p-2"></div>
+							<div class="benchmark-header bg-brand-blue p-2 text-xs">FreelancerX</div>
+							<div class="benchmark-header bg-gray-600 text-white p-2 text-xs">
+								AgenciaLocal
+							</div>
+							<div class="benchmark-header bg-brand-yellow text-gray-800 p-2 text-xs">
+								AFA Creations
+							</div>
+
+							<!-- Producto -->
+							<div class="font-semibold flex items-center justify-center bg-gray-200 p-2 text-xs">
+								Producto
+							</div>
+							<div class="benchmark-cell p-2">Web básica WP</div>
+							<div class="benchmark-cell p-2">Sitio + SEO</div>
+							<div class="benchmark-cell bg-yellow-50 font-medium p-2">
+								Servicio 360 + IA
+							</div>
+
+							<!-- Precio -->
+							<div class="font-semibold flex items-center justify-center bg-gray-200 p-2 text-xs">
+								Precio
+							</div>
+							<div class="benchmark-cell p-2">700€</div>
+							<div class="benchmark-cell p-2">2.500€</div>
+							<div class="benchmark-cell bg-yellow-50 font-medium p-2">1.200€</div>
+
+							<!-- Plaza -->
+							<div class="font-semibold flex items-center justify-center bg-gray-200 p-2 text-xs">
+								Plaza
+							</div>
+							<div class="benchmark-cell p-2">Local</div>
+							<div class="benchmark-cell p-2">Cataluña</div>
+							<div class="benchmark-cell bg-yellow-50 font-medium p-2">
+								Online/Barcelona
+							</div>
+
+							<!-- Promoción -->
+							<div class="font-semibold flex items-center justify-center bg-gray-200 p-2 text-xs">
+								Promoción
+							</div>
+							<div class="benchmark-cell p-2">Instagram Ads</div>
+							<div class="benchmark-cell p-2">Google Ads</div>
+							<div class="benchmark-cell bg-yellow-50 font-medium p-2">
+								Contenido orgánico + boca a boca
+							</div>
+						</div>
+					</div>
+
+					<!-- Right column: Competitive Advantage -->
+					<div>
+						<h2 class="text-2xl font-semibold mb-3">
+							Ventaja competitiva principal:
+						</h2>
+						<div class="advantage-card p-3">
+							<p class="text-sm">
+								Combinar
+								<span class="text-brand-blue font-semibold"
+									>precio asequible</span
+								>
+								para el cliente (freelance) con un
+								<span class="text-brand-blue font-semibold"
+									>stack de servicios</span
+								>
+								digno de agencia (branding + dev + IA + multimedia) y
+								<span class="text-brand-blue font-semibold"
+									>SLA de respuesta < 24h</span
+								>, algo que ninguno de los dos rivales garantiza públicamente.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Page number -->
+				<div
+					class="absolute bottom-8 right-8 bg-gray-100 px-4 py-2 rounded-full"
+				>
+					<span class="text-sm font-medium">07</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

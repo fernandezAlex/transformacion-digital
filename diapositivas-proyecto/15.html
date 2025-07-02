@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cierre & Call to Action - AFA Creations</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Poppins", sans-serif;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			.slide-container {
+				width: 1920px;
+				min-height: 1080px;
+				position: relative;
+				background-color: #ffffff;
+				overflow: hidden;
+			}
+			.accent-yellow {
+				background-color: #ffd100;
+			}
+			.accent-blue {
+				background-color: #0052cc;
+			}
+			.text-blue {
+				color: #0052cc;
+			}
+			.text-yellow {
+				color: #ffd100;
+			}
+			.top-accent {
+				height: 10px;
+				width: 100%;
+			}
+			.bottom-accent {
+				height: 10px;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.cta-button {
+				background: linear-gradient(135deg, #0052cc 0%, #007aff 100%);
+				transition: all 0.3s ease;
+				box-shadow: 0 8px 15px rgba(0, 82, 204, 0.3);
+			}
+			.cta-button:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 12px 20px rgba(0, 82, 204, 0.4);
+			}
+			.contact-icon {
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50%;
+				color: white;
+				margin-right: 15px;
+				flex-shrink: 0;
+			}
+			.image-container {
+				position: relative;
+				overflow: hidden;
+				border-radius: 10px;
+				box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+					0 10px 10px -5px rgba(0, 0, 0, 0.04);
+			}
+			.image-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(
+					to right,
+					rgba(0, 82, 204, 0.8),
+					rgba(255, 209, 0, 0.4)
+				);
+				opacity: 0.7;
+			}
+			.highlight-box {
+				border: 2px dashed #ffd100;
+				background-color: rgba(255, 209, 0, 0.05);
+				padding: 30px;
+				border-radius: 10px;
+			}
+			.corner-shape {
+				position: absolute;
+				width: 300px;
+				height: 300px;
+				background-color: rgba(0, 82, 204, 0.05);
+				border-radius: 50%;
+				z-index: 0;
+			}
+			.contact-card {
+				transition: all 0.3s ease;
+				border-left: 4px solid #0052cc;
+			}
+			.contact-card:hover {
+				transform: translateX(5px);
+				background-color: rgba(0, 82, 204, 0.05);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide-container">
+			<!-- Accents -->
+			<div class="top-accent accent-yellow"></div>
+			<div class="bottom-accent accent-blue"></div>
+
+			<!-- Corner decorative elements -->
+			<div class="corner-shape" style="top: -150px; right: -150px"></div>
+			<div class="corner-shape" style="bottom: -150px; left: -150px"></div>
+
+			<div class="pt-4 px-4 pb-0 relative z-10">
+				<div class="grid grid-cols-12 gap-8">
+					<!-- Left Column - Closure message & Call to action -->
+					<div class="col-span-6">
+						<h1 class="text-5xl font-bold mb-8">
+							<span class="text-blue">Cierre</span> & Call to Action
+						</h1>
+						<div class="w-24 h-2 bg-yellow-400 mb-10"></div>
+
+						<div class="mb-10">
+							<h2 class="text-3xl font-semibold mb-5 text-gray-800">
+								Es hora de digitalizar tu negocio
+							</h2>
+							<p class="text-xl text-gray-700 mb-5">
+								AFA Creations está lista para liderar la digitalización de las
+								micro-pymes locales, aportando talento multidisciplinar y
+								tecnologías de vanguardia.
+							</p>
+
+							<p class="text-lg text-gray-600 mb-8">
+								¡Confiemos juntos en este plan para lograr un crecimiento
+								sostenible y diferenciador!
+							</p>
+						</div>
+
+						<div class="highlight-box mb-10">
+							<h3 class="text-2xl font-semibold mb-3 text-blue">
+								¿Por qué esperar?
+							</h3>
+							<p class="text-xl mb-5">
+								¿Invertimos <span class="font-bold">1.200€</span> en una web +
+								IA que ahorre <span class="font-bold">48h/año</span> y posicione
+								su negocio por delante de la competencia?
+							</p>
+
+							<a
+								href="#"
+								class="cta-button text-white text-xl font-semibold py-4 px-10 rounded-lg inline-block"
+							>
+								<i class="fas fa-rocket mr-3"></i> Inicia tu transformación
+								digital
+							</a>
+						</div>
+
+						<div>
+							<h3 class="text-xl font-semibold mb-4 flex items-center">
+								<span
+									class="inline-block w-6 h-6 mr-3 rounded-full bg-blue-600"
+								></span>
+								Reserva tu plaza piloto 2025
+							</h3>
+
+							<div class="space-y-4">
+								<div
+									class="contact-card flex items-center p-4 bg-white rounded-lg shadow-sm"
+								>
+									<div class="contact-icon accent-blue">
+										<i class="fas fa-envelope"></i>
+									</div>
+									<div>
+										<p class="font-semibold">Email</p>
+										<p class="text-gray-600">contacto@afacreations.com</p>
+									</div>
+								</div>
+
+								<div
+									class="contact-card flex items-center p-4 bg-white rounded-lg shadow-sm"
+								>
+									<div class="contact-icon accent-yellow">
+										<i class="fas fa-phone"></i>
+									</div>
+									<div>
+										<p class="font-semibold">Teléfono</p>
+										<p class="text-gray-600">+34 612 345 678</p>
+									</div>
+								</div>
+
+								<div
+									class="contact-card flex items-center p-4 bg-white rounded-lg shadow-sm"
+								>
+									<div class="contact-icon accent-blue">
+										<i class="fas fa-globe"></i>
+									</div>
+									<div>
+										<p class="font-semibold">Web</p>
+										<p class="text-gray-600">www.afacreations.com</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right Column - Image and Social Media -->
+					<div class="col-span-6">
+						<div class="image-container h-3/4 mb-8">
+							<div class="image-overlay"></div>
+							<img
+								src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+								alt="Transformación Digital"
+								class="w-full h-full object-cover"
+							/>
+							<div class="absolute inset-0 flex items-center justify-center">
+								<div class="text-center text-white">
+									<h2 class="text-4xl font-bold mb-3">Transforma</h2>
+									<p class="text-2xl">Tu negocio. Tu futuro.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-gray-50 rounded-lg p-6">
+							<h3 class="text-xl font-semibold mb-4 flex items-center">
+								<i class="fas fa-chart-line text-yellow-500 mr-3"></i>
+								Resultados esperados
+							</h3>
+
+							<div class="grid grid-cols-2 gap-4">
+								<div class="bg-white p-4 rounded-lg shadow-sm">
+									<div class="flex items-center">
+										<div
+											class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3"
+										>
+											<i class="fas fa-users text-blue-600"></i>
+										</div>
+										<div>
+											<p class="text-sm text-gray-600">Nuevos clientes</p>
+											<p class="text-xl font-bold text-gray-800">+50%</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="bg-white p-4 rounded-lg shadow-sm">
+									<div class="flex items-center">
+										<div
+											class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mr-3"
+										>
+											<i class="fas fa-clock text-yellow-600"></i>
+										</div>
+										<div>
+											<p class="text-sm text-gray-600">Tiempo ahorrado</p>
+											<p class="text-xl font-bold text-gray-800">48h/año</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="bg-white p-4 rounded-lg shadow-sm">
+									<div class="flex items-center">
+										<div
+											class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3"
+										>
+											<i class="fas fa-star text-blue-600"></i>
+										</div>
+										<div>
+											<p class="text-sm text-gray-600">Satisfacción</p>
+											<p class="text-xl font-bold text-gray-800">NPS ≥ 70</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="bg-white p-4 rounded-lg shadow-sm">
+									<div class="flex items-center">
+										<div
+											class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mr-3"
+										>
+											<i class="fas fa-eye text-yellow-600"></i>
+										</div>
+										<div>
+											<p class="text-sm text-gray-600">Visibilidad</p>
+											<p class="text-xl font-bold text-gray-800">+70%</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="flex justify-center mt-6">
+								<div class="flex space-x-4">
+									<a
+										href="#"
+										class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition"
+									>
+										<i class="fab fa-linkedin-in"></i>
+									</a>
+									<a
+										href="#"
+										class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition"
+									>
+										<i class="fab fa-instagram"></i>
+									</a>
+									<a
+										href="#"
+										class="w-10 h-10 rounded-full bg-yellow-500 text-gray-800 flex items-center justify-center hover:bg-yellow-600 transition"
+									>
+										<i class="fab fa-tiktok"></i>
+									</a>
+									<a
+										href="#"
+										class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition"
+									>
+										<i class="fab fa-youtube"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Footer logo -->
+				<div
+					class="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex items-center"
+				>
+					<div
+						class="bg-white px-8 py-4 rounded-lg shadow-md flex items-center"
+					>
+						<div
+							class="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4"
+						>
+							AFA
+						</div>
+						<div>
+							<h4 class="font-bold text-xl text-blue">AFA Creations</h4>
+							<p class="text-gray-600">
+								Digitaliza tu proyecto de principio a fin
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

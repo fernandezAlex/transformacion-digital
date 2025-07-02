@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Conexión con Macro-Tendencias</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Poppins", sans-serif;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			.slide-container {
+				width: 1920px;
+				min-height: 1080px;
+				position: relative;
+				background-color: #ffffff;
+				overflow: hidden;
+			}
+			.accent-yellow {
+				background-color: #ffd100;
+			}
+			.accent-blue {
+				background-color: #0052cc;
+			}
+			.text-brand-blue {
+				color: #0052cc;
+			}
+			.text-brand-yellow {
+				color: #ffd100;
+			}
+			.border-brand-blue {
+				border-color: #0052cc;
+			}
+			.border-brand-yellow {
+				border-color: #ffd100;
+			}
+			.bg-brand-blue {
+				background-color: #0052cc;
+			}
+			.bg-brand-yellow {
+				background-color: #ffd100;
+			}
+			.top-accent {
+				height: 8px;
+				width: 100%;
+			}
+			.bottom-accent {
+				height: 8px;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.section-title::after {
+				content: "";
+				display: block;
+				width: 80px;
+				height: 4px;
+				background-color: #ffd100;
+				margin-top: 10px;
+			}
+			.corner-accent {
+				position: absolute;
+				width: 150px;
+				height: 150px;
+				background-color: rgba(0, 82, 204, 0.05);
+				z-index: 0;
+			}
+			.corner-accent.top-right {
+				top: 0;
+				right: 0;
+				border-bottom-left-radius: 100%;
+				border-top: 5px solid #ffd100;
+				border-right: 5px solid #ffd100;
+			}
+			.corner-accent.bottom-left {
+				bottom: 0;
+				left: 0;
+				border-top-right-radius: 100%;
+				border-bottom: 5px solid #ffd100;
+				border-left: 5px solid #ffd100;
+			}
+			.trend-card {
+				border-radius: 12px;
+				transition: all 0.3s ease;
+				background-color: white;
+				height: 100%;
+			}
+			.trend-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+			}
+			.trend-icon {
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 1rem;
+				font-size: 32px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide-container">
+			<!-- Accents -->
+			<div class="top-accent accent-yellow"></div>
+			<div class="bottom-accent accent-blue"></div>
+			<div class="corner-accent top-right"></div>
+			<div class="corner-accent bottom-left"></div>
+
+			<!-- Main content -->
+			<div class="pt-4 px-4 pb-0 relative z-10">
+				<!-- Title -->
+				<div class="mb-10">
+					<h1 class="text-5xl font-bold section-title">
+						<span class="text-brand-blue">Conexión con</span> Macro-Tendencias
+					</h1>
+					<p class="text-gray-600 mt-4 text-xl max-w-3xl">
+						AFA Creations alinea su estrategia con las principales tendencias
+						del mercado para ofrecer soluciones relevantes y con visión de
+						futuro.
+					</p>
+				</div>
+
+				<!-- Trends Cards -->
+				<div class="grid grid-cols-3 gap-8">
+					<!-- Trend 1 - Autenticidad -->
+					<div class="trend-card shadow-md p-6 border-t-4 border-brand-blue">
+						<div class="trend-icon bg-brand-blue text-white mx-auto">
+							<i class="fas fa-stamp"></i>
+						</div>
+						<h3 class="text-2xl font-semibold mb-3 text-center">
+							Autenticidad
+						</h3>
+						<div class="mb-4 flex justify-center">
+							<div class="h-1 w-16 bg-brand-yellow rounded"></div>
+						</div>
+						<p class="text-gray-700 mb-4">
+							En un mundo digital saturado de contenido genérico, la
+							autenticidad genera confianza y diferenciación.
+						</p>
+						<div class="bg-gray-50 p-4 rounded-lg mt-auto">
+							<h4 class="font-medium text-brand-blue mb-2">
+								Aplicación en AFA Creations:
+							</h4>
+							<ul class="space-y-3">
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Mostrar procesos reales en redes sociales</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Branding con storytelling local personalizado</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span
+										>Comunicación transparente de procesos y resultados</span
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Trend 2 - Experiencia -->
+					<div class="trend-card shadow-md p-6 border-t-4 border-brand-yellow">
+						<div class="trend-icon bg-brand-yellow text-gray-800 mx-auto">
+							<i class="fas fa-star"></i>
+						</div>
+						<h3 class="text-2xl font-semibold mb-3 text-center">Experiencia</h3>
+						<div class="mb-4 flex justify-center">
+							<div class="h-1 w-16 bg-brand-blue rounded"></div>
+						</div>
+						<p class="text-gray-700 mb-4">
+							La experiencia de usuario se ha convertido en el factor
+							diferencial clave, superando incluso al precio y producto.
+						</p>
+						<div class="bg-gray-50 p-4 rounded-lg mt-auto">
+							<h4 class="font-medium text-brand-blue mb-2">
+								Aplicación en AFA Creations:
+							</h4>
+							<ul class="space-y-3">
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Webs veloces y mobile-first optimizadas</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Chatbots 24/7 con tono humano y personalizado</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Sistemas de reserva online en solo 2 clics</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Trend 3 - Información/Profesionalidad -->
+					<div class="trend-card shadow-md p-6 border-t-4 border-brand-blue">
+						<div class="trend-icon bg-brand-blue text-white mx-auto">
+							<i class="fas fa-chart-line"></i>
+						</div>
+						<h3 class="text-2xl font-semibold mb-3 text-center">
+							Transparencia
+						</h3>
+						<div class="mb-4 flex justify-center">
+							<div class="h-1 w-16 bg-brand-yellow rounded"></div>
+						</div>
+						<p class="text-gray-700 mb-4">
+							Los clientes valoran cada vez más la transparencia y el acceso
+							directo a información sobre resultados y métricas.
+						</p>
+						<div class="bg-gray-50 p-4 rounded-lg mt-auto">
+							<h4 class="font-medium text-brand-blue mb-2">
+								Aplicación en AFA Creations:
+							</h4>
+							<ul class="space-y-3">
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span
+										>Dashboards de métricas en tiempo real para clientes</span
+									>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Reportes mensuales automatizados con KPIs claros</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span
+										>Documentación de procesos y decisiones estratégicas</span
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Trend 4 - Sostenibilidad -->
+					<div class="trend-card shadow-md p-6 border-t-4 border-brand-yellow">
+						<div class="trend-icon bg-brand-yellow text-gray-800 mx-auto">
+							<i class="fas fa-leaf"></i>
+						</div>
+						<h3 class="text-2xl font-semibold mb-3 text-center">
+							Sostenibilidad
+						</h3>
+						<div class="mb-4 flex justify-center">
+							<div class="h-1 w-16 bg-brand-blue rounded"></div>
+						</div>
+						<p class="text-gray-700 mb-4">
+							La conciencia ecológica impacta las decisiones de compra y la
+							percepción de marca en todos los sectores.
+						</p>
+						<div class="bg-gray-50 p-4 rounded-lg mt-auto">
+							<h4 class="font-medium text-brand-blue mb-2">
+								Aplicación en AFA Creations:
+							</h4>
+							<ul class="space-y-3">
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Hosting con energía 100% renovable para proyectos</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span
+										>Optimización para reducir huella de carbono digital</span
+									>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Materiales de branding eco-friendly para clientes</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Trend 5 - Ética IA -->
+					<div class="trend-card shadow-md p-6 border-t-4 border-brand-blue">
+						<div class="trend-icon bg-brand-blue text-white mx-auto">
+							<i class="fas fa-robot"></i>
+						</div>
+						<h3 class="text-2xl font-semibold mb-3 text-center">Ética IA</h3>
+						<div class="mb-4 flex justify-center">
+							<div class="h-1 w-16 bg-brand-yellow rounded"></div>
+						</div>
+						<p class="text-gray-700 mb-4">
+							La inteligencia artificial debe implementarse de manera ética,
+							transparente y centrada en el ser humano.
+						</p>
+						<div class="bg-gray-50 p-4 rounded-lg mt-auto">
+							<h4 class="font-medium text-brand-blue mb-2">
+								Aplicación en AFA Creations:
+							</h4>
+							<ul class="space-y-3">
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span
+										>IA responsable con supervisión humana en decisiones
+										clave</span
+									>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span
+										>Compliance RGPD en todas las implementaciones de IA</span
+									>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span
+										>Transparencia en el uso de contenidos generados por
+										IA</span
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Trend 6 - Unicidad/Personalización -->
+					<div class="trend-card shadow-md p-6 border-t-4 border-brand-yellow">
+						<div class="trend-icon bg-brand-yellow text-gray-800 mx-auto">
+							<i class="fas fa-fingerprint"></i>
+						</div>
+						<h3 class="text-2xl font-semibold mb-3 text-center">
+							Personalización
+						</h3>
+						<div class="mb-4 flex justify-center">
+							<div class="h-1 w-16 bg-brand-blue rounded"></div>
+						</div>
+						<p class="text-gray-700 mb-4">
+							Los consumidores buscan experiencias únicas y personalizadas que
+							reflejen sus necesidades específicas.
+						</p>
+						<div class="bg-gray-50 p-4 rounded-lg mt-auto">
+							<h4 class="font-medium text-brand-blue mb-2">
+								Aplicación en AFA Creations:
+							</h4>
+							<ul class="space-y-3">
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Diseños personalizados sin plantillas genéricas</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Branding único adaptado a cada sector y cliente</span>
+								</li>
+								<li class="flex items-start">
+									<i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+									<span>Soluciones a medida con desarrollos exclusivos</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Bottom summary -->
+				<div
+					class="mt-8 bg-gray-50 p-6 rounded-lg border-l-4 border-brand-blue"
+				>
+					<div class="flex items-center">
+						<div
+							class="w-12 h-12 rounded-full bg-brand-blue flex items-center justify-center mr-5 flex-shrink-0"
+						>
+							<i class="fas fa-lightbulb text-white text-xl"></i>
+						</div>
+						<div>
+							<h3 class="text-xl font-semibold mb-2">Ventaja estratégica</h3>
+							<p class="text-gray-700">
+								Al alinear nuestra estrategia con estas macro-tendencias, AFA
+								Creations no solo responde a las necesidades actuales del
+								mercado, sino que se posiciona como una agencia con visión de
+								futuro, capaz de anticiparse a los cambios en el comportamiento
+								de los consumidores.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Page number -->
+				<div
+					class="absolute bottom-8 right-8 bg-gray-100 px-4 py-2 rounded-full"
+				>
+					<span class="text-sm font-medium">11</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Transformación Digital - AFA Creations</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Poppins", sans-serif;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background: #000;
+			}
+
+			.slide-container {
+				width: 100vw;
+				height: 100vh;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.slide {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transform: translateX(100%);
+				transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			.slide.active {
+				opacity: 1;
+				transform: translateX(0);
+			}
+
+			.slide.prev {
+				transform: translateX(-100%);
+			}
+
+			.controls {
+				position: fixed;
+				bottom: 30px;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 1000;
+				display: flex;
+				gap: 15px;
+				background: rgba(0, 0, 0, 0.7);
+				padding: 15px 25px;
+				border-radius: 50px;
+				backdrop-filter: blur(10px);
+			}
+
+			.control-btn {
+				background: rgba(255, 255, 255, 0.2);
+				border: none;
+				color: white;
+				padding: 12px 16px;
+				border-radius: 50%;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				font-size: 16px;
+			}
+
+			.control-btn:hover {
+				background: rgba(255, 255, 255, 0.3);
+				transform: scale(1.1);
+			}
+
+			.control-btn:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+			}
+
+			.slide-counter {
+				color: white;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				font-weight: 500;
+			}
+
+			.progress-bar {
+				position: fixed;
+				top: 0;
+				left: 0;
+				height: 4px;
+				background: linear-gradient(90deg, #ffd100, #0052cc);
+				transition: width 0.8s ease;
+				z-index: 1000;
+			}
+
+			.fade-in {
+				animation: fadeInUp 0.8s ease forwards;
+			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* Estilos específicos para cada diapositiva */
+			.portada-slide {
+				background: #ffe15a;
+				position: relative;
+			}
+
+			.accent-yellow {
+				background-color: #ffd100;
+			}
+			.accent-blue {
+				background-color: #0052cc;
+			}
+			.text-brand-blue {
+				color: #0052cc;
+			}
+			.text-brand-yellow {
+				color: #ffd100;
+			}
+			.bg-brand-blue {
+				background-color: #0052cc;
+			}
+			.bg-brand-yellow {
+				background-color: #ffd100;
+			}
+
+			.top-accent {
+				height: 8px;
+				width: 100%;
+			}
+
+			.bottom-accent {
+				height: 8px;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+
+			.index-item {
+				transition: all 0.3s ease;
+				border-left: 4px solid transparent;
+				padding-left: 16px;
+			}
+
+			.index-item:hover {
+				border-left: 4px solid #ffd100;
+				background-color: rgba(0, 82, 204, 0.05);
+			}
+
+			.value-card {
+				background-color: white;
+				border-radius: 10px;
+				padding: 20px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+				transition: all 0.3s ease;
+			}
+
+			.value-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+			}
+
+			.canvas-block {
+				background-color: white;
+				border-radius: 8px;
+				padding: 16px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+				transition: all 0.3s ease;
+				height: 100%;
+			}
+
+			.canvas-block:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+			}
+
+			/* Indicadores de diapositivas */
+			.slide-indicators {
+				position: fixed;
+				bottom: 120px;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				gap: 8px;
+				z-index: 1000;
+			}
+
+			.indicator {
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.5);
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.indicator.active {
+				background: white;
+				transform: scale(1.2);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Barra de progreso -->
+		<div class="progress-bar" id="progressBar"></div>
+
+		<!-- Contenedor de diapositivas -->
+		<div class="slide-container" id="slideContainer">
+			<!-- Diapositiva 1: Portada -->
+			<div class="slide active portada-slide" id="slide-0">
+				<div class="relative w-full h-full flex items-center justify-center">
+					<div
+						class="absolute top-0 left-0 w-full h-48 bg-yellow-400 transform -rotate-12 -translate-y-24 -translate-x-48"
+					></div>
+					<div
+						class="absolute top-20 left-0 w-full h-4 bg-blue-600 transform -rotate-12 -translate-x-48"
+					></div>
+
+					<div class="text-center z-10 fade-in">
+						<div class="text-white text-2xl font-light mb-4">
+							Transformación Digital
+						</div>
+						<h1 class="text-white text-8xl font-bold mb-8">AFA Creations</h1>
+					</div>
+
+					<div
+						class="absolute bottom-16 left-16 w-16 h-16 border-l-4 border-b-4 border-blue-600"
+					></div>
+
+					<div class="absolute bottom-16 right-16 text-right text-blue-600">
+						<div class="text-4xl font-bold">2025</div>
+						<div class="text-lg font-semibold mt-2">Alex Fernández Arroyo</div>
+						<div class="text-base mt-1">www.afacreations.com</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 2: Índice -->
+			<div class="slide bg-white" id="slide-1">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-32 py-20">
+					<div class="mb-14 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Índice</span>
+							<span class="text-gray-700">
+								| Plan de Transformación Digital</span
+							>
+						</h1>
+						<div class="w-24 h-2 bg-yellow-400 mt-4"></div>
+					</div>
+
+					<div class="grid grid-cols-2 gap-x-10 gap-y-6">
+						<div class="fade-in" style="animation-delay: 0.2s">
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									01
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-blue text-white"
+								>
+									<i class="fas fa-building"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/3-presentacion-marca.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Presentación de la Marca
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Propósito, visión, misión y valores
+									</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									02
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-yellow text-gray-800"
+								>
+									<i class="fas fa-puzzle-piece"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/4.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Modelo de Negocio Canvas
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Propuesta de valor y segmentos clave
+									</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									03
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-blue text-white"
+								>
+									<i class="fas fa-bullseye"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/5.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Objetivos SMART
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Metas específicas para 2025-2026
+									</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									04
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-yellow text-gray-800"
+								>
+									<i class="fas fa-globe"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/6.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Análisis Macro: PESTEL
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Factores externos que afectan al negocio
+									</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									05
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-blue text-white"
+								>
+									<i class="fas fa-chart-line"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/7.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Análisis de Competencia
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">Benchmark y posicionamiento</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									06
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-yellow text-gray-800"
+								>
+									<i class="fas fa-user-circle"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/8.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Buyer Persona
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Perfil de cliente y mapa de empatía
+									</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									07
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-blue text-white"
+								>
+									<i class="fas fa-route"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/9.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Customer Journey
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Puntos de contacto y emociones
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="fade-in" style="animation-delay: 0.4s">
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									08
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-yellow text-gray-800"
+								>
+									<i class="fas fa-swatchbook"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/10.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Análisis SWOT & VUCA
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Fortalezas, debilidades y entorno
+									</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									09
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-blue text-white"
+								>
+									<i class="fas fa-lightbulb"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/11.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Macro-Tendencias
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Innovación y futuro del sector
+									</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									10
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-yellow text-gray-800"
+								>
+									<i class="fas fa-rocket"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/12.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Estrategia Digital
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">Plan de acción y roadmap</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									11
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-blue text-white"
+								>
+									<i class="fas fa-chart-bar"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/13.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											KPIs y Métricas
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">Indicadores de éxito</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									12
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-yellow text-gray-800"
+								>
+									<i class="fas fa-calendar-alt"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/14.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Cronograma
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">Timeline de implementación</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									13
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-blue text-white"
+								>
+									<i class="fas fa-euro-sign"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/15.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Presupuesto
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">Inversión y ROI esperado</p>
+								</div>
+							</div>
+
+							<div class="index-item flex items-center py-4">
+								<div
+									class="text-gray-500 font-bold text-xl w-8 text-right mr-4"
+								>
+									14
+								</div>
+								<div
+									class="w-10 h-10 rounded-full flex items-center justify-center mr-4 bg-brand-yellow text-gray-800"
+								>
+									<i class="fas fa-flag-checkered"></i>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-800">
+										<a
+											href="diapositivas-proyecto/15.html"
+											class="text-gray-800 hover:text-brand-blue transition-colors"
+											target="_blank"
+										>
+											Conclusiones
+										</a>
+									</h3>
+									<p class="text-gray-600 mt-1">
+										Próximos pasos y recomendaciones
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="absolute bottom-24 right-32 flex items-center">
+					<div class="px-4 py-2 bg-gray-100 rounded-lg">
+						<p class="text-gray-700 text-lg">
+							Preparado por:
+							<span class="font-semibold">Alex Fernández Arroyo</span>
+						</p>
+					</div>
+					<div class="ml-8">
+						<div
+							class="logo bg-blue-600 h-16 w-16 rounded-full flex items-center justify-center text-white font-bold text-xl"
+						>
+							AFA
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 3: Presentación de Marca -->
+			<div class="slide bg-white" id="slide-2">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Presentación</span> de la Marca
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="grid grid-cols-12 gap-8">
+						<div class="col-span-5 fade-in" style="animation-delay: 0.2s">
+							<div class="flex flex-col items-center mb-10">
+								<div
+									class="w-72 h-72 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mb-6 flex items-center justify-center"
+								>
+									<i class="fas fa-user text-white text-8xl"></i>
+								</div>
+								<h2 class="text-2xl font-semibold text-gray-800 mb-2">
+									Alex Fernández Arroyo
+								</h2>
+								<p class="text-gray-600 text-center">
+									Consultor digital, especialista en IA, diseñador y programador
+									full-stack con más de 8 años de experiencia
+								</p>
+							</div>
+
+							<div
+								class="bg-gray-50 rounded-lg p-6 border-l-4 border-brand-blue"
+							>
+								<h3 class="text-xl font-bold text-brand-blue mb-3">
+									AFA Creations
+								</h3>
+								<p class="text-gray-700 mb-4">
+									Agencia digital que ofrece un servicio 360º a pymes locales
+									que desean digitalizarse.
+								</p>
+								<div class="flex flex-wrap gap-2">
+									<span
+										class="px-3 py-1 bg-brand-blue text-white rounded-full text-sm"
+										>Diseño Gráfico</span
+									>
+									<span
+										class="px-3 py-1 bg-brand-blue text-white rounded-full text-sm"
+										>Desarrollo Web</span
+									>
+									<span
+										class="px-3 py-1 bg-brand-blue text-white rounded-full text-sm"
+										>Branding</span
+									>
+									<span
+										class="px-3 py-1 bg-brand-blue text-white rounded-full text-sm"
+										>IA</span
+									>
+									<span
+										class="px-3 py-1 bg-brand-blue text-white rounded-full text-sm"
+										>SEO</span
+									>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-span-7 fade-in" style="animation-delay: 0.4s">
+							<div class="grid grid-cols-3 gap-6 mb-8">
+								<div
+									class="bg-white shadow-md rounded-lg p-6 border-t-4 border-brand-yellow"
+								>
+									<div
+										class="w-12 h-12 rounded-full bg-brand-yellow text-gray-800 flex items-center justify-center mb-4"
+									>
+										<i class="fas fa-compass"></i>
+									</div>
+									<h3 class="text-xl font-semibold mb-3">Propósito</h3>
+									<p class="text-gray-700 text-sm">
+										Empoderar a los negocios de proximidad para competir en
+										igualdad de condiciones
+									</p>
+								</div>
+
+								<div
+									class="bg-white shadow-md rounded-lg p-6 border-t-4 border-brand-blue"
+								>
+									<div
+										class="w-12 h-12 rounded-full bg-brand-blue text-white flex items-center justify-center mb-4"
+									>
+										<i class="fas fa-eye"></i>
+									</div>
+									<h3 class="text-xl font-semibold mb-3">Visión</h3>
+									<p class="text-gray-700 text-sm">
+										Llegar a ser una agencia digital de referencia para
+										micro-pymes en Barcelona y España
+									</p>
+								</div>
+
+								<div
+									class="bg-white shadow-md rounded-lg p-6 border-t-4 border-brand-yellow"
+								>
+									<div
+										class="w-12 h-12 rounded-full bg-brand-yellow text-gray-800 flex items-center justify-center mb-4"
+									>
+										<i class="fas fa-flag"></i>
+									</div>
+									<h3 class="text-xl font-semibold mb-3">Misión</h3>
+									<p class="text-gray-700 text-sm">
+										Impulsar la competitividad mediante soluciones digitales
+										integrales y asequibles
+									</p>
+								</div>
+							</div>
+
+							<div>
+								<h3 class="text-2xl font-semibold mb-5">Valores</h3>
+								<div class="grid grid-cols-3 gap-4">
+									<div class="value-card">
+										<div class="flex items-center mb-3">
+											<div
+												class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center mr-3"
+											>
+												<i class="fas fa-heart text-sm"></i>
+											</div>
+											<h4 class="font-semibold">Cercanía</h4>
+										</div>
+										<p class="text-gray-600 text-sm">
+											Trato humano y personalizado
+										</p>
+									</div>
+
+									<div class="value-card">
+										<div class="flex items-center mb-3">
+											<div
+												class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center mr-3"
+											>
+												<i class="fas fa-star text-sm"></i>
+											</div>
+											<h4 class="font-semibold">Calidad</h4>
+										</div>
+										<p class="text-gray-600 text-sm">
+											Excelencia en cada proyecto
+										</p>
+									</div>
+
+									<div class="value-card">
+										<div class="flex items-center mb-3">
+											<div
+												class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center mr-3"
+											>
+												<i class="fas fa-rocket text-sm"></i>
+											</div>
+											<h4 class="font-semibold">Innovación</h4>
+										</div>
+										<p class="text-gray-600 text-sm">
+											Tecnología de vanguardia
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tagline at bottom -->
+					<div class="absolute bottom-20 right-28 left-28 text-center">
+						<div
+							class="inline-block bg-gray-50 px-10 py-4 rounded-lg shadow-sm"
+						>
+							<p class="text-xl italic text-gray-700">
+								"Digitaliza tu proyecto de principio a fin con diseño, IA y
+								soporte continuado a precio competitivo"
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 4: Business Model Canvas -->
+			<div class="slide bg-white" id="slide-3">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-16 py-16 relative">
+					<div class="mb-8 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Modelo de Negocio</span>: Business
+							Model Canvas
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="grid grid-cols-12 gap-4 h-4/5">
+						<div
+							class="col-span-3 row-span-2 fade-in"
+							style="animation-delay: 0.1s"
+						>
+							<div class="canvas-block border-t-4 border-brand-yellow">
+								<div
+									class="w-12 h-12 rounded-full bg-brand-yellow text-gray-800 flex items-center justify-center mb-3"
+								>
+									<i class="fas fa-handshake"></i>
+								</div>
+								<h3 class="text-xl font-semibold mb-3">Socios Clave</h3>
+								<ul class="text-sm text-gray-700 space-y-2">
+									<li class="flex items-start">
+										<i class="fas fa-check text-brand-blue mt-1 mr-2"></i>
+										<span>Proveedores cloud (Contabo/AWS)</span>
+									</li>
+									<li class="flex items-start">
+										<i class="fas fa-check text-brand-blue mt-1 mr-2"></i>
+										<span>Registradores de dominios</span>
+									</li>
+									<li class="flex items-start">
+										<i class="fas fa-check text-brand-blue mt-1 mr-2"></i>
+										<span>OpenAI API</span>
+									</li>
+									<li class="flex items-start">
+										<i class="fas fa-check text-brand-blue mt-1 mr-2"></i>
+										<span>Imprenta local</span>
+									</li>
+									<li class="flex items-start">
+										<i class="fas fa-check text-brand-blue mt-1 mr-2"></i>
+										<span>Fotógrafos colaborativos</span>
+									</li>
+									<li class="flex items-start">
+										<i class="fas fa-check text-brand-blue mt-1 mr-2"></i>
+										<span>Agentes Kit Digital</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-span-3 fade-in" style="animation-delay: 0.2s">
+							<div class="canvas-block border-t-4 border-brand-blue">
+								<div
+									class="w-12 h-12 rounded-full bg-brand-blue text-white flex items-center justify-center mb-3"
+								>
+									<i class="fas fa-tasks"></i>
+								</div>
+								<h3 class="text-xl font-semibold mb-3">Actividades Clave</h3>
+								<div class="flex flex-wrap gap-2">
+									<span
+										class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+										>Diseño UI/UX</span
+									>
+									<span
+										class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+										>Desarrollo Full-Stack</span
+									>
+									<span
+										class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+										>SEO</span
+									>
+									<span
+										class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+										>Contenidos</span
+									>
+									<span
+										class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+										>Fotografía</span
+									>
+									<span
+										class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+										>Integración IA</span
+									>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="col-span-3 row-span-2 fade-in"
+							style="animation-delay: 0.3s"
+						>
+							<div class="canvas-block border-t-4 border-brand-yellow h-full">
+								<div
+									class="w-12 h-12 rounded-full bg-brand-yellow text-gray-800 flex items-center justify-center mb-3"
+								>
+									<i class="fas fa-gift"></i>
+								</div>
+								<h3 class="text-xl font-semibold mb-3">Propuesta de Valor</h3>
+
+								<div class="space-y-4">
+									<div>
+										<div class="flex items-center mb-2">
+											<div
+												class="w-6 h-6 rounded-full bg-brand-blue flex items-center justify-center mr-2"
+											>
+												<i class="fas fa-sync-alt text-white text-xs"></i>
+											</div>
+											<h4 class="font-semibold text-sm">Servicio 360º</h4>
+										</div>
+										<p class="text-xs text-gray-600 pl-8">
+											Branding, web, SEO, foto/vídeo y chatbots IA en un único
+											proveedor.
+										</p>
+									</div>
+
+									<div>
+										<div class="flex items-center mb-2">
+											<div
+												class="w-6 h-6 rounded-full bg-brand-blue flex items-center justify-center mr-2"
+											>
+												<i class="fas fa-euro-sign text-white text-xs"></i>
+											</div>
+											<h4 class="font-semibold text-sm">
+												Calidad "agencia" a precio freelance
+											</h4>
+										</div>
+										<p class="text-xs text-gray-600 pl-8">
+											Web llave en mano ≈ 900€ + mantenimiento 150€/mes
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-span-3 fade-in" style="animation-delay: 0.4s">
+							<div class="canvas-block border-t-4 border-brand-blue">
+								<div
+									class="w-12 h-12 rounded-full bg-brand-blue text-white flex items-center justify-center mb-3"
+								>
+									<i class="fas fa-users"></i>
+								</div>
+								<h3 class="text-xl font-semibold mb-3">Segmentos de Cliente</h3>
+								<ul class="text-sm text-gray-700 space-y-1">
+									<li class="flex items-start">
+										<i
+											class="fas fa-dot-circle text-brand-blue mt-1 mr-2 text-xs"
+										></i>
+										<span>Pymes locales (5-50 empleados)</span>
+									</li>
+									<li class="flex items-start">
+										<i
+											class="fas fa-dot-circle text-brand-blue mt-1 mr-2 text-xs"
+										></i>
+										<span>Comercios tradicionales</span>
+									</li>
+									<li class="flex items-start">
+										<i
+											class="fas fa-dot-circle text-brand-blue mt-1 mr-2 text-xs"
+										></i>
+										<span>Profesionales liberales</span>
+									</li>
+									<li class="flex items-start">
+										<i
+											class="fas fa-dot-circle text-brand-blue mt-1 mr-2 text-xs"
+										></i>
+										<span>Startups tecnológicas</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tagline at bottom -->
+					<div class="absolute bottom-16 right-28 left-28 text-center">
+						<div
+							class="inline-block bg-gray-50 px-10 py-3 rounded-lg shadow-sm"
+						>
+							<p class="text-lg italic text-gray-700">
+								"Digitaliza tu proyecto de principio a fin con diseño, IA y
+								soporte continuado a precio competitivo"
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 5: Objetivos SMART -->
+			<div class="slide bg-white" id="slide-4">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-12 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Objetivos SMART</span> 2025-2026
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+						<p class="text-gray-600 mt-5 text-xl max-w-4xl">
+							Metas específicas, medibles, alcanzables, relevantes y acotadas en
+							el tiempo para guiar nuestra transformación digital y garantizar
+							resultados tangibles.
+						</p>
+					</div>
+
+					<div
+						class="grid grid-cols-3 gap-8 mb-12 fade-in"
+						style="animation-delay: 0.2s"
+					>
+						<!-- Objetivo 1 -->
+						<div
+							class="bg-white border-l-4 border-brand-blue rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+						>
+							<div
+								class="w-16 h-16 rounded-full bg-brand-blue text-white flex items-center justify-center text-2xl mb-4"
+							>
+								<i class="fas fa-euro-sign"></i>
+							</div>
+							<h3 class="text-2xl font-semibold mb-3">
+								Facturación Recurrente
+							</h3>
+							<div class="flex items-end gap-2 mb-4">
+								<span class="text-4xl font-bold text-brand-blue">30K€</span>
+								<span class="text-gray-500">anual</span>
+							</div>
+							<p class="text-gray-600 mb-4">
+								Alcanzar 30.000€ de facturación anual recurrente en planes de
+								mantenimiento e IA antes de diciembre 2025.
+							</p>
+							<div class="mt-auto">
+								<div class="flex justify-between text-sm mb-1">
+									<span>Progreso actual</span>
+									<span class="font-semibold">15%</span>
+								</div>
+								<div class="w-full bg-gray-200 rounded-full h-2">
+									<div
+										class="bg-brand-blue h-2 rounded-full"
+										style="width: 15%"
+									></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Objetivo 2 -->
+						<div
+							class="bg-white border-l-4 border-brand-yellow rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+						>
+							<div
+								class="w-16 h-16 rounded-full bg-brand-yellow text-gray-800 flex items-center justify-center text-2xl mb-4"
+							>
+								<i class="fas fa-users"></i>
+							</div>
+							<h3 class="text-2xl font-semibold mb-3">Nuevos Clientes</h3>
+							<div class="flex items-end gap-2 mb-4">
+								<span class="text-4xl font-bold text-brand-blue">10</span>
+								<span class="text-gray-500">nuevos</span>
+							</div>
+							<p class="text-gray-600 mb-4">
+								Captar 10 nuevos clientes (incremento del 50% vs 2024) antes del
+								31-12-2025.
+							</p>
+							<div class="mt-auto">
+								<div class="flex justify-between text-sm mb-1">
+									<span>Progreso actual</span>
+									<span class="font-semibold">10%</span>
+								</div>
+								<div class="w-full bg-gray-200 rounded-full h-2">
+									<div
+										class="bg-brand-yellow h-2 rounded-full"
+										style="width: 10%"
+									></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Objetivo 3 -->
+						<div
+							class="bg-white border-l-4 border-brand-blue rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+						>
+							<div
+								class="w-16 h-16 rounded-full bg-brand-blue text-white flex items-center justify-center text-2xl mb-4"
+							>
+								<i class="fab fa-instagram"></i>
+							</div>
+							<h3 class="text-2xl font-semibold mb-3">Impresiones Instagram</h3>
+							<div class="flex items-end gap-2 mb-4">
+								<span class="text-4xl font-bold text-brand-blue">1M</span>
+								<span class="text-gray-500">impresiones</span>
+							</div>
+							<p class="text-gray-600 mb-4">
+								Lograr 1 millón de impresiones en Instagram, incrementando la
+								notoriedad de marca en un 70%.
+							</p>
+							<div class="mt-auto">
+								<div class="flex justify-between text-sm mb-1">
+									<span>Progreso actual</span>
+									<span class="font-semibold">5%</span>
+								</div>
+								<div class="w-full bg-gray-200 rounded-full h-2">
+									<div
+										class="bg-brand-blue h-2 rounded-full"
+										style="width: 5%"
+									></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- SMART Explanation Footer -->
+					<div
+						class="absolute bottom-20 left-0 right-0 px-28 fade-in"
+						style="animation-delay: 0.4s"
+					>
+						<div class="flex justify-between items-center">
+							<div class="flex items-center">
+								<i
+									class="fas fa-check-circle text-4xl text-brand-blue mr-4"
+								></i>
+								<div>
+									<p class="text-xl font-semibold">Objetivos S.M.A.R.T.</p>
+									<p class="text-gray-600">
+										Específicos, Medibles, Alcanzables, Relevantes y con Tiempo
+										definido
+									</p>
+								</div>
+							</div>
+							<div>
+								<div class="text-right mb-1">
+									<span
+										class="px-3 py-1 rounded-full bg-brand-blue text-white text-sm mr-2"
+										>2025</span
+									>
+									<span
+										class="px-3 py-1 rounded-full bg-brand-yellow text-gray-800 text-sm"
+										>2026</span
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 6: Análisis Macro PESTEL -->
+			<div class="slide bg-white" id="slide-5">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-32 py-16 relative">
+					<div class="mb-12 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Análisis Macro</span>: PESTEL
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div
+						class="grid grid-cols-3 gap-10 mt-8 fade-in"
+						style="animation-delay: 0.2s"
+					>
+						<!-- Political -->
+						<div
+							class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+						>
+							<div
+								class="bg-gray-50 p-6 flex items-center justify-center flex-col text-center"
+							>
+								<div
+									class="w-20 h-20 rounded-full bg-brand-blue text-white flex items-center justify-center text-3xl mb-4"
+								>
+									<i class="fas fa-landmark"></i>
+								</div>
+								<h3 class="text-2xl font-semibold mb-2 text-gray-800">
+									Político
+								</h3>
+							</div>
+							<div class="p-6">
+								<div class="flex items-start mb-4">
+									<div
+										class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1 flex-shrink-0"
+									>
+										<i class="fas fa-check text-blue-600"></i>
+									</div>
+									<p class="text-gray-700">
+										Programas gubernamentales como
+										<span class="font-semibold">Kit Digital</span> subsidian la
+										digitalización de pymes
+									</p>
+								</div>
+								<div class="flex items-start">
+									<div
+										class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1 flex-shrink-0"
+									>
+										<i class="fas fa-check text-blue-600"></i>
+									</div>
+									<p class="text-gray-700">
+										Facilitan la contratación de servicios digitales por parte
+										de pequeños negocios
+									</p>
+								</div>
+								<div class="bg-blue-50 p-4 mt-4 rounded-lg">
+									<p class="font-medium text-blue-800 text-sm">
+										Oportunidad: Ayudar a clientes a acceder a subvenciones
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Economical -->
+						<div
+							class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+						>
+							<div
+								class="bg-gray-50 p-6 flex items-center justify-center flex-col text-center"
+							>
+								<div
+									class="w-20 h-20 rounded-full bg-brand-yellow text-gray-800 flex items-center justify-center text-3xl mb-4"
+								>
+									<i class="fas fa-chart-line"></i>
+								</div>
+								<h3 class="text-2xl font-semibold mb-2 text-gray-800">
+									Económico
+								</h3>
+							</div>
+							<div class="p-6">
+								<div class="flex items-start mb-4">
+									<div
+										class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3 mt-1 flex-shrink-0"
+									>
+										<i class="fas fa-check text-yellow-600"></i>
+									</div>
+									<p class="text-gray-700">
+										Crecimiento
+										<span class="font-semibold">+6% interanual</span> en gasto
+										de microempresas en marketing digital
+									</p>
+								</div>
+								<div class="flex items-start">
+									<div
+										class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3 mt-1 flex-shrink-0"
+									>
+										<i class="fas fa-check text-yellow-600"></i>
+									</div>
+									<p class="text-gray-700">
+										Presión sobre precios debido a inflación, pero oportunidad
+										en servicios paquetizados
+									</p>
+								</div>
+								<div class="bg-yellow-50 p-4 mt-4 rounded-lg">
+									<p class="font-medium text-yellow-800 text-sm">
+										Estrategia: Ofertar packs de servicios con valor añadido
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Social -->
+						<div
+							class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+						>
+							<div
+								class="bg-gray-50 p-6 flex items-center justify-center flex-col text-center"
+							>
+								<div
+									class="w-20 h-20 rounded-full bg-brand-blue text-white flex items-center justify-center text-3xl mb-4"
+								>
+									<i class="fas fa-users"></i>
+								</div>
+								<h3 class="text-2xl font-semibold mb-2 text-gray-800">
+									Social
+								</h3>
+							</div>
+							<div class="p-6">
+								<div class="flex items-start mb-4">
+									<div
+										class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1 flex-shrink-0"
+									>
+										<i class="fas fa-check text-blue-600"></i>
+									</div>
+									<p class="text-gray-700">
+										Consumidores
+										<span class="font-semibold">hiperinformados</span> que
+										exigen experiencias online rápidas y confiables
+									</p>
+								</div>
+								<div class="flex items-start">
+									<div
+										class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1 flex-shrink-0"
+									>
+										<i class="fas fa-check text-blue-600"></i>
+									</div>
+									<p class="text-gray-700">
+										Las pymes sienten urgencia por modernizarse para competir
+										con grandes cadenas
+									</p>
+								</div>
+								<div class="bg-blue-50 p-4 mt-4 rounded-lg">
+									<p class="font-medium text-blue-800 text-sm">
+										Táctica: Pequeñas demostraciones gratuitas en video
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 7: Análisis de Competencia -->
+			<div class="slide bg-white" id="slide-6">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Análisis de</span> Competencia
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="text-center fade-in" style="animation-delay: 0.2s">
+						<h2 class="text-3xl font-semibold text-gray-800 mb-8">
+							Benchmark y posicionamiento
+						</h2>
+						<p class="text-xl text-gray-600">
+							Contenido pendiente de desarrollo
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 8: Buyer Persona -->
+			<div class="slide bg-white" id="slide-7">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Buyer</span> Persona
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="text-center fade-in" style="animation-delay: 0.2s">
+						<h2 class="text-3xl font-semibold text-gray-800 mb-8">
+							Perfil de cliente y mapa de empatía
+						</h2>
+						<p class="text-xl text-gray-600">
+							Contenido pendiente de desarrollo
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 9: Customer Journey -->
+			<div class="slide bg-white" id="slide-8">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Customer</span> Journey
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="text-center fade-in" style="animation-delay: 0.2s">
+						<h2 class="text-3xl font-semibold text-gray-800 mb-8">
+							Puntos de contacto y emociones
+						</h2>
+						<p class="text-xl text-gray-600">
+							Contenido pendiente de desarrollo
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 10: Análisis SWOT & VUCA -->
+			<div class="slide bg-white" id="slide-9">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Análisis SWOT</span> & VUCA
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="text-center fade-in" style="animation-delay: 0.2s">
+						<h2 class="text-3xl font-semibold text-gray-800 mb-8">
+							Fortalezas, debilidades y entorno
+						</h2>
+						<p class="text-xl text-gray-600">
+							Contenido pendiente de desarrollo
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 11: Macro-Tendencias -->
+			<div class="slide bg-white" id="slide-10">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Macro</span>-Tendencias
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="text-center fade-in" style="animation-delay: 0.2s">
+						<h2 class="text-3xl font-semibold text-gray-800 mb-8">
+							Conexiones con tendencias actuales
+						</h2>
+						<p class="text-xl text-gray-600">
+							Contenido pendiente de desarrollo
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 12: Roadmap -->
+			<div class="slide bg-white" id="slide-11">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Roadmap</span> (18 meses)
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="text-center fade-in" style="animation-delay: 0.2s">
+						<h2 class="text-3xl font-semibold text-gray-800 mb-8">
+							Plan de implementación por fases
+						</h2>
+						<p class="text-xl text-gray-600">
+							Contenido pendiente de desarrollo
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 13: KPIs y Gestión de Riesgos -->
+			<div class="slide bg-white" id="slide-12">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">KPIs y Gestión</span> de Riesgos
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="text-center fade-in" style="animation-delay: 0.2s">
+						<h2 class="text-3xl font-semibold text-gray-800 mb-8">
+							Métricas de seguimiento y plan B
+						</h2>
+						<p class="text-xl text-gray-600">
+							Contenido pendiente de desarrollo
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 14: Recursos y Costes -->
+			<div class="slide bg-white" id="slide-13">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-28 py-16 relative">
+					<div class="mb-10 fade-in">
+						<h1 class="text-5xl font-bold">
+							<span class="text-brand-blue">Recursos y</span> Costes
+						</h1>
+						<div class="w-20 h-1 bg-brand-yellow mt-4"></div>
+					</div>
+
+					<div class="text-center fade-in" style="animation-delay: 0.2s">
+						<h2 class="text-3xl font-semibold text-gray-800 mb-8">
+							Inversiones y partners estratégicos
+						</h2>
+						<p class="text-xl text-gray-600">
+							Contenido pendiente de desarrollo
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Diapositiva 15: Cierre & Call to Action -->
+			<div class="slide bg-white" id="slide-14">
+				<div class="top-accent accent-yellow"></div>
+				<div class="bottom-accent accent-blue"></div>
+
+				<div class="px-32 py-20 relative">
+					<div class="grid grid-cols-12 gap-8">
+						<!-- Left Column - Closure message & Call to action -->
+						<div class="col-span-6 fade-in">
+							<h1 class="text-5xl font-bold mb-8">
+								<span class="text-brand-blue">Cierre</span> & Call to Action
+							</h1>
+							<div class="w-24 h-2 bg-brand-yellow mb-10"></div>
+
+							<div class="mb-10">
+								<h2 class="text-3xl font-semibold mb-5 text-gray-800">
+									Es hora de digitalizar tu negocio
+								</h2>
+								<p class="text-xl text-gray-700 mb-5">
+									AFA Creations está lista para liderar la digitalización de las
+									micro-pymes locales, aportando talento multidisciplinar y
+									tecnologías de vanguardia.
+								</p>
+
+								<p class="text-lg text-gray-600 mb-8">
+									¡Confiemos juntos en este plan para lograr un crecimiento
+									sostenible y diferenciador!
+								</p>
+							</div>
+
+							<div
+								class="bg-gray-50 rounded-lg p-6 mb-10 border-l-4 border-brand-blue"
+							>
+								<h3 class="text-2xl font-semibold mb-3 text-brand-blue">
+									¿Por qué esperar?
+								</h3>
+								<p class="text-xl mb-5">
+									¿Invertimos <span class="font-bold">1.200€</span> en una web +
+									IA que ahorre <span class="font-bold">48h/año</span> y
+									posicione su negocio por delante de la competencia?
+								</p>
+
+								<a
+									href="#"
+									class="bg-brand-blue hover:bg-blue-700 text-white text-xl font-semibold py-4 px-10 rounded-lg inline-block transition-colors"
+								>
+									<i class="fas fa-rocket mr-3"></i> Inicia tu transformación
+									digital
+								</a>
+							</div>
+
+							<div>
+								<h3 class="text-xl font-semibold mb-4 flex items-center">
+									<span
+										class="inline-block w-6 h-6 mr-3 rounded-full bg-brand-blue"
+									></span>
+									Reserva tu plaza piloto 2025
+								</h3>
+
+								<div class="space-y-4">
+									<div
+										class="flex items-center p-4 bg-white rounded-lg shadow-sm border-l-4 border-brand-blue hover:shadow-md transition-shadow"
+									>
+										<div
+											class="w-12 h-12 rounded-full bg-brand-blue text-white flex items-center justify-center mr-4"
+										>
+											<i class="fas fa-envelope"></i>
+										</div>
+										<div>
+											<p class="font-semibold">Email</p>
+											<p class="text-gray-600">contacto@afacreations.com</p>
+										</div>
+									</div>
+
+									<div
+										class="flex items-center p-4 bg-white rounded-lg shadow-sm border-l-4 border-brand-yellow hover:shadow-md transition-shadow"
+									>
+										<div
+											class="w-12 h-12 rounded-full bg-brand-yellow text-gray-800 flex items-center justify-center mr-4"
+										>
+											<i class="fas fa-phone"></i>
+										</div>
+										<div>
+											<p class="font-semibold">Teléfono</p>
+											<p class="text-gray-600">+34 612 345 678</p>
+										</div>
+									</div>
+
+									<div
+										class="flex items-center p-4 bg-white rounded-lg shadow-sm border-l-4 border-brand-blue hover:shadow-md transition-shadow"
+									>
+										<div
+											class="w-12 h-12 rounded-full bg-brand-blue text-white flex items-center justify-center mr-4"
+										>
+											<i class="fas fa-globe"></i>
+										</div>
+										<div>
+											<p class="font-semibold">Web</p>
+											<p class="text-gray-600">www.afacreations.com</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Right Column - Results and Social Media -->
+						<div class="col-span-6 fade-in" style="animation-delay: 0.2s">
+							<div class="bg-gray-50 rounded-lg p-6 mb-8">
+								<h3 class="text-xl font-semibold mb-4 flex items-center">
+									<i class="fas fa-chart-line text-brand-yellow mr-3"></i>
+									Resultados esperados
+								</h3>
+
+								<div class="grid grid-cols-2 gap-4">
+									<div class="bg-white p-4 rounded-lg shadow-sm">
+										<div class="flex items-center">
+											<div
+												class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3"
+											>
+												<i class="fas fa-users text-blue-600"></i>
+											</div>
+											<div>
+												<p class="text-sm text-gray-600">Nuevos clientes</p>
+												<p class="text-xl font-bold text-gray-800">+50%</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="bg-white p-4 rounded-lg shadow-sm">
+										<div class="flex items-center">
+											<div
+												class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mr-3"
+											>
+												<i class="fas fa-clock text-yellow-600"></i>
+											</div>
+											<div>
+												<p class="text-sm text-gray-600">Tiempo ahorrado</p>
+												<p class="text-xl font-bold text-gray-800">48h/año</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="bg-white p-4 rounded-lg shadow-sm">
+										<div class="flex items-center">
+											<div
+												class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3"
+											>
+												<i class="fas fa-star text-blue-600"></i>
+											</div>
+											<div>
+												<p class="text-sm text-gray-600">Satisfacción</p>
+												<p class="text-xl font-bold text-gray-800">NPS ≥ 70</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="bg-white p-4 rounded-lg shadow-sm">
+										<div class="flex items-center">
+											<div
+												class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mr-3"
+											>
+												<i class="fas fa-eye text-yellow-600"></i>
+											</div>
+											<div>
+												<p class="text-sm text-gray-600">Visibilidad</p>
+												<p class="text-xl font-bold text-gray-800">+70%</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex justify-center mt-6">
+									<div class="flex space-x-4">
+										<a
+											href="#"
+											class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center hover:bg-blue-700 transition"
+										>
+											<i class="fab fa-linkedin-in"></i>
+										</a>
+										<a
+											href="#"
+											class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center hover:bg-blue-700 transition"
+										>
+											<i class="fab fa-instagram"></i>
+										</a>
+										<a
+											href="#"
+											class="w-10 h-10 rounded-full bg-brand-yellow text-gray-800 flex items-center justify-center hover:bg-yellow-600 transition"
+										>
+											<i class="fab fa-tiktok"></i>
+										</a>
+										<a
+											href="#"
+											class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center hover:bg-blue-700 transition"
+										>
+											<i class="fab fa-youtube"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="text-center">
+								<div
+									class="bg-white px-8 py-4 rounded-lg shadow-md inline-flex items-center"
+								>
+									<div
+										class="w-14 h-14 bg-gradient-to-r from-brand-blue to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4"
+									>
+										AFA
+									</div>
+									<div>
+										<h4 class="font-bold text-xl text-brand-blue">
+											AFA Creations
+										</h4>
+										<p class="text-gray-600">
+											Digitaliza tu proyecto de principio a fin
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Controles de navegación -->
+		<div class="controls">
+			<button class="control-btn" id="prevBtn">
+				<i class="fas fa-chevron-left"></i>
+			</button>
+
+			<div class="slide-counter">
+				<span id="currentSlide">1</span>
+				<span>/</span>
+				<span id="totalSlides">15</span>
+			</div>
+
+			<button class="control-btn" id="nextBtn">
+				<i class="fas fa-chevron-right"></i>
+			</button>
+		</div>
+
+		<!-- Indicadores de diapositivas -->
+		<div class="slide-indicators" id="indicators">
+			<div class="indicator active" data-slide="0"></div>
+			<div class="indicator" data-slide="1"></div>
+			<div class="indicator" data-slide="2"></div>
+			<div class="indicator" data-slide="3"></div>
+			<div class="indicator" data-slide="4"></div>
+			<div class="indicator" data-slide="5"></div>
+			<div class="indicator" data-slide="6"></div>
+			<div class="indicator" data-slide="7"></div>
+			<div class="indicator" data-slide="8"></div>
+			<div class="indicator" data-slide="9"></div>
+			<div class="indicator" data-slide="10"></div>
+			<div class="indicator" data-slide="11"></div>
+			<div class="indicator" data-slide="12"></div>
+			<div class="indicator" data-slide="13"></div>
+			<div class="indicator" data-slide="14"></div>
+		</div>
+
+		<script>
+			// Variables globales
+			let currentSlide = 0;
+			const totalSlides = 15;
+			let isAnimating = false;
+
+			// Elementos del DOM
+			const slides = document.querySelectorAll(".slide");
+			const prevBtn = document.getElementById("prevBtn");
+			const nextBtn = document.getElementById("nextBtn");
+			const currentSlideSpan = document.getElementById("currentSlide");
+			const progressBar = document.getElementById("progressBar");
+			const indicators = document.querySelectorAll(".indicator");
+
+			// Función para actualizar la interfaz
+			function updateUI() {
+				// Actualizar contador
+				currentSlideSpan.textContent = currentSlide + 1;
+
+				// Actualizar barra de progreso
+				const progressWidth = ((currentSlide + 1) / totalSlides) * 100;
+				progressBar.style.width = progressWidth + "%";
+
+				// Actualizar botones
+				prevBtn.disabled = currentSlide === 0;
+				nextBtn.disabled = currentSlide === totalSlides - 1;
+
+				// Actualizar indicadores
+				indicators.forEach((indicator, index) => {
+					indicator.classList.toggle("active", index === currentSlide);
+				});
+			}
+
+			// Función para cambiar de diapositiva
+			function goToSlide(slideIndex) {
+				if (
+					isAnimating ||
+					slideIndex === currentSlide ||
+					slideIndex < 0 ||
+					slideIndex >= totalSlides
+				) {
+					return;
+				}
+
+				isAnimating = true;
+
+				// Remover clase active de la diapositiva actual
+				slides[currentSlide].classList.remove("active");
+				if (slideIndex < currentSlide) {
+					slides[currentSlide].classList.add("prev");
+				}
+
+				// Actualizar índice
+				currentSlide = slideIndex;
+
+				// Activar nueva diapositiva
+				setTimeout(() => {
+					slides.forEach((slide, index) => {
+						slide.classList.remove("active", "prev");
+						if (index === currentSlide) {
+							slide.classList.add("active");
+						} else if (index < currentSlide) {
+							slide.classList.add("prev");
+						}
+					});
+
+					updateUI();
+
+					setTimeout(() => {
+						isAnimating = false;
+					}, 100);
+				}, 50);
+			}
+
+			// Event listeners para botones
+			prevBtn.addEventListener("click", () => {
+				if (currentSlide > 0) {
+					goToSlide(currentSlide - 1);
+				}
+			});
+
+			nextBtn.addEventListener("click", () => {
+				if (currentSlide < totalSlides - 1) {
+					goToSlide(currentSlide + 1);
+				}
+			});
+
+			// Event listeners para indicadores
+			indicators.forEach((indicator, index) => {
+				indicator.addEventListener("click", () => {
+					goToSlide(index);
+				});
+			});
+
+			// Event listeners para teclado
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "ArrowRight" || e.key === " ") {
+					e.preventDefault();
+					if (currentSlide < totalSlides - 1) {
+						goToSlide(currentSlide + 1);
+					}
+				} else if (e.key === "ArrowLeft") {
+					e.preventDefault();
+					if (currentSlide > 0) {
+						goToSlide(currentSlide - 1);
+					}
+				}
+			});
+
+			// Inicializar
+			updateUI();
+		</script>
+	</body>
+</html>

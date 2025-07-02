@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>KPIs y Plan de Riesgos</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<style>
+			body {
+				font-family: "Poppins", sans-serif;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			.slide-container {
+				width: 1920px;
+				min-height: 1080px;
+				position: relative;
+				background-color: #ffffff;
+				overflow: hidden;
+			}
+			.accent-yellow {
+				background-color: #ffd100;
+			}
+			.accent-blue {
+				background-color: #0052cc;
+			}
+			.text-brand-blue {
+				color: #0052cc;
+			}
+			.text-brand-yellow {
+				color: #ffd100;
+			}
+			.border-brand-blue {
+				border-color: #0052cc;
+			}
+			.border-brand-yellow {
+				border-color: #ffd100;
+			}
+			.bg-brand-blue {
+				background-color: #0052cc;
+			}
+			.bg-brand-yellow {
+				background-color: #ffd100;
+			}
+			.top-accent {
+				height: 8px;
+				width: 100%;
+			}
+			.bottom-accent {
+				height: 8px;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.section-title::after {
+				content: "";
+				display: block;
+				width: 80px;
+				height: 4px;
+				background-color: #ffd100;
+				margin-top: 10px;
+			}
+			.corner-accent {
+				position: absolute;
+				width: 150px;
+				height: 150px;
+				background-color: rgba(0, 82, 204, 0.05);
+				z-index: 0;
+			}
+			.corner-accent.top-right {
+				top: 0;
+				right: 0;
+				border-bottom-left-radius: 100%;
+				border-top: 5px solid #ffd100;
+				border-right: 5px solid #ffd100;
+			}
+			.corner-accent.bottom-left {
+				bottom: 0;
+				left: 0;
+				border-top-right-radius: 100%;
+				border-bottom: 5px solid #ffd100;
+				border-left: 5px solid #ffd100;
+			}
+			.kpi-card {
+				border-radius: 10px;
+				transition: all 0.3s ease;
+				overflow: hidden;
+			}
+			.kpi-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+			}
+			.risk-plan-card {
+				border-left: 4px solid #0052cc;
+				transition: all 0.3s ease;
+			}
+			.risk-plan-card:nth-child(even) {
+				border-left: 4px solid #ffd100;
+			}
+			.risk-plan-card:hover {
+				background-color: rgba(0, 82, 204, 0.05);
+			}
+			.gauge-container {
+				position: relative;
+				width: 100px;
+				height: 50px;
+				overflow: hidden;
+			}
+			.gauge-bg {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background-color: #f3f4f6;
+				bottom: 0;
+			}
+			.gauge-fill {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				bottom: 0;
+				clip-path: polygon(0% 100%, 100% 100%, 100% 50%, 0% 50%);
+			}
+			.gauge-cover {
+				position: absolute;
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				bottom: 0;
+				left: 15px;
+				background-color: white;
+			}
+			.risk-icon {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-size: 20px;
+				margin-right: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide-container">
+			<!-- Accents -->
+			<div class="top-accent accent-yellow"></div>
+			<div class="bottom-accent accent-blue"></div>
+			<div class="corner-accent top-right"></div>
+			<div class="corner-accent bottom-left"></div>
+
+			<!-- Main content -->
+			<div class="pt-4 px-4 pb-0 relative z-10">
+				<!-- Title -->
+				<div class="mb-10">
+					<h1 class="text-5xl font-bold section-title">
+						<span class="text-brand-blue">KPIs</span> y Plan de Riesgos
+					</h1>
+				</div>
+
+				<div class="grid grid-cols-12 gap-8">
+					<!-- Left side - KPI table -->
+					<div class="col-span-7">
+						<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+							<h2 class="text-2xl font-semibold mb-4 text-brand-blue">
+								Indicadores Clave de Desempeño
+							</h2>
+
+							<div class="overflow-hidden">
+								<table class="w-full">
+									<thead>
+										<tr class="bg-gray-50 text-left">
+											<th class="px-4 py-3 text-gray-700 font-semibold">
+												Objetivo
+											</th>
+											<th class="px-4 py-3 text-gray-700 font-semibold">KPI</th>
+											<th class="px-4 py-3 text-gray-700 font-semibold">
+												Meta 2025
+											</th>
+											<th class="px-4 py-3 text-gray-700 font-semibold">
+												Riesgo
+											</th>
+											<th class="px-4 py-3 text-gray-700 font-semibold">
+												Plan B
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="border-b border-gray-100">
+											<td class="px-4 py-4">
+												<div class="flex items-center">
+													<div
+														class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2"
+													>
+														<i class="fas fa-user-plus text-brand-blue"></i>
+													</div>
+													<span>12 clientes nuevos</span>
+												</div>
+											</td>
+											<td class="px-4 py-4 font-medium"># contratos</td>
+											<td class="px-4 py-4 text-center font-bold">
+												<span class="text-lg">12</span>
+											</td>
+											<td class="px-4 py-4 text-center">
+												<span
+													class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm"
+												>
+													Captar solo 8
+												</span>
+											</td>
+											<td class="px-4 py-4">Campañas Ads segmentadas</td>
+										</tr>
+										<tr class="border-b border-gray-100 bg-gray-50">
+											<td class="px-4 py-4">
+												<div class="flex items-center">
+													<div
+														class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-2"
+													>
+														<i class="fas fa-euro-sign text-green-600"></i>
+													</div>
+													<span>30K€ facturación</span>
+												</div>
+											</td>
+											<td class="px-4 py-4 font-medium">
+												Ingresos recurrentes
+											</td>
+											<td class="px-4 py-4 text-center font-bold">
+												<span class="text-lg">30K€</span>
+											</td>
+											<td class="px-4 py-4 text-center">
+												<span
+													class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm"
+												>
+													Ticket medio bajo
+												</span>
+											</td>
+											<td class="px-4 py-4">Upsell IA premium</td>
+										</tr>
+										<tr class="border-b border-gray-100">
+											<td class="px-4 py-4">
+												<div class="flex items-center">
+													<div
+														class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-2"
+													>
+														<i class="fab fa-instagram text-purple-600"></i>
+													</div>
+													<span>1M impresiones IG</span>
+												</div>
+											</td>
+											<td class="px-4 py-4 font-medium">Alcance IG</td>
+											<td class="px-4 py-4 text-center font-bold">
+												<span class="text-lg">1M</span>
+											</td>
+											<td class="px-4 py-4 text-center">
+												<span
+													class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm"
+												>
+													Cambio algoritmo
+												</span>
+											</td>
+											<td class="px-4 py-4">Invertir 100€/mes en Ads</td>
+										</tr>
+										<tr class="border-b border-gray-100 bg-gray-50">
+											<td class="px-4 py-4">
+												<div class="flex items-center">
+													<div
+														class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2"
+													>
+														<i class="fas fa-clock text-brand-blue"></i>
+													</div>
+													<span>ROI tiempo 30%</span>
+												</div>
+											</td>
+											<td class="px-4 py-4 font-medium">
+												Horas ahorradas/cliente
+											</td>
+											<td class="px-4 py-4 text-center font-bold">
+												<span class="text-lg">≥ 2,4h/mes</span>
+											</td>
+											<td class="px-4 py-4 text-center">
+												<span
+													class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm"
+												>
+													No adopción
+												</span>
+											</td>
+											<td class="px-4 py-4">Tutoriales y training</td>
+										</tr>
+										<tr class="border-b border-gray-100">
+											<td class="px-4 py-4">
+												<div class="flex items-center">
+													<div
+														class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-2"
+													>
+														<i class="fas fa-star text-yellow-500"></i>
+													</div>
+													<span>NPS ≥ 70</span>
+												</div>
+											</td>
+											<td class="px-4 py-4 font-medium">Encuesta NPS</td>
+											<td class="px-4 py-4 text-center font-bold">
+												<span class="text-lg">70</span>
+											</td>
+											<td class="px-4 py-4 text-center">
+												<span
+													class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm"
+												>
+													NPS < 60
+												</span>
+											</td>
+											<td class="px-4 py-4">Refuerzo soporte postventa</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!-- KPI gauge chart -->
+						<div class="bg-white rounded-lg shadow-sm p-6">
+							<h2 class="text-lg font-semibold mb-4">
+								Progreso actual hacia metas
+							</h2>
+							<div class="h-60">
+								<canvas id="kpiRadarChart"></canvas>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right side - Risk mitigation plan -->
+					<div class="col-span-5">
+						<div class="bg-white rounded-lg shadow-sm p-6 h-full">
+							<h2 class="text-2xl font-semibold mb-6 text-brand-blue">
+								Plan de Mitigación de Riesgos
+							</h2>
+
+							<div class="space-y-5">
+								<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
+									<div class="flex items-start">
+										<div class="risk-icon bg-brand-blue">
+											<i class="fas fa-user-clock"></i>
+										</div>
+										<div>
+											<h3 class="text-lg font-semibold mb-1">
+												Sobrecarga operativa
+											</h3>
+											<p class="text-gray-700 mb-2">
+												Riesgo de saturación por gestión de múltiples proyectos.
+											</p>
+											<div class="bg-blue-50 py-2 px-3 rounded-lg">
+												<p class="flex items-center">
+													<i class="fas fa-shield-alt text-brand-blue mr-2"></i>
+													<span class="text-gray-800"
+														>Externalizar tareas repetitivas con freelancers de
+														confianza</span
+													>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
+									<div class="flex items-start">
+										<div class="risk-icon bg-brand-yellow">
+											<i class="fas fa-hand-holding-usd"></i>
+										</div>
+										<div>
+											<h3 class="text-lg font-semibold mb-1">Impagos</h3>
+											<p class="text-gray-700 mb-2">
+												Riesgo de clientes que demoran o evitan pagos.
+											</p>
+											<div class="bg-yellow-50 py-2 px-3 rounded-lg">
+												<p class="flex items-center">
+													<i
+														class="fas fa-file-contract text-yellow-600 mr-2"
+													></i>
+													<span class="text-gray-800"
+														>Contratos claros y pagos por hitos con adelanto
+														inicial</span
+													>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
+									<div class="flex items-start">
+										<div class="risk-icon bg-brand-blue">
+											<i class="fas fa-server"></i>
+										</div>
+										<div>
+											<h3 class="text-lg font-semibold mb-1">
+												Caídas de rendimiento web
+											</h3>
+											<p class="text-gray-700 mb-2">
+												Riesgo de problemas técnicos en sitios de clientes.
+											</p>
+											<div class="bg-blue-50 py-2 px-3 rounded-lg">
+												<p class="flex items-center">
+													<i class="fas fa-chart-line text-brand-blue mr-2"></i>
+													<span class="text-gray-800"
+														>Monitoreo continuo con alertas automáticas
+														24/7</span
+													>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
+									<div class="flex items-start">
+										<div class="risk-icon bg-brand-yellow">
+											<i class="fas fa-funnel-dollar"></i>
+										</div>
+										<div>
+											<h3 class="text-lg font-semibold mb-1">Falta de leads</h3>
+											<p class="text-gray-700 mb-2">
+												Riesgo de insuficiente generación de prospectos.
+											</p>
+											<div class="bg-yellow-50 py-2 px-3 rounded-lg">
+												<p class="flex items-center">
+													<i class="fas fa-bullhorn text-yellow-600 mr-2"></i>
+													<span class="text-gray-800"
+														>Invertir en Ads de emergencia y activar red de
+														referidos</span
+													>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="mt-6 pt-6 border-t border-gray-200">
+								<div class="flex justify-between items-center">
+									<div class="flex items-center">
+										<div
+											class="w-10 h-10 rounded-full flex items-center justify-center bg-brand-blue text-white mr-3"
+										>
+											<i class="fas fa-shield-alt"></i>
+										</div>
+										<div>
+											<h3 class="font-semibold">Monitoreo de riesgos</h3>
+											<p class="text-sm text-gray-600">
+												Evaluación mensual con KPI dashboard
+											</p>
+										</div>
+									</div>
+
+									<div class="flex items-center">
+										<span
+											class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mr-2"
+										>
+											Riesgo bajo
+										</span>
+										<span
+											class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium mr-2"
+										>
+											Riesgo medio
+										</span>
+										<span
+											class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium"
+										>
+											Riesgo alto
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			// Create radar chart for KPI progress
+			const ctx = document.getElementById("kpiRadarChart").getContext("2d");
+			const kpiRadarChart = new Chart(ctx, {
+				type: "radar",
+				data: {
+					labels: [
+						"Nuevos clientes",
+						"Facturación",
+						"Impresiones IG",
+						"ROI tiempo",
+						"NPS",
+					],
+					datasets: [
+						{
+							label: "Progreso actual",
+							data: [20, 15, 10, 30, 65],
+							backgroundColor: "rgba(0, 82, 204, 0.2)",
+							borderColor: "#0052CC",
+							pointBackgroundColor: "#0052CC",
+							pointBorderColor: "#fff",
+							pointHoverBackgroundColor: "#fff",
+							pointHoverBorderColor: "#0052CC",
+						},
+						{
+							label: "Meta 2025",
+							data: [100, 100, 100, 100, 100],
+							backgroundColor: "rgba(255, 209, 0, 0.2)",
+							borderColor: "#FFD100",
+							pointBackgroundColor: "#FFD100",
+							pointBorderColor: "#fff",
+							pointHoverBackgroundColor: "#fff",
+							pointHoverBorderColor: "#FFD100",
+							borderDash: [5, 5],
+						},
+					],
+				},
+				options: {
+					maintainAspectRatio: false,
+					elements: {
+						line: {
+							borderWidth: 3,
+						},
+					},
+					scales: {
+						r: {
+							angleLines: {
+								display: true,
+							},
+							suggestedMin: 0,
+							suggestedMax: 100,
+							ticks: {
+								display: false,
+							},
+						},
+					},
+					plugins: {
+						legend: {
+							position: "bottom",
+							labels: {
+								font: {
+									family: "Poppins",
+								},
+							},
+						},
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
