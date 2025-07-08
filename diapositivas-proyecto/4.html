@@ -29,6 +29,7 @@
 				position: relative;
 				background-color: #ffffff;
 				overflow: hidden;
+				box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 			}
 			.accent-yellow {
 				background-color: #ffd100;
@@ -124,6 +125,15 @@
 				font-size: 12px;
 				font-weight: 500;
 			}
+			.section-title {
+				padding-bottom: 2.5rem;
+			}
+			.grid-cols-12 {
+				grid-template-columns: repeat(12, minmax(0, 1fr));
+			}
+			.gap-2 {
+				gap: 2.5rem !important;
+			}
 		</style>
 	</head>
 	<body>
@@ -147,7 +157,7 @@
 				<div class="grid grid-cols-12 gap-2 h-4/5">
 					<!-- Primera fila -->
 					<div class="col-span-3 row-span-2">
-						<div class="canvas-block border-t-4 border-brand-yellow p-2">
+						<div class="canvas-block border-t-4 border-brand-yellow p-4">
 							<div class="flex items-center mb-2">
 								<div class="canvas-icon bg-brand-yellow text-gray-800 w-8 h-8 text-sm mr-2">
 									<i class="fas fa-handshake"></i>

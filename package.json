@@ -1,0 +1,16 @@
+{
+  "name": "transformacion-digital-pdf",
+  "version": "1.0.0",
+  "description": "Generador de PDF para presentación de transformación digital",
+  "main": "generate-pdf.js",
+  "scripts": {
+    "generate-pdf": "node generate-pdf.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "pdf-lib": "^1.17.1"
+  },
+  "keywords": ["pdf", "presentation", "html", "puppeteer"],
+  "author": "Alex Fernández Arroyo",
+  "license": "MIT"
+} 

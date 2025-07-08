@@ -154,6 +154,7 @@
 				color: white;
 				font-size: 20px;
 				margin-right: 16px;
+				flex-shrink: 0;
 			}
 		</style>
 	</head>
@@ -175,9 +176,9 @@
 				</div>
 
 				<div class="grid grid-cols-12 gap-8">
-					<!-- Left side - KPI table -->
-					<div class="col-span-7">
-						<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+					<!-- KPI table - Full width -->
+					<div class="col-span-8">
+						<div class="bg-white rounded-lg shadow-sm p-6 pt-0">
 							<h2 class="text-2xl font-semibold mb-4 text-brand-blue">
 								Indicadores Clave de Desempeño
 							</h2>
@@ -186,301 +187,267 @@
 								<table class="w-full">
 									<thead>
 										<tr class="bg-gray-50 text-left">
-											<th class="px-4 py-3 text-gray-700 font-semibold">
+											<th class="px-4 py-2 text-gray-700 font-semibold text-sm">
 												Objetivo
 											</th>
-											<th class="px-4 py-3 text-gray-700 font-semibold">KPI</th>
-											<th class="px-4 py-3 text-gray-700 font-semibold">
+											<th class="px-4 py-2 text-gray-700 font-semibold text-sm">KPI</th>
+											<th class="px-4 py-2 text-gray-700 font-semibold text-sm">
 												Meta 2025
 											</th>
-											<th class="px-4 py-3 text-gray-700 font-semibold">
+											<th class="px-4 py-2 text-gray-700 font-semibold text-sm">
 												Riesgo
 											</th>
-											<th class="px-4 py-3 text-gray-700 font-semibold">
+											<th class="px-4 py-2 text-gray-700 font-semibold text-sm">
 												Plan B
 											</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr class="border-b border-gray-100">
-											<td class="px-4 py-4">
+											<td class="px-4 py-3 text-sm">
 												<div class="flex items-center">
 													<div
-														class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2"
+														class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center mr-2"
 													>
-														<i class="fas fa-user-plus text-brand-blue"></i>
+														<i class="fas fa-user-plus text-brand-blue text-xs"></i>
 													</div>
 													<span>12 clientes nuevos</span>
 												</div>
 											</td>
-											<td class="px-4 py-4 font-medium"># contratos</td>
-											<td class="px-4 py-4 text-center font-bold">
-												<span class="text-lg">12</span>
+											<td class="px-4 py-3 font-medium text-sm"># contratos</td>
+											<td class="px-4 py-3 text-center font-bold text-sm">
+												<span class="text-base">12</span>
 											</td>
-											<td class="px-4 py-4 text-center">
+											<td class="px-4 py-3 text-center">
 												<span
-													class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm"
+													class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs"
 												>
 													Captar solo 8
 												</span>
 											</td>
-											<td class="px-4 py-4">Campañas Ads segmentadas</td>
+											<td class="px-4 py-3 text-sm">Campañas Ads segmentadas</td>
 										</tr>
 										<tr class="border-b border-gray-100 bg-gray-50">
-											<td class="px-4 py-4">
+											<td class="px-4 py-3 text-sm">
 												<div class="flex items-center">
 													<div
-														class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-2"
+														class="w-7 h-7 rounded-full bg-green-100 flex items-center justify-center mr-2"
 													>
-														<i class="fas fa-euro-sign text-green-600"></i>
+														<i class="fas fa-euro-sign text-green-600 text-xs"></i>
 													</div>
 													<span>30K€ facturación</span>
 												</div>
 											</td>
-											<td class="px-4 py-4 font-medium">
+											<td class="px-4 py-3 font-medium text-sm">
 												Ingresos recurrentes
 											</td>
-											<td class="px-4 py-4 text-center font-bold">
-												<span class="text-lg">30K€</span>
+											<td class="px-4 py-3 text-center font-bold text-sm">
+												<span class="text-base">30K€</span>
 											</td>
-											<td class="px-4 py-4 text-center">
+											<td class="px-4 py-3 text-center">
 												<span
-													class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm"
+													class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs"
 												>
 													Ticket medio bajo
 												</span>
 											</td>
-											<td class="px-4 py-4">Upsell IA premium</td>
+											<td class="px-4 py-3 text-sm">Upsell IA premium</td>
 										</tr>
 										<tr class="border-b border-gray-100">
-											<td class="px-4 py-4">
+											<td class="px-4 py-3 text-sm">
 												<div class="flex items-center">
 													<div
-														class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-2"
+														class="w-7 h-7 rounded-full bg-purple-100 flex items-center justify-center mr-2"
 													>
-														<i class="fab fa-instagram text-purple-600"></i>
+														<i class="fab fa-instagram text-purple-600 text-xs"></i>
 													</div>
 													<span>1M impresiones IG</span>
 												</div>
 											</td>
-											<td class="px-4 py-4 font-medium">Alcance IG</td>
-											<td class="px-4 py-4 text-center font-bold">
-												<span class="text-lg">1M</span>
+											<td class="px-4 py-3 font-medium text-sm">Alcance IG</td>
+											<td class="px-4 py-3 text-center font-bold text-sm">
+												<span class="text-base">1M</span>
 											</td>
-											<td class="px-4 py-4 text-center">
+											<td class="px-4 py-3 text-center">
 												<span
-													class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm"
+													class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs"
 												>
 													Cambio algoritmo
 												</span>
 											</td>
-											<td class="px-4 py-4">Invertir 100€/mes en Ads</td>
+											<td class="px-4 py-3 text-sm">Invertir 100€/mes en Ads</td>
 										</tr>
 										<tr class="border-b border-gray-100 bg-gray-50">
-											<td class="px-4 py-4">
+											<td class="px-4 py-3 text-sm">
 												<div class="flex items-center">
 													<div
-														class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2"
+														class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center mr-2"
 													>
-														<i class="fas fa-clock text-brand-blue"></i>
+														<i class="fas fa-clock text-brand-blue text-xs"></i>
 													</div>
 													<span>ROI tiempo 30%</span>
 												</div>
 											</td>
-											<td class="px-4 py-4 font-medium">
+											<td class="px-4 py-3 font-medium text-sm">
 												Horas ahorradas/cliente
 											</td>
-											<td class="px-4 py-4 text-center font-bold">
-												<span class="text-lg">≥ 2,4h/mes</span>
+											<td class="px-4 py-3 text-center font-bold text-sm">
+												<span class="text-base">≥ 2,4h/mes</span>
 											</td>
-											<td class="px-4 py-4 text-center">
+											<td class="px-4 py-3 text-center">
 												<span
-													class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm"
+													class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs"
 												>
 													No adopción
 												</span>
 											</td>
-											<td class="px-4 py-4">Tutoriales y training</td>
+											<td class="px-4 py-3 text-sm">Tutoriales y training</td>
 										</tr>
 										<tr class="border-b border-gray-100">
-											<td class="px-4 py-4">
+											<td class="px-4 py-3 text-sm">
 												<div class="flex items-center">
 													<div
-														class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-2"
+														class="w-7 h-7 rounded-full bg-yellow-100 flex items-center justify-center mr-2"
 													>
-														<i class="fas fa-star text-yellow-500"></i>
+														<i class="fas fa-star text-yellow-500 text-xs"></i>
 													</div>
 													<span>NPS ≥ 70</span>
 												</div>
 											</td>
-											<td class="px-4 py-4 font-medium">Encuesta NPS</td>
-											<td class="px-4 py-4 text-center font-bold">
-												<span class="text-lg">70</span>
+											<td class="px-4 py-3 font-medium text-sm">Encuesta NPS</td>
+											<td class="px-4 py-3 text-center font-bold text-sm">
+												<span class="text-base">70</span>
 											</td>
-											<td class="px-4 py-4 text-center">
+											<td class="px-4 py-3 text-center">
 												<span
-													class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm"
+													class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs"
 												>
 													NPS < 60
 												</span>
 											</td>
-											<td class="px-4 py-4">Refuerzo soporte postventa</td>
+											<td class="px-4 py-3 text-sm">Refuerzo soporte postventa</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
+					</div>
 
-						<!-- KPI gauge chart -->
-						<div class="bg-white rounded-lg shadow-sm p-6">
-							<h2 class="text-lg font-semibold mb-4">
+					<!-- Progress chart - Compact -->
+					<div class="col-span-4">
+						<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+							<h2 class="text-xl font-semibold mb-4 text-brand-blue">
 								Progreso actual hacia metas
 							</h2>
-							<div class="h-60">
+							<div class="h-80">
 								<canvas id="kpiRadarChart"></canvas>
 							</div>
 						</div>
 					</div>
+				</div>
 
-					<!-- Right side - Risk mitigation plan -->
-					<div class="col-span-5">
-						<div class="bg-white rounded-lg shadow-sm p-6 h-full">
-							<h2 class="text-2xl font-semibold mb-6 text-brand-blue">
-								Plan de Mitigación de Riesgos
-							</h2>
+				<!-- Plan de Mitigación de Riesgos - Full width horizontal -->
+				<div class="mt-4">
+					<div class="bg-white rounded-lg shadow-sm p-6 pt-0 pb-0">
+						<h2 class="text-2xl font-semibold mb-6 text-brand-blue">
+							Plan de Mitigación de Riesgos
+						</h2>
 
-							<div class="space-y-5">
-								<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
-									<div class="flex items-start">
-										<div class="risk-icon bg-brand-blue">
-											<i class="fas fa-user-clock"></i>
-										</div>
-										<div>
-											<h3 class="text-lg font-semibold mb-1">
-												Sobrecarga operativa
-											</h3>
-											<p class="text-gray-700 mb-2">
-												Riesgo de saturación por gestión de múltiples proyectos.
-											</p>
-											<div class="bg-blue-50 py-2 px-3 rounded-lg">
-												<p class="flex items-center">
-													<i class="fas fa-shield-alt text-brand-blue mr-2"></i>
-													<span class="text-gray-800"
-														>Externalizar tareas repetitivas con freelancers de
-														confianza</span
-													>
-												</p>
-											</div>
-										</div>
+						<div class="grid grid-cols-4 gap-4 mb-6">
+							<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
+								<div class="flex items-start">
+									<div class="risk-icon bg-brand-blue">
+										<i class="fas fa-user-clock"></i>
 									</div>
-								</div>
-
-								<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
-									<div class="flex items-start">
-										<div class="risk-icon bg-brand-yellow">
-											<i class="fas fa-hand-holding-usd"></i>
-										</div>
-										<div>
-											<h3 class="text-lg font-semibold mb-1">Impagos</h3>
-											<p class="text-gray-700 mb-2">
-												Riesgo de clientes que demoran o evitan pagos.
+									<div>
+										<h3 class="text-lg font-semibold mb-2">
+											Sobrecarga operativa
+										</h3>
+										<p class="text-gray-700 mb-3">
+											Riesgo de saturación por gestión de múltiples proyectos.
+										</p>
+										<div class="bg-blue-50 py-2 px-3 rounded-lg">
+											<p class="flex items-center">
+												<i class="fas fa-shield-alt text-brand-blue mr-2"></i>
+												<span class="text-gray-800 text-sm"
+													>Externalizar tareas repetitivas con freelancers de
+													confianza</span
+												>
 											</p>
-											<div class="bg-yellow-50 py-2 px-3 rounded-lg">
-												<p class="flex items-center">
-													<i
-														class="fas fa-file-contract text-yellow-600 mr-2"
-													></i>
-													<span class="text-gray-800"
-														>Contratos claros y pagos por hitos con adelanto
-														inicial</span
-													>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
-									<div class="flex items-start">
-										<div class="risk-icon bg-brand-blue">
-											<i class="fas fa-server"></i>
-										</div>
-										<div>
-											<h3 class="text-lg font-semibold mb-1">
-												Caídas de rendimiento web
-											</h3>
-											<p class="text-gray-700 mb-2">
-												Riesgo de problemas técnicos en sitios de clientes.
-											</p>
-											<div class="bg-blue-50 py-2 px-3 rounded-lg">
-												<p class="flex items-center">
-													<i class="fas fa-chart-line text-brand-blue mr-2"></i>
-													<span class="text-gray-800"
-														>Monitoreo continuo con alertas automáticas
-														24/7</span
-													>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
-									<div class="flex items-start">
-										<div class="risk-icon bg-brand-yellow">
-											<i class="fas fa-funnel-dollar"></i>
-										</div>
-										<div>
-											<h3 class="text-lg font-semibold mb-1">Falta de leads</h3>
-											<p class="text-gray-700 mb-2">
-												Riesgo de insuficiente generación de prospectos.
-											</p>
-											<div class="bg-yellow-50 py-2 px-3 rounded-lg">
-												<p class="flex items-center">
-													<i class="fas fa-bullhorn text-yellow-600 mr-2"></i>
-													<span class="text-gray-800"
-														>Invertir en Ads de emergencia y activar red de
-														referidos</span
-													>
-												</p>
-											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="mt-6 pt-6 border-t border-gray-200">
-								<div class="flex justify-between items-center">
-									<div class="flex items-center">
-										<div
-											class="w-10 h-10 rounded-full flex items-center justify-center bg-brand-blue text-white mr-3"
-										>
-											<i class="fas fa-shield-alt"></i>
-										</div>
-										<div>
-											<h3 class="font-semibold">Monitoreo de riesgos</h3>
-											<p class="text-sm text-gray-600">
-												Evaluación mensual con KPI dashboard
+							<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
+								<div class="flex items-start">
+									<div class="risk-icon bg-brand-yellow">
+										<i class="fas fa-hand-holding-usd"></i>
+									</div>
+									<div>
+										<h3 class="text-lg font-semibold mb-2">Impagos</h3>
+										<p class="text-gray-700 mb-3">
+											Riesgo de clientes que demoran o evitan pagos.
+										</p>
+										<div class="bg-yellow-50 py-2 px-3 rounded-lg">
+											<p class="flex items-center">
+												<i
+													class="fas fa-file-contract text-yellow-600 mr-2"
+												></i>
+												<span class="text-gray-800 text-sm"
+													>Contratos claros y pagos por hitos con adelanto
+													inicial</span
+												>
 											</p>
 										</div>
 									</div>
+								</div>
+							</div>
 
-									<div class="flex items-center">
-										<span
-											class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mr-2"
-										>
-											Riesgo bajo
-										</span>
-										<span
-											class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium mr-2"
-										>
-											Riesgo medio
-										</span>
-										<span
-											class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium"
-										>
-											Riesgo alto
-										</span>
+							<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
+								<div class="flex items-start">
+									<div class="risk-icon bg-brand-blue">
+										<i class="fas fa-server"></i>
+									</div>
+									<div>
+										<h3 class="text-lg font-semibold mb-2">
+											Caídas de rendimiento web
+										</h3>
+										<p class="text-gray-700 mb-3">
+											Riesgo de problemas técnicos en sitios de clientes.
+										</p>
+										<div class="bg-blue-50 py-2 px-3 rounded-lg">
+											<p class="flex items-center">
+												<i class="fas fa-chart-line text-brand-blue mr-2"></i>
+												<span class="text-gray-800 text-sm"
+													>Monitoreo continuo con alertas automáticas
+													24/7</span
+												>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="risk-plan-card p-4 rounded-lg bg-white shadow-sm">
+								<div class="flex items-start">
+									<div class="risk-icon bg-brand-yellow">
+										<i class="fas fa-funnel-dollar"></i>
+									</div>
+									<div>
+										<h3 class="text-lg font-semibold mb-2">Falta de leads</h3>
+										<p class="text-gray-700 mb-3">
+											Riesgo de insuficiente generación de prospectos.
+										</p>
+										<div class="bg-yellow-50 py-2 px-3 rounded-lg">
+											<p class="flex items-center">
+												<i class="fas fa-bullhorn text-yellow-600 mr-2"></i>
+												<span class="text-gray-800 text-sm"
+													>Invertir en Ads de emergencia y activar red de
+													referidos</span
+												>
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -544,6 +511,14 @@
 							ticks: {
 								display: false,
 							},
+							pointLabels: {
+								font: {
+									family: "Poppins",
+									size: 16,
+									weight: 600,
+								},
+								color: "#374151",
+							},
 						},
 					},
 					plugins: {
@@ -552,6 +527,7 @@
 							labels: {
 								font: {
 									family: "Poppins",
+									size: 14,
 								},
 							},
 						},

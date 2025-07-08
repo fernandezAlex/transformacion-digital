@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Conexión con Macro-Tendencias</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Poppins", sans-serif;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			.slide-container {
+				width: 1920px;
+				min-height: 1080px;
+				position: relative;
+				background-color: #ffffff;
+				overflow: hidden;
+			}
+			.accent-yellow {
+				background-color: #ffd100;
+			}
+			.accent-blue {
+				background-color: #0052cc;
+			}
+			.text-brand-blue {
+				color: #0052cc;
+			}
+			.text-brand-yellow {
+				color: #ffd100;
+			}
+			.border-brand-blue {
+				border-color: #0052cc;
+			}
+			.border-brand-yellow {
+				border-color: #ffd100;
+			}
+			.bg-brand-blue {
+				background-color: #0052cc;
+			}
+			.bg-brand-yellow {
+				background-color: #ffd100;
+			}
+			.top-accent {
+				height: 8px;
+				width: 100%;
+			}
+			.bottom-accent {
+				height: 8px;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.section-title::after {
+				content: "";
+				display: block;
+				width: 80px;
+				height: 4px;
+				background-color: #ffd100;
+				margin-top: 10px;
+			}
+			.corner-accent {
+				position: absolute;
+				width: 150px;
+				height: 150px;
+				background-color: rgba(0, 82, 204, 0.05);
+				z-index: 0;
+			}
+			.corner-accent.top-right {
+				top: 0;
+				right: 0;
+				border-bottom-left-radius: 100%;
+				border-top: 5px solid #ffd100;
+				border-right: 5px solid #ffd100;
+			}
+			.corner-accent.bottom-left {
+				bottom: 0;
+				left: 0;
+				border-top-right-radius: 100%;
+				border-bottom: 5px solid #ffd100;
+				border-left: 5px solid #ffd100;
+			}
+			.trend-card {
+				border-radius: 12px;
+				transition: all 0.3s ease;
+				background-color: white;
+				height: 100%;
+			}
+			.trend-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+			}
+			.trend-icon {
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 1rem;
+				font-size: 32px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide-container">
+			<!-- Accents -->
+			<div class="top-accent accent-yellow"></div>
+			<div class="bottom-accent accent-blue"></div>
+			<div class="corner-accent top-right"></div>
+			<div class="corner-accent bottom-left"></div>
+
+			<!-- Main content -->
+			<div class="pt-2 px-4 pb-0 relative z-10">
+				<!-- Title -->
+				<div class="mb-8">
+					<h1 class="text-5xl font-bold section-title">
+						<span class="text-brand-blue">Casos de éxito y muestras</span>
+					</h1>
+					<p class="text-gray-600 mt-8 text-lg max-w-3xl">
+						En AFA Creations, hemos trabajado con una variedad de clientes,
+						desde pymes locales hasta grandes corporaciones. Aquí puedes ver
+						algunos de nuestros proyectos reales.
+					</p>
+				</div>
+
+				<!-- Trends Cards -->
+				<div class="grid grid-cols-3 gap-4">
+					<!-- Proyecto 1 - MediaMarkt -->
+					<div class="trend-card shadow-md p-4 border-t-4 border-brand-blue">
+						<h3 class="text-xl font-semibold mb-2 text-center">
+							MediaMarkt
+						</h3>
+						<div class="mb-3 flex justify-center">
+							<div class="h-1 w-16 bg-brand-yellow rounded"></div>
+						</div>
+						<img src="img/mock-01.jpg" alt="MediaMarkt" class="w-1/2 h-auto w-auto mx-auto">
+						<p class="text-gray-700 mb-3 text-sm">
+							MediaMarkt es una de las principales cadenas de electrónica y
+							tecnología en España, con más de 100 tiendas en todo el país.
+							En 2019, MediaMarkt nos contrató para mejorar su web corporativa
+							que reflejara su imagen y valores.
+						</p>
+					</div>
+
+					<!-- Proyecto 2 - Laia Rueda Beauty Care -->
+					<div class="trend-card shadow-md p-4 border-t-4 border-brand-yellow">
+						<h3 class="text-xl font-semibold mb-2 text-center">
+							Laia Rueda Beauty Care
+						</h3>
+						<div class="mb-3 flex justify-center">
+							<div class="h-1 w-16 bg-brand-blue rounded"></div>
+						</div>
+						<img src="img/tarjeta-corporativa-laia-rueda-cara.png" alt="Laia Rueda Beauty Care" class="mb-4 w-1/2 h-auto w-auto mx-auto">
+						<p class="text-gray-700 mb-3 text-sm">
+							Laia Rueda Beauty Care es una empresa de belleza y cuidado personal
+							que nos contrató para crear una web corporativa que reflejara su
+							imagen y valores. Construimos su marca y web corporativa con un
+							diseño moderno y atractivo, que reflejara su imagen y valores.
+						</p>
+					</div>
+
+					<!-- Proyecto 3 - Top Doctors -->
+					<div class="trend-card shadow-md p-4 border-t-4 border-green-500">
+						<h3 class="text-xl font-semibold mb-2 text-center">
+							Top Doctors
+						</h3>
+						<div class="mb-3 flex justify-center">
+							<div class="h-1 w-16 bg-brand-yellow rounded"></div>
+						</div>
+						<img src="img/mock-02.png" alt="Top Doctors" class="w-1/2 h-auto w-auto mx-auto mb-4">
+						<p class="text-gray-700 mb-3 text-sm">
+							Top Doctors es una empresa de salud que nos contrató para crear una
+							web corporativa que reflejara su imagen y valores. Construimos su
+							web corporativa con un diseño moderno y atractivo, que reflejara su
+							imagen y valores.
+						</p>
+					</div>
+				</div>
+
+				<!-- Bottom section: Strategic Alignment -->
+				<div class="mt-12 bg-gradient-to-r from-blue-50 to-yellow-50 p-4 rounded-lg">
+					<h3 class="font-semibold text-brand-blue mb-3 flex items-center">
+						<i class="fas fa-compass mr-2"></i>
+						Para ver todos los proyectos en los que hemos trabajado, visita nuestra web
+					</h3>
+					<a target="_blank" href="https://afacreations.com/" class="text-brand-blue">afacreations.com</a>
+				</div>
+			</div>
+			</div>
+		</div>
+	</body>
+</html>

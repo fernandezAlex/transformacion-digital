@@ -737,6 +737,22 @@
 			document.addEventListener("keydown", resetHideControls);
 			document.addEventListener("click", resetHideControls);
 
+			// Escuchar mensajes del iframe del índice para navegación
+			window.addEventListener("message", function(event) {
+				// Verificar que el mensaje venga de un origen válido (mismo dominio o local)
+				if (event.data && event.data.type === 'navigateToSlide') {
+					const targetSlide = event.data.slideIndex;
+					
+					// Validar que el índice de diapositiva es válido
+					if (targetSlide >= 0 && targetSlide < totalSlides) {
+						console.log(`Navegando a diapositiva ${targetSlide} desde índice`);
+						goToSlide(targetSlide);
+					} else {
+						console.warn(`Índice de diapositiva inválido: ${targetSlide}`);
+					}
+				}
+			});
+
 			// Inicialización
 			document.addEventListener("DOMContentLoaded", function () {
 				createSlideIndicators();

@@ -28,7 +28,8 @@
 				min-height: 1080px;
 				position: relative;
 				background-color: #ffffff;
-				overflow: hidden;
+				overflow: hidden;	
+				box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 			}
 			.accent-yellow {
 				background-color: #ffd100;
@@ -68,7 +69,7 @@
 				width: 180px;
 				height: 180px;
 				border-radius: 50%;
-				background: url("https://images.unsplash.com/photo-1597223557154-721c1cecc4b0")
+				background: url("img/1673977906890.jpeg")
 					center/cover;
 				border: 4px solid #0052cc;
 				box-shadow: 0 8px 16px rgba(0, 82, 204, 0.2);
@@ -126,23 +127,23 @@
 			<div class="corner-accent bottom-left"></div>
 
 			<!-- Main content -->
-			<div class="pt-4 px-4 pb-0 relative z-10">
+			<div class="pt-2 px-4 pb-0 relative z-10">
 				<!-- Title -->
-				<div class="mb-10">
+				<div class="mb-4">
 					<h1 class="text-5xl font-bold section-title">
 						<span class="text-brand-blue">Buyer Persona</span> & Mapa de Empatía
 					</h1>
 				</div>
 
-				<div class="grid grid-cols-12 gap-10">
+				<div class="grid grid-cols-12 gap-6">
 					<!-- Left Column - Buyer Persona -->
 					<div class="col-span-5">
-						<div class="persona-card p-6 mb-8">
-							<div class="flex items-center mb-6">
-								<div class="persona-image mr-6"></div>
+						<div class="persona-card p-4 mb-4">
+							<div class="flex items-center mb-4">
+								<div class="persona-image mr-4" style="width: 120px; height: 120px;"></div>
 								<div>
-									<h2 class="text-3xl font-semibold mb-1">María García</h2>
-									<p class="text-lg text-gray-600 mb-2">37 años | Barcelona</p>
+									<h2 class="text-2xl font-semibold mb-1">Laia Rueda Beauty Care</h2>
+									<p class="text-lg text-gray-600 mb-1">37 años | Barcelona</p>
 									<div
 										class="bg-brand-blue text-white px-3 py-1 rounded-full text-sm inline-block"
 									>
@@ -151,12 +152,12 @@
 								</div>
 							</div>
 
-							<div class="grid grid-cols-2 gap-4 mb-6">
-								<div class="bg-gray-50 p-4 rounded-lg">
+							<div class="grid grid-cols-2 gap-3 mb-4">
+								<div class="bg-gray-50 p-3 rounded-lg">
 									<h3 class="font-semibold text-lg mb-2 text-brand-blue">
 										Perfil
 									</h3>
-									<ul class="text-gray-700 space-y-2">
+									<ul class="text-gray-700 space-y-1 text-sm">
 										<li class="flex items-start">
 											<i class="fas fa-check text-brand-yellow mr-2 mt-1"></i>
 											<span>Salón con 4 empleados</span>
@@ -172,11 +173,11 @@
 									</ul>
 								</div>
 
-								<div class="bg-gray-50 p-4 rounded-lg">
+								<div class="bg-gray-50 p-3 rounded-lg">
 									<h3 class="font-semibold text-lg mb-2 text-brand-blue">
 										Economics
 									</h3>
-									<ul class="text-gray-700 space-y-2">
+									<ul class="text-gray-700 space-y-1 text-sm">
 										<li class="flex items-start">
 											<i
 												class="fas fa-euro-sign text-brand-yellow mr-2 mt-1"
@@ -197,114 +198,47 @@
 								</div>
 							</div>
 
-							<div class="mb-6">
-								<h3 class="font-semibold text-lg mb-3 flex items-center">
-									<div
-										class="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center mr-3"
-									>
-										<i class="fas fa-heart-broken text-white text-sm"></i>
-									</div>
-									Pains (Dolores)
+							<div class="mb-4">
+								<h3 class="font-semibold text-lg mb-2 text-brand-blue">
+									Motivaciones & Objetivos
 								</h3>
-								<div class="bg-gray-50 p-4 rounded-lg">
-									<ul class="text-gray-700 space-y-3">
+								<div class="bg-blue-50 p-3 rounded-lg">
+									<ul class="text-gray-700 space-y-1 text-sm">
 										<li class="flex items-start">
-											<i class="fas fa-times-circle text-red-500 mr-2 mt-1"></i>
-											<span>Falta de visibilidad online frente a cadenas</span>
+											<i class="fas fa-bullseye text-brand-blue mr-2 mt-1"></i>
+											<span>Aumentar clientela local y fidelización</span>
 										</li>
 										<li class="flex items-start">
-											<i class="fas fa-times-circle text-red-500 mr-2 mt-1"></i>
-											<span>Gestión de agenda manual y por WhatsApp</span>
+											<i class="fas fa-bullseye text-brand-blue mr-2 mt-1"></i>
+											<span>Modernizar imagen del negocio</span>
 										</li>
 										<li class="flex items-start">
-											<i class="fas fa-times-circle text-red-500 mr-2 mt-1"></i>
-											<span>Miedo a costes altos de digitalización</span>
+											<i class="fas fa-bullseye text-brand-blue mr-2 mt-1"></i>
+											<span>Automatizar reservas y reducir llamadas</span>
 										</li>
 									</ul>
 								</div>
 							</div>
 
 							<div>
-								<h3 class="font-semibold text-lg mb-3 flex items-center">
-									<div
-										class="w-8 h-8 rounded-full bg-brand-yellow flex items-center justify-center mr-3"
-									>
-										<i class="fas fa-star text-gray-800 text-sm"></i>
-									</div>
-									Gains (Deseos)
+								<h3 class="font-semibold text-lg mb-2 text-brand-blue">
+									Frustraciones & Barreras
 								</h3>
-								<div class="bg-gray-50 p-4 rounded-lg">
-									<ul class="text-gray-700 space-y-3">
+								<div class="bg-red-50 p-3 rounded-lg">
+									<ul class="text-gray-700 space-y-1 text-sm">
 										<li class="flex items-start">
-											<i
-												class="fas fa-plus-circle text-green-500 mr-2 mt-1"
-											></i>
-											<span>Aumentar clientela en un 20%</span>
+											<i class="fas fa-times text-red-500 mr-2 mt-1"></i>
+											<span>Precios altos de agencias tradicionales</span>
 										</li>
 										<li class="flex items-start">
-											<i
-												class="fas fa-plus-circle text-green-500 mr-2 mt-1"
-											></i>
-											<span>Automatizar reservas y reducir gestiones</span>
+											<i class="fas fa-times text-red-500 mr-2 mt-1"></i>
+											<span>Falta de tiempo para gestión digital</span>
 										</li>
 										<li class="flex items-start">
-											<i
-												class="fas fa-plus-circle text-green-500 mr-2 mt-1"
-											></i>
-											<span>Diferenciarse de franquicias low-cost</span>
-										</li>
-										<li class="flex items-start">
-											<i
-												class="fas fa-plus-circle text-green-500 mr-2 mt-1"
-											></i>
-											<span>Gestionar reseñas y valoraciones online</span>
+											<i class="fas fa-times text-red-500 mr-2 mt-1"></i>
+											<span>Desconocimiento técnico</span>
 										</li>
 									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div
-							class="bg-white rounded-lg p-5 shadow-sm border border-gray-100"
-						>
-							<h3 class="font-semibold text-lg mb-3 text-brand-blue">
-								Proceso de Compra
-							</h3>
-							<div class="flex justify-between items-center">
-								<div class="text-center px-3">
-									<div
-										class="w-12 h-12 rounded-full bg-brand-blue flex items-center justify-center mx-auto mb-2"
-									>
-										<i class="fab fa-instagram text-white"></i>
-									</div>
-									<p class="text-sm">Inspiración en Instagram</p>
-								</div>
-								<div class="h-0.5 flex-grow bg-gray-200 mx-1"></div>
-								<div class="text-center px-3">
-									<div
-										class="w-12 h-12 rounded-full bg-brand-yellow flex items-center justify-center mx-auto mb-2"
-									>
-										<i class="fab fa-google text-gray-800"></i>
-									</div>
-									<p class="text-sm">Compara en Google</p>
-								</div>
-								<div class="h-0.5 flex-grow bg-gray-200 mx-1"></div>
-								<div class="text-center px-3">
-									<div
-										class="w-12 h-12 rounded-full bg-brand-blue flex items-center justify-center mx-auto mb-2"
-									>
-										<i class="fas fa-file-invoice text-white"></i>
-									</div>
-									<p class="text-sm">Solicita 2 presupuestos</p>
-								</div>
-								<div class="h-0.5 flex-grow bg-gray-200 mx-1"></div>
-								<div class="text-center px-3">
-									<div
-										class="w-12 h-12 rounded-full bg-brand-yellow flex items-center justify-center mx-auto mb-2"
-									>
-										<i class="fas fa-handshake text-gray-800"></i>
-									</div>
-									<p class="text-sm">Decide en 3 semanas</p>
 								</div>
 							</div>
 						</div>
@@ -312,223 +246,115 @@
 
 					<!-- Right Column - Empathy Map -->
 					<div class="col-span-7">
-						<h2 class="text-2xl font-semibold mb-6">
-							<span class="text-brand-blue">Mapa de Empatía:</span>
-							<span class="text-gray-700">
-								¿Qué experimenta nuestra buyer persona?</span
-							>
-						</h2>
+						<div class="mb-4">
+							<h2 class="text-2xl font-semibold mb-3 text-brand-blue flex items-center">
+								<i class="fas fa-heart mr-2"></i>
+								Mapa de Empatía
+							</h2>
+						</div>
 
-						<div class="grid grid-cols-2 gap-6">
-							<!-- What she SAYS -->
-							<div
-								class="empathy-card bg-white shadow-md p-6 border-t-4 border-brand-blue"
-							>
-								<div class="flex items-center mb-4">
-									<div
-										class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center mr-3"
-									>
-										<i class="fas fa-comment text-white"></i>
-									</div>
-									<h3 class="text-xl font-semibold">Dice</h3>
-								</div>
-
-								<div class="flex mb-4">
-									<div class="bg-blue-100 p-3 rounded-lg relative">
-										<div
-											class="absolute top-2 left-0 w-3 h-3 bg-blue-100 transform rotate-45 -translate-x-1"
-										></div>
-										<p class="text-gray-800">
-											"No entiendo de webs, sólo quiero más clientes."
-										</p>
-									</div>
-								</div>
-
-								<div class="flex mb-4">
-									<div class="bg-blue-100 p-3 rounded-lg relative">
-										<div
-											class="absolute top-2 left-0 w-3 h-3 bg-blue-100 transform rotate-45 -translate-x-1"
-										></div>
-										<p class="text-gray-800">
-											"Las cadenas low-cost me están quitando clientes."
-										</p>
-									</div>
-								</div>
-
-								<div class="flex">
-									<div class="bg-blue-100 p-3 rounded-lg relative">
-										<div
-											class="absolute top-2 left-0 w-3 h-3 bg-blue-100 transform rotate-45 -translate-x-1"
-										></div>
-										<p class="text-gray-800">
-											"No tengo tiempo para estar contestando WhatsApp."
-										</p>
-									</div>
-								</div>
-							</div>
-
-							<!-- What she THINKS -->
-							<div
-								class="empathy-card bg-white shadow-md p-6 border-t-4 border-brand-yellow"
-							>
-								<div class="flex items-center mb-4">
-									<div
-										class="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center mr-3"
-									>
-										<i class="fas fa-brain text-gray-800"></i>
-									</div>
-									<h3 class="text-xl font-semibold">Piensa</h3>
-								</div>
-
-								<div class="flex mb-4">
-									<div class="bg-yellow-100 p-3 rounded-lg">
-										<p class="text-gray-800">
-											"¿Valdrá la pena la inversión en digital?"
-										</p>
-									</div>
-								</div>
-
-								<div class="flex mb-4">
-									<div class="bg-yellow-100 p-3 rounded-lg">
-										<p class="text-gray-800">
-											"¿Me entenderán? No quiero que me hablen técnico."
-										</p>
-									</div>
-								</div>
-
-								<div class="flex">
-									<div class="bg-yellow-100 p-3 rounded-lg">
-										<p class="text-gray-800">
-											"Mi servicio es mejor que el de las cadenas, pero no sé
-											cómo demostrarlo online."
-										</p>
-									</div>
-								</div>
-							</div>
-
-							<!-- What she DOES -->
-							<div
-								class="empathy-card bg-white shadow-md p-6 border-t-4 border-brand-yellow"
-							>
-								<div class="flex items-center mb-4">
-									<div
-										class="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center mr-3"
-									>
-										<i class="fas fa-hand-pointer text-gray-800"></i>
-									</div>
-									<h3 class="text-xl font-semibold">Hace</h3>
-								</div>
-
-								<ul class="space-y-3">
-									<li class="flex items-start">
-										<i
-											class="fas fa-check-circle text-yellow-500 mr-3 mt-1"
-										></i>
-										<span class="text-gray-800"
-											>Gestiona su Instagram personal y agenda por
-											WhatsApp</span
-										>
-									</li>
-									<li class="flex items-start">
-										<i
-											class="fas fa-check-circle text-yellow-500 mr-3 mt-1"
-										></i>
-										<span class="text-gray-800"
-											>Observa a la competencia para ver qué servicios
-											ofrecen</span
-										>
-									</li>
-									<li class="flex items-start">
-										<i
-											class="fas fa-check-circle text-yellow-500 mr-3 mt-1"
-										></i>
-										<span class="text-gray-800"
-											>Invierte en formación para técnicas nuevas pero no en
-											marketing</span
-										>
-									</li>
-									<li class="flex items-start">
-										<i
-											class="fas fa-check-circle text-yellow-500 mr-3 mt-1"
-										></i>
-										<span class="text-gray-800"
-											>Pide consejo a otras dueñas de negocios similares</span
-										>
-									</li>
+						<div class="grid grid-cols-2 gap-3">
+							<!-- Think & Feel -->
+							<div class="empathy-card bg-blue-50 p-4 border-l-4 border-brand-blue">
+								<h3 class="font-semibold text-lg mb-2 flex items-center">
+									<i class="fas fa-brain text-brand-blue mr-2"></i>
+									Piensa & Siente
+								</h3>
+								<ul class="space-y-2 text-sm text-gray-700">
+									<li>"Necesito más clientes pero no sé cómo conseguirlos online"</li>
+									<li>"Mi competencia se ve más profesional en redes"</li>
+									<li>"No quiero invertir mucho sin garantías"</li>
+									<li>"El teléfono no para de sonar para reservas"</li>
 								</ul>
 							</div>
 
-							<!-- What she FEELS -->
-							<div
-								class="empathy-card bg-white shadow-md p-6 border-t-4 border-brand-blue"
-							>
-								<div class="flex items-center mb-4">
-									<div
-										class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center mr-3"
-									>
-										<i class="fas fa-heartbeat text-white"></i>
-									</div>
-									<h3 class="text-xl font-semibold">Siente</h3>
-								</div>
+							<!-- See -->
+							<div class="empathy-card bg-yellow-50 p-4 border-l-4 border-brand-yellow">
+								<h3 class="font-semibold text-lg mb-2 flex items-center">
+									<i class="fas fa-eye text-brand-yellow mr-2"></i>
+									Ve
+								</h3>
+								<ul class="space-y-2 text-sm text-gray-700">
+									<li>Competidores con webs modernas y reservas online</li>
+									<li>Influencers promocionando otros salones</li>
+									<li>Clientes jóvenes usando apps para todo</li>
+									<li>Publicidad digital de grandes cadenas</li>
+								</ul>
+							</div>
 
-								<div class="grid grid-cols-2 gap-4">
-									<div
-										class="bg-blue-50 p-3 rounded-lg flex flex-col items-center"
-									>
-										<i class="fas fa-tired text-red-500 text-2xl mb-2"></i>
-										<p class="text-center text-gray-800">
-											Saturación y falta de tiempo
-										</p>
-									</div>
+							<!-- Say & Do -->
+							<div class="empathy-card bg-green-50 p-4 border-l-4 border-green-500">
+								<h3 class="font-semibold text-lg mb-2 flex items-center">
+									<i class="fas fa-comment text-green-500 mr-2"></i>
+									Dice & Hace
+								</h3>
+								<ul class="space-y-2 text-sm text-gray-700">
+									<li>Publica fotos en Instagram de forma irregular</li>
+									<li>Pregunta a otros dueños sobre marketing digital</li>
+									<li>Busca precios de webs en Google</li>
+									<li>Gestiona reservas manualmente por teléfono</li>
+								</ul>
+							</div>
 
-									<div
-										class="bg-blue-50 p-3 rounded-lg flex flex-col items-center"
-									>
-										<i class="fas fa-meh text-orange-500 text-2xl mb-2"></i>
-										<p class="text-center text-gray-800">
-											Frustración con plataformas genéricas
-										</p>
-									</div>
-
-									<div
-										class="bg-blue-50 p-3 rounded-lg flex flex-col items-center"
-									>
-										<i class="fas fa-frown text-yellow-600 text-2xl mb-2"></i>
-										<p class="text-center text-gray-800">
-											Preocupación por competencia
-										</p>
-									</div>
-
-									<div
-										class="bg-blue-50 p-3 rounded-lg flex flex-col items-center"
-									>
-										<i class="fas fa-smile text-green-500 text-2xl mb-2"></i>
-										<p class="text-center text-gray-800">
-											Ilusión ante soluciones claras
-										</p>
-									</div>
-								</div>
+							<!-- Hear -->
+							<div class="empathy-card bg-purple-50 p-4 border-l-4 border-purple-500">
+								<h3 class="font-semibold text-lg mb-2 flex items-center">
+									<i class="fas fa-ear-listen text-purple-500 mr-2"></i>
+									Escucha
+								</h3>
+								<ul class="space-y-2 text-sm text-gray-700">
+									<li>Clientes preguntan si tienen web o app</li>
+									<li>Otros empresarios hablan de transformación digital</li>
+									<li>Noticias sobre ayudas gubernamentales</li>
+									<li>Empleados sugieren modernizar el negocio</li>
+								</ul>
 							</div>
 						</div>
 
-						<!-- ROI Expectation -->
-						<div
-							class="mt-8 bg-gray-50 p-6 rounded-lg border-l-4 border-brand-blue"
-						>
-							<h3 class="text-xl font-semibold mb-3 flex items-center">
-								<i class="fas fa-bullseye text-brand-blue mr-3"></i>
-								<span>Oportunidad para AFA Creations</span>
-							</h3>
-							<p class="text-gray-700">
-								María representa a un segmento amplio de pequeños negocios
-								locales con presencia digital limitada. Con nuestras soluciones
-								personalizadas, podemos resolver sus principales dolores y
-								ayudarla a destacar frente a grandes cadenas, ofreciendo
-								soluciones con un
-								<span class="font-semibold text-brand-blue"
-									>ROI claro en menos de 12 meses</span
-								>.
-							</p>
+						<!-- Pain & Gain -->
+						<div class="grid grid-cols-2 gap-3 mt-3">
+							<div class="empathy-card bg-red-50 p-4 border-l-4 border-red-500">
+								<h3 class="font-semibold text-lg mb-2 flex items-center">
+									<i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+									Dolores
+								</h3>
+								<ul class="space-y-1 text-sm text-gray-700">
+									<li>Estrés por gestión manual de reservas</li>
+									<li>Frustración por no saber marketing digital</li>
+									<li>Miedo a inversiones sin retorno garantizado</li>
+								</ul>
+							</div>
+
+							<div class="empathy-card bg-green-50 p-4 border-l-4 border-green-500">
+								<h3 class="font-semibold text-lg mb-2 flex items-center">
+									<i class="fas fa-trophy text-green-500 mr-2"></i>
+									Beneficios
+								</h3>
+								<ul class="space-y-1 text-sm text-gray-700">
+									<li>Más tiempo para atender clientes</li>
+									<li>Imagen profesional y moderna</li>
+									<li>Crecimiento del negocio sostenible</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Bottom insights -->
+				<div class="mt-4 bg-gradient-to-r from-blue-50 to-yellow-50 p-3 rounded-lg">
+					<h3 class="font-semibold text-brand-blue mb-2 flex items-center">
+						<i class="fas fa-lightbulb mr-2"></i>
+						Insights Clave para AFA Creations
+					</h3>
+					<div class="grid grid-cols-3 gap-4 text-sm">
+						<div>
+							<strong>Propuesta de Valor:</strong> "Web profesional + automatización + garantía de resultados, todo por menos de lo que gastas en marketing tradicional"
+						</div>
+						<div>
+							<strong>Canales Clave:</strong> Networking local, recomendaciones, presencia en eventos de empresarios
+						</div>
+						<div>
+							<strong>Mensajes Clave:</strong> Tiempo ahorrado, profesionalismo, inversión rentable, soporte continuo
 						</div>
 					</div>
 				</div>

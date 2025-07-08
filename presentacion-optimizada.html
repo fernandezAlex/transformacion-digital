@@ -26,6 +26,10 @@
 				background: #000;
 			}
 
+			iframe {
+				box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+			}
+
 			.presentation-container {
 				width: 100vw;
 				height: 100vh;
@@ -37,10 +41,11 @@
 			.slide-area {
 				flex: 1;
 				width: 100%;
-				height: calc(100vh - 120px);
+				height: 100%;
 				position: relative;
 				overflow: hidden;
 				background: #fff;
+				/* background: #ffe15a; */
 			}
 
 			.slide {
@@ -66,60 +71,41 @@
 
 			.slide iframe {
 				border: none;
-				transform-origin: 0 0;
+				transform-origin: center center;
 				position: absolute;
-				top: 0;
+				width: 1920px;
+				height: 1080px;
+				margin: auto;
 				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
 			}
 
-			.controls {
-				position: fixed;
-				bottom: 30px;
-				left: 50%;
-				transform: translateX(-50%);
-				z-index: 1000;
-				background: rgba(0, 0, 0, 0.9);
-				padding: 15px 25px;
-				border-radius: 50px;
-				display: flex;
-				align-items: center;
-				gap: 20px;
+			@media (max-width: 1920px) {
+				.slide iframe {
+					transform: scale(0.8);
+					margin: inherit;
+					left: 0;
+					top: 0;
+					right: 0;
+					bottom: 0;
+
+					transform-origin: center center;
+				}
 			}
 
-			.control-btn {
-				background: #0052cc;
-				color: white;
-				border: none;
-				width: 45px;
-				height: 45px;
-				border-radius: 50%;
-				cursor: pointer;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-size: 16px;
-				transition: all 0.3s ease;
+			@media (max-width: 1024px) {
+				.slide iframe {
+					transform: scale(0.358333);
+        margin: auto;
+        left: 10%;
+
+					transform-origin: 0;
+				}
 			}
 
-			.control-btn:hover {
-				background: #ffd100;
-				color: #000;
-				transform: scale(1.1);
-			}
 
-			.control-btn:disabled {
-				background: #555;
-				cursor: not-allowed;
-				transform: none;
-			}
-
-			.slide-counter {
-				color: white;
-				font-weight: 600;
-				font-size: 16px;
-				min-width: 80px;
-				text-align: center;
-			}
 
 			.slide-title {
 				position: fixed;
@@ -132,6 +118,7 @@
 				border-radius: 25px;
 				font-size: 14px;
 				font-weight: 500;
+				display: none; /* Oculto para limpiar la interfaz */
 			}
 
 			.keyboard-hint {
@@ -144,6 +131,7 @@
 				padding: 10px 15px;
 				border-radius: 20px;
 				font-size: 12px;
+				display: none; /* Oculto para limpiar la interfaz */
 			}
 
 			.zoom-controls {
@@ -189,6 +177,84 @@
 
 			.fullscreen-btn:hover {
 				background: #0052cc;
+			}
+
+			.navigation-controls {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				z-index: 1000;
+				background: rgba(0, 0, 0, 0.9);
+				color: white;
+				padding: 10px 15px;
+				border-radius: 25px;
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+
+			.home-btn {
+				background: #007bff;
+				border: 1px solid #007bff;
+				color: white;
+				cursor: pointer;
+				font-size: 14px;
+				padding: 8px 12px;
+				border-radius: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.3s ease;
+				min-width: 40px;
+				height: 36px;
+			}
+
+			.home-btn:hover {
+				background: #0056b3;
+				border-color: #0056b3;
+				transform: scale(1.05);
+			}
+
+			.home-btn:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+				transform: none;
+			}
+
+			.nav-btn {
+				background: #0052cc;
+				color: white;
+				border: none;
+				width: 32px;
+				height: 32px;
+				border-radius: 50%;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 12px;
+				transition: all 0.3s ease;
+			}
+
+			.nav-btn:hover {
+				background: #ffd100;
+				color: #000;
+				transform: scale(1.1);
+			}
+
+			.nav-btn:disabled {
+				background: #555;
+				cursor: not-allowed;
+				transform: none;
+				opacity: 0.5;
+			}
+
+			.slide-counter {
+				color: white;
+				font-weight: 600;
+				font-size: 12px;
+				min-width: 60px;
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -265,6 +331,12 @@
 					<iframe src="diapositivas-proyecto/14.html"></iframe>
 				</div>
 
+
+				<!-- Slide 15: Métricas y KPIs -->
+				<div class="slide" data-title="Métricas y KPIs">
+					<iframe src="diapositivas-proyecto/16.html"></iframe>
+				</div>
+
 				<!-- Slide 15: Métricas y KPIs -->
 				<div class="slide" data-title="Métricas y KPIs">
 					<iframe src="diapositivas-proyecto/15.html"></iframe>
@@ -284,32 +356,32 @@
 
 		<!-- Controles de zoom y pantalla completa -->
 		<div class="zoom-controls">
+			<button class="home-btn" onclick="goToIndex()" title="Ir al índice">
+				🏠
+			</button>
 			<button class="zoom-btn" onclick="zoomIn()">
 				<i class="fas fa-plus"></i>
 			</button>
 			<button class="zoom-btn" onclick="zoomOut()">
 				<i class="fas fa-minus"></i>
 			</button>
-			<button class="zoom-btn" onclick="resetZoom()">
-				<i class="fas fa-home"></i>
-			</button>
 			<button class="fullscreen-btn" onclick="toggleFullscreen()">
 				<i class="fas fa-expand"></i>
 			</button>
 		</div>
 
-		<!-- Controles de navegación -->
-		<div class="controls">
-			<button class="control-btn" id="prevBtn" onclick="previousSlide()">
+		<!-- Controles de navegación en esquina superior derecha -->
+		<div class="navigation-controls">
+			<button class="nav-btn" id="prevBtnTop" onclick="previousSlide()">
 				<i class="fas fa-chevron-left"></i>
 			</button>
-
-			<span class="slide-counter" id="slideCounter"> 1 / 15 </span>
-
-			<button class="control-btn" id="nextBtn" onclick="nextSlide()">
+			<span class="slide-counter" id="slideCounterTop"> 1 / 15 </span>
+			<button class="nav-btn" id="nextBtnTop" onclick="nextSlide()">
 				<i class="fas fa-chevron-right"></i>
 			</button>
 		</div>
+
+
 
 		<script>
 			let currentSlide = 0;
@@ -323,8 +395,8 @@
 
 				isAnimating = true;
 
-				// Actualizar contador
-				document.getElementById("slideCounter").textContent = `${
+				// Actualizar contador (solo top)
+				document.getElementById("slideCounterTop").textContent = `${
 					currentSlide + 1
 				} / ${totalSlides}`;
 
@@ -332,10 +404,9 @@
 				const title = slides[currentSlide].getAttribute("data-title");
 				document.getElementById("slideTitle").textContent = title;
 
-				// Actualizar estado de los botones
-				document.getElementById("prevBtn").disabled = currentSlide === 0;
-				document.getElementById("nextBtn").disabled =
-					currentSlide === totalSlides - 1;
+				// Actualizar estado de los botones (solo top)
+				document.getElementById("prevBtnTop").disabled = currentSlide === 0;
+				document.getElementById("nextBtnTop").disabled = currentSlide === totalSlides - 1;
 
 				// Aplicar transiciones
 				slides.forEach((slide, index) => {
@@ -374,24 +445,16 @@
 					const scaleX = containerWidth / originalWidth;
 					const scaleY = containerHeight / originalHeight;
 
-					// Usar la escala menor para asegurar que todo sea visible
-					let baseScale = Math.min(scaleX, scaleY) * 0.9; // 90% para margen
 
 					// Aplicar zoom actual
 					const finalScale = baseScale * currentZoom;
-
-					// Calcular dimensiones finales
-					const finalWidth = originalWidth * finalScale;
-					const finalHeight = originalHeight * finalScale;
 
 					// Aplicar estilos
 					iframe.style.width = `${originalWidth}px`;
 					iframe.style.height = `${originalHeight}px`;
 					iframe.style.transform = `scale(${finalScale})`;
 
-					// Centrar horizontalmente
-					const offsetX = (containerWidth - finalWidth) / 2;
-					iframe.style.left = `${Math.max(0, offsetX)}px`;
+
 
 					// Si no cabe verticalmente, permitir scroll
 					if (finalHeight > containerHeight) {
@@ -444,6 +507,10 @@
 					currentSlide = index;
 					updateSlideDisplay();
 				}
+			}
+
+			function goToIndex() {
+				goToSlide(1); // Slide 2 (índice) - el array es 0-based
 			}
 
 			function toggleFullscreen() {
@@ -553,17 +620,13 @@
 			let hideControlsTimeout;
 
 			function resetHideControls() {
-				document.querySelector(".controls").style.opacity = "1";
-				document.querySelector(".slide-title").style.opacity = "1";
-				document.querySelector(".keyboard-hint").style.opacity = "1";
+				document.querySelector(".navigation-controls").style.opacity = "1";
 				document.querySelector(".zoom-controls").style.opacity = "1";
 
 				clearTimeout(hideControlsTimeout);
 				hideControlsTimeout = setTimeout(() => {
 					if (document.fullscreenElement) {
-						document.querySelector(".controls").style.opacity = "0.3";
-						document.querySelector(".slide-title").style.opacity = "0.3";
-						document.querySelector(".keyboard-hint").style.opacity = "0";
+						document.querySelector(".navigation-controls").style.opacity = "0.3";
 						document.querySelector(".zoom-controls").style.opacity = "0.3";
 					}
 				}, 3000);
@@ -572,12 +635,24 @@
 			document.addEventListener("mousemove", resetHideControls);
 			document.addEventListener("keydown", resetHideControls);
 
+			// Escuchar mensajes del iframe del índice para navegación
+			window.addEventListener("message", function(event) {
+				// Verificar que el mensaje venga de un origen válido (mismo dominio o local)
+				if (event.data && event.data.type === 'navigateToSlide') {
+					const targetSlide = event.data.slideIndex;
+					
+					// Validar que el índice de diapositiva es válido
+					if (targetSlide >= 0 && targetSlide < totalSlides) {
+						console.log(`Navegando a diapositiva ${targetSlide} desde índice`);
+						goToSlide(targetSlide);
+					} else {
+						console.warn(`Índice de diapositiva inválido: ${targetSlide}`);
+					}
+				}
+			});
+
 			// Estilo para transiciones suaves
-			document.querySelector(".controls").style.transition =
-				"opacity 0.3s ease";
-			document.querySelector(".slide-title").style.transition =
-				"opacity 0.3s ease";
-			document.querySelector(".keyboard-hint").style.transition =
+			document.querySelector(".navigation-controls").style.transition =
 				"opacity 0.3s ease";
 			document.querySelector(".zoom-controls").style.transition =
 				"opacity 0.3s ease";

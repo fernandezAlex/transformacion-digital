@@ -28,7 +28,8 @@
 				min-height: 1080px;
 				position: relative;
 				background-color: #ffffff;
-				overflow: hidden;
+				overflow: hidden;	
+				box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 			}
 			.accent-yellow {
 				background-color: #ffd100;
@@ -145,13 +146,13 @@
 			<div class="corner-accent bottom-left"></div>
 
 			<!-- Main content -->
-			<div class="pt-4 px-4 pb-0 relative z-10">
+			<div class="pt-2 px-4 pb-0 relative z-10">
 				<!-- Title -->
-				<div class="mb-10">
+				<div class="mb-4">
 					<h1 class="text-5xl font-bold section-title">
 						<span class="text-brand-blue">Customer</span> Journey
 					</h1>
-					<p class="text-gray-600 mt-4 text-xl max-w-4xl">
+					<p class="text-gray-600 mt-2 text-lg max-w-4xl">
 						Mapa del recorrido del cliente para AFA Creations: análisis de cada
 						etapa con sus canales, emociones y métricas clave para optimizar la
 						experiencia.
@@ -159,271 +160,245 @@
 				</div>
 
 				<!-- Journey Map -->
-				<div class="mt-10">
+				<div class="mt-4">
 					<!-- Journey Stages -->
-					<div class="grid grid-cols-5 gap-6 mb-4">
+					<div class="grid grid-cols-5 gap-4 mb-3">
 						<!-- Discovery Stage -->
 						<div
-							class="journey-stage bg-white rounded-lg shadow-md p-6 border-t-4 border-brand-blue"
+							class="journey-stage bg-white rounded-lg shadow-md p-4 border-t-4 border-brand-blue"
 						>
-							<div class="text-center mb-4">
+							<div class="text-center mb-3">
 								<div
-									class="w-16 h-16 rounded-full bg-brand-blue mx-auto mb-3 flex items-center justify-center"
+									class="w-12 h-12 rounded-full bg-brand-blue mx-auto mb-2 flex items-center justify-center"
 								>
-									<i class="fas fa-search text-white text-2xl"></i>
+									<i class="fas fa-search text-white text-lg"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Descubrimiento</h3>
+								<h3 class="text-lg font-semibold">Descubrimiento</h3>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Canales</h4>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Canales</h4>
 								<div class="flex flex-wrap">
-									<span class="channel-badge bg-blue-100 text-blue-700">
+									<span class="channel-badge bg-blue-100 text-blue-700 text-xs px-2 py-1">
 										<i class="fab fa-instagram mr-1"></i> Reels IG
 									</span>
-									<span class="channel-badge bg-yellow-100 text-yellow-700">
+									<span class="channel-badge bg-yellow-100 text-yellow-700 text-xs px-2 py-1">
 										<i class="fas fa-comment-dots mr-1"></i> Boca-oreja
 									</span>
 								</div>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Emoción</h4>
-								<div class="emotion-icon bg-blue-100 text-blue-500">
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Emoción</h4>
+								<div class="emotion-icon bg-blue-100 text-blue-500 w-8 h-8">
 									<i class="fas fa-lightbulb"></i>
 								</div>
-								<p class="text-center font-medium">Curiosidad</p>
+								<p class="text-center font-medium text-sm">Curiosidad</p>
 							</div>
 
 							<div>
-								<h4 class="text-sm uppercase text-gray-500 mb-2">KPI</h4>
-								<div class="bg-gray-50 p-3 rounded-lg">
-									<div class="flex justify-between items-center">
-										<span>CTR</span>
-										<span class="font-bold text-brand-blue">2%</span>
-									</div>
+								<h4 class="text-xs uppercase text-gray-500 mb-1">KPI</h4>
+								<div class="bg-gray-50 p-2 rounded-lg">
+									<p class="text-xs font-medium">Alcance orgánico</p>
+									<p class="text-xs text-gray-600">+5K views/mes</p>
 								</div>
-							</div>
-
-							<div class="mt-4 pt-4 border-t border-gray-100">
-								<p class="text-sm text-gray-600">
-									Ve post en Instagram sobre Kit Digital
-								</p>
 							</div>
 						</div>
 
 						<!-- Consideration Stage -->
 						<div
-							class="journey-stage bg-white rounded-lg shadow-md p-6 border-t-4 border-brand-yellow"
+							class="journey-stage bg-white rounded-lg shadow-md p-4 border-t-4 border-brand-yellow"
 						>
-							<div class="text-center mb-4">
+							<div class="text-center mb-3">
 								<div
-									class="w-16 h-16 rounded-full bg-brand-yellow mx-auto mb-3 flex items-center justify-center"
+									class="w-12 h-12 rounded-full bg-brand-yellow mx-auto mb-2 flex items-center justify-center"
 								>
-									<i class="fas fa-list-ul text-gray-800 text-2xl"></i>
+									<i class="fas fa-list-ul text-gray-800 text-lg"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Consideración</h3>
+								<h3 class="text-lg font-semibold">Consideración</h3>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Canales</h4>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Canales</h4>
 								<div class="flex flex-wrap">
-									<span class="channel-badge bg-blue-100 text-blue-700">
+									<span class="channel-badge bg-blue-100 text-blue-700 text-xs px-2 py-1">
 										<i class="fas fa-blog mr-1"></i> Blog casos
 									</span>
-									<span class="channel-badge bg-yellow-100 text-yellow-700">
+									<span class="channel-badge bg-yellow-100 text-yellow-700 text-xs px-2 py-1">
 										<i class="fas fa-video mr-1"></i> Demo video
 									</span>
 								</div>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Emoción</h4>
-								<div class="emotion-icon bg-yellow-100 text-yellow-500">
-									<i class="fas fa-smile"></i>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Emoción</h4>
+								<div class="emotion-icon bg-yellow-100 text-yellow-600 w-8 h-8">
+									<i class="fas fa-balance-scale"></i>
 								</div>
-								<p class="text-center font-medium">Interés</p>
+								<p class="text-center font-medium text-sm">Evaluación</p>
 							</div>
 
 							<div>
-								<h4 class="text-sm uppercase text-gray-500 mb-2">KPI</h4>
-								<div class="bg-gray-50 p-3 rounded-lg">
-									<div class="flex justify-between items-center">
-										<span>Tiempo en página</span>
-										<span class="font-bold text-brand-blue">2 min</span>
-									</div>
+								<h4 class="text-xs uppercase text-gray-500 mb-1">KPI</h4>
+								<div class="bg-gray-50 p-2 rounded-lg">
+									<p class="text-xs font-medium">Tiempo página</p>
+									<p class="text-xs text-gray-600">3.5 min promedio</p>
 								</div>
-							</div>
-
-							<div class="mt-4 pt-4 border-t border-gray-100">
-								<p class="text-sm text-gray-600">
-									Visita afacreations.com y descarga catálogo
-								</p>
 							</div>
 						</div>
 
 						<!-- Decision Stage -->
 						<div
-							class="journey-stage bg-white rounded-lg shadow-md p-6 border-t-4 border-brand-blue"
+							class="journey-stage bg-white rounded-lg shadow-md p-4 border-t-4 border-green-500"
 						>
-							<div class="text-center mb-4">
+							<div class="text-center mb-3">
 								<div
-									class="w-16 h-16 rounded-full bg-brand-blue mx-auto mb-3 flex items-center justify-center"
+									class="w-12 h-12 rounded-full bg-green-500 mx-auto mb-2 flex items-center justify-center"
 								>
-									<i class="fas fa-handshake text-white text-2xl"></i>
+									<i class="fas fa-handshake text-white text-lg"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Decisión</h3>
+								<h3 class="text-lg font-semibold">Decisión</h3>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Canales</h4>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Canales</h4>
 								<div class="flex flex-wrap">
-									<span class="channel-badge bg-blue-100 text-blue-700">
-										<i class="fas fa-video-camera mr-1"></i> Videollamada
+									<span class="channel-badge bg-green-100 text-green-700 text-xs px-2 py-1">
+										<i class="fas fa-comments mr-1"></i> Consulta
 									</span>
-									<span class="channel-badge bg-yellow-100 text-yellow-700">
-										<i class="fas fa-file-pdf mr-1"></i> Propuesta PDF
+									<span class="channel-badge bg-blue-100 text-blue-700 text-xs px-2 py-1">
+										<i class="fas fa-file-alt mr-1"></i> Propuesta
 									</span>
 								</div>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Emoción</h4>
-								<div class="emotion-icon bg-blue-100 text-blue-500">
-									<i class="fas fa-thumbs-up"></i>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Emoción</h4>
+								<div class="emotion-icon bg-green-100 text-green-600 w-8 h-8">
+									<i class="fas fa-check-circle"></i>
 								</div>
-								<p class="text-center font-medium">Confianza</p>
+								<p class="text-center font-medium text-sm">Confianza</p>
 							</div>
 
 							<div>
-								<h4 class="text-sm uppercase text-gray-500 mb-2">KPI</h4>
-								<div class="bg-gray-50 p-3 rounded-lg">
-									<div class="flex justify-between items-center">
-										<span>Tasa cierre</span>
-										<span class="font-bold text-brand-blue">25%</span>
-									</div>
+								<h4 class="text-xs uppercase text-gray-500 mb-1">KPI</h4>
+								<div class="bg-gray-50 p-2 rounded-lg">
+									<p class="text-xs font-medium">Tasa conversión</p>
+									<p class="text-xs text-gray-600">26% consultas</p>
 								</div>
-							</div>
-
-							<div class="mt-4 pt-4 border-t border-gray-100">
-								<p class="text-sm text-gray-600">
-									Reunión por Google Meet y recibe propuesta
-								</p>
 							</div>
 						</div>
 
-						<!-- Service Stage -->
+						<!-- Action Stage -->
 						<div
-							class="journey-stage bg-white rounded-lg shadow-md p-6 border-t-4 border-brand-yellow"
+							class="journey-stage bg-white rounded-lg shadow-md p-4 border-t-4 border-purple-500"
 						>
-							<div class="text-center mb-4">
+							<div class="text-center mb-3">
 								<div
-									class="w-16 h-16 rounded-full bg-brand-yellow mx-auto mb-3 flex items-center justify-center"
+									class="w-12 h-12 rounded-full bg-purple-500 mx-auto mb-2 flex items-center justify-center"
 								>
-									<i class="fas fa-laptop-code text-gray-800 text-2xl"></i>
+									<i class="fas fa-shopping-cart text-white text-lg"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Servicio</h3>
+								<h3 class="text-lg font-semibold">Acción</h3>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Canales</h4>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Canales</h4>
 								<div class="flex flex-wrap">
-									<span class="channel-badge bg-blue-100 text-blue-700">
-										<i class="fab fa-whatsapp mr-1"></i> WhatsApp
+									<span class="channel-badge bg-purple-100 text-purple-700 text-xs px-2 py-1">
+										<i class="fas fa-pen-to-square mr-1"></i> Contrato
 									</span>
-									<span class="channel-badge bg-yellow-100 text-yellow-700">
-										<i class="fab fa-google-drive mr-1"></i> Drive
+									<span class="channel-badge bg-green-100 text-green-700 text-xs px-2 py-1">
+										<i class="fas fa-credit-card mr-1"></i> Pago
 									</span>
 								</div>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Emoción</h4>
-								<div class="emotion-icon bg-yellow-100 text-yellow-500">
-									<i class="fas fa-shield-alt"></i>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Emoción</h4>
+								<div class="emotion-icon bg-purple-100 text-purple-600 w-8 h-8">
+									<i class="fas fa-rocket"></i>
 								</div>
-								<p class="text-center font-medium">Seguridad</p>
+								<p class="text-center font-medium text-sm">Expectativa</p>
 							</div>
 
 							<div>
-								<h4 class="text-sm uppercase text-gray-500 mb-2">KPI</h4>
-								<div class="bg-gray-50 p-3 rounded-lg">
-									<div class="flex justify-between items-center">
-										<span>SLA respuesta</span>
-										<span class="font-bold text-brand-blue">< 24h</span>
-									</div>
+								<h4 class="text-xs uppercase text-gray-500 mb-1">KPI</h4>
+								<div class="bg-gray-50 p-2 rounded-lg">
+									<p class="text-xs font-medium">Valor promedio</p>
+									<p class="text-xs text-gray-600">1.200€ proyecto</p>
 								</div>
-							</div>
-
-							<div class="mt-4 pt-4 border-t border-gray-100">
-								<p class="text-sm text-gray-600">
-									Firma contrato y entrega contenidos vía Drive
-								</p>
 							</div>
 						</div>
 
 						<!-- Retention Stage -->
 						<div
-							class="journey-stage bg-white rounded-lg shadow-md p-6 border-t-4 border-brand-blue"
+							class="journey-stage bg-white rounded-lg shadow-md p-4 border-t-4 border-red-500"
 						>
-							<div class="text-center mb-4">
+							<div class="text-center mb-3">
 								<div
-									class="w-16 h-16 rounded-full bg-brand-blue mx-auto mb-3 flex items-center justify-center"
+									class="w-12 h-12 rounded-full bg-red-500 mx-auto mb-2 flex items-center justify-center"
 								>
-									<i class="fas fa-heart text-white text-2xl"></i>
+									<i class="fas fa-heart text-white text-lg"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Retención</h3>
+								<h3 class="text-lg font-semibold">Retención</h3>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Canales</h4>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Canales</h4>
 								<div class="flex flex-wrap">
-									<span class="channel-badge bg-blue-100 text-blue-700">
-										<i class="fas fa-envelope mr-1"></i> Newsletter IA
+									<span class="channel-badge bg-orange-100 text-orange-700 text-xs px-2 py-1">
+										<i class="fas fa-headset mr-1"></i> Soporte
 									</span>
-									<span class="channel-badge bg-yellow-100 text-yellow-700">
-										<i class="fas fa-robot mr-1"></i> Chatbot
+									<span class="channel-badge bg-blue-100 text-blue-700 text-xs px-2 py-1">
+										<i class="fas fa-envelope mr-1"></i> Follow-up
 									</span>
 								</div>
 							</div>
 
-							<div class="mb-4">
-								<h4 class="text-sm uppercase text-gray-500 mb-2">Emoción</h4>
-								<div class="emotion-icon bg-blue-100 text-blue-500">
-									<i class="fas fa-grin-stars"></i>
+							<div class="mb-3">
+								<h4 class="text-xs uppercase text-gray-500 mb-1">Emoción</h4>
+								<div class="emotion-icon bg-orange-100 text-orange-600 w-8 h-8">
+									<i class="fas fa-smile"></i>
 								</div>
-								<p class="text-center font-medium">Satisfacción</p>
+								<p class="text-center font-medium text-sm">Satisfacción</p>
 							</div>
 
 							<div>
-								<h4 class="text-sm uppercase text-gray-500 mb-2">KPI</h4>
-								<div class="bg-gray-50 p-3 rounded-lg">
-									<div class="flex justify-between items-center">
-										<span>NPS</span>
-										<span class="font-bold text-brand-blue">≥ 70</span>
-									</div>
+								<h4 class="text-xs uppercase text-gray-500 mb-1">KPI</h4>
+								<div class="bg-gray-50 p-2 rounded-lg">
+									<p class="text-xs font-medium">CSAT Score</p>
+									<p class="text-xs text-gray-600">94% satisfacción</p>
 								</div>
-							</div>
-
-							<div class="mt-4 pt-4 border-t border-gray-100">
-								<p class="text-sm text-gray-600">
-									Formación 1h + soporte 24h chatbot
-								</p>
 							</div>
 						</div>
 					</div>
 
-					<!-- Journey Progress Line -->
-					<div class="flex items-center justify-between mb-16 px-12">
-						<div class="w-32 h-1.5 bg-brand-blue rounded-full"></div>
-						<div class="flex-1 journey-connector"></div>
-						<div class="w-32 h-1.5 bg-brand-yellow rounded-full"></div>
-						<div class="flex-1 journey-connector"></div>
-						<div class="w-32 h-1.5 bg-brand-blue rounded-full"></div>
-						<div class="flex-1 journey-connector"></div>
-						<div class="w-32 h-1.5 bg-brand-yellow rounded-full"></div>
-						<div class="flex-1 journey-connector"></div>
-						<div class="w-32 h-1.5 bg-brand-blue rounded-full"></div>
+					<!-- Journey Connectors -->
+					<div class="grid grid-cols-4 gap-4 mb-4">
+						<div class="journey-connector"></div>
+						<div class="journey-connector"></div>
+						<div class="journey-connector"></div>
+						<div class="journey-connector"></div>
+					</div>
+
+					<!-- Bottom insights -->
+					<div class="bg-gray-50 p-4 rounded-lg">
+						<h3 class="font-semibold text-brand-blue mb-2 flex items-center">
+							<i class="fas fa-lightbulb mr-2"></i>
+							Insights Clave del Journey
+						</h3>
+						<div class="grid grid-cols-3 gap-4 text-sm">
+							<div>
+								<strong>Pain Points:</strong> Tiempo de respuesta inicial y comprensión técnica del cliente en fase de evaluación
+							</div>
+							<div>
+								<strong>Oportunidades:</strong> Automatizar seguimiento post-proyecto y crear programa referidos
+							</div>
+							<div>
+								<strong>Optimizaciones:</strong> Chatbot IA para consultas rápidas y dashboard cliente en tiempo real
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -487,7 +462,6 @@
 				<div
 					class="absolute bottom-8 right-8 bg-gray-100 px-4 py-2 rounded-full"
 				>
-					<span class="text-sm font-medium">09</span>
 				</div>
 			</div>
 		</div>

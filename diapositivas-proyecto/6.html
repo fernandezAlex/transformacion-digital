@@ -29,6 +29,7 @@
 				position: relative;
 				background-color: #ffffff;
 				overflow: hidden;
+				box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 			}
 			.accent-yellow {
 				background-color: #ffd100;
@@ -152,18 +153,18 @@
 			<!-- Main content -->
 			<div class="pt-2 px-4 pb-0 relative z-10">
 				<!-- Title -->
-				<div class="mb-4">
+				<div class="mb-2">
 					<h1 class="text-5xl font-bold section-title">
 						<span class="text-brand-blue">Análisis Macro:</span> PESTEL
 					</h1>
 				</div>
 
 				<!-- PESTEL Analysis Cards -->
-				<div class="grid grid-cols-3 gap-4 mt-2">
+				<div class="grid grid-cols-3 gap-3 mt-12">
 					<!-- Political -->
 					<div class="pestel-card">
-						<div class="bg-gray-50 p-2 flex items-center text-center">
-							<div class="pestel-icon bg-political mr-3 w-10 h-10 text-sm">
+						<div class="bg-gray-50 p-2 flex items-center">
+							<div class="pestel-icon bg-political mr-2 w-8 h-8 text-lg">
 								<i class="fas fa-landmark"></i>
 							</div>
 							<h3 class="text-lg font-semibold text-gray-800">
@@ -172,7 +173,7 @@
 						</div>
 						<div class="p-3">
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
+								<div class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
 									<i class="fas fa-check text-blue-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
@@ -182,7 +183,7 @@
 								</p>
 							</div>
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
+								<div class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
 									<i class="fas fa-check text-blue-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
@@ -198,10 +199,10 @@
 						</div>
 					</div>
 
-					<!-- Economical -->
+					<!-- Economic -->
 					<div class="pestel-card">
-						<div class="bg-gray-50 p-2 flex items-center text-center">
-							<div class="pestel-icon bg-economical mr-3 w-10 h-10 text-sm">
+						<div class="bg-gray-50 p-2 flex items-center">
+							<div class="pestel-icon bg-economical mr-2 w-8 h-8 text-lg">
 								<i class="fas fa-chart-line"></i>
 							</div>
 							<h3 class="text-lg font-semibold text-gray-800">
@@ -210,63 +211,59 @@
 						</div>
 						<div class="p-3">
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-									<i class="fas fa-check text-yellow-600 text-xs"></i>
+								<div class="w-5 h-5 rounded-full bg-yellow-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+									<i class="fas fa-exclamation text-yellow-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Crecimiento
-									<span class="font-semibold">+6% interanual</span> en gasto de
-									microempresas en marketing digital
+									Crisis económica global reduce presupuestos de marketing
 								</p>
 							</div>
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-									<i class="fas fa-check text-yellow-600 text-xs"></i>
+								<div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+									<i class="fas fa-check text-green-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Presión sobre precios debido a inflación, pero oportunidad en
-									servicios paquetizados
+									Mayor demanda de soluciones digitales económicas
 								</p>
 							</div>
 							<div class="bg-yellow-50 p-2 mt-2 rounded-lg">
 								<p class="font-medium text-yellow-800 text-xs">
-									Estrategia: Ofertar packs de servicios con valor añadido
+									Estrategia: Paquetes económicos y financiación
 								</p>
 							</div>
 						</div>
 					</div>
 
 					<!-- Social -->
-					<div class="pestel-card">
-						<div class="bg-gray-50 p-2 flex items-center text-center">
-							<div class="pestel-icon bg-social mr-3 w-10 h-10 text-sm">
+					<div class="pestel-card mt-4">
+						<div class="bg-gray-50 p-2 flex items-center">
+							<div class="pestel-icon bg-social mr-2 w-8 h-8 text-lg">
 								<i class="fas fa-users"></i>
 							</div>
-							<h3 class="text-lg font-semibold text-gray-800">Social</h3>
+							<h3 class="text-lg font-semibold text-gray-800">
+								Social
+							</h3>
 						</div>
 						<div class="p-3">
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
+								<div class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
 									<i class="fas fa-check text-blue-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Consumidores
-									<span class="font-semibold">hiperinformados</span> que exigen
-									experiencias online rápidas y confiables
+									Cambio generacional: preferencia por servicios online
 								</p>
 							</div>
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
+								<div class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
 									<i class="fas fa-check text-blue-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Las pymes sienten urgencia por modernizarse para competir con
-									grandes cadenas
+									Mayor conciencia sobre la presencia digital
 								</p>
 							</div>
 							<div class="bg-blue-50 p-2 mt-2 rounded-lg">
 								<p class="font-medium text-blue-800 text-xs">
-									Táctica: Pequeñas demostraciones gratuitas en video
+									Ventaja: Targeting específico por generaciones
 								</p>
 							</div>
 						</div>
@@ -274,8 +271,8 @@
 
 					<!-- Technological -->
 					<div class="pestel-card">
-						<div class="bg-gray-50 p-2 flex items-center text-center">
-							<div class="pestel-icon bg-technological mr-3 w-10 h-10 text-sm">
+						<div class="bg-gray-50 p-2 flex items-center">
+							<div class="pestel-icon bg-technological mr-2 w-8 h-8 text-lg">
 								<i class="fas fa-microchip"></i>
 							</div>
 							<h3 class="text-lg font-semibold text-gray-800">
@@ -284,27 +281,25 @@
 						</div>
 						<div class="p-3">
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-									<i class="fas fa-check text-yellow-600 text-xs"></i>
+								<div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+									<i class="fas fa-rocket text-green-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Madurez de
-									<span class="font-semibold">IA generativa</span> reduce
-									tiempos de producción y abre nuevas oportunidades
+									<span class="font-semibold">IA generativa</span> revoluciona
+									desarrollo web y diseño
 								</p>
 							</div>
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-									<i class="fas fa-check text-yellow-600 text-xs"></i>
+								<div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+									<i class="fas fa-rocket text-green-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Nuevos servicios como chatbots y generación automatizada de
-									contenidos
+									No-code/low-code democratiza desarrollo
 								</p>
 							</div>
 							<div class="bg-yellow-50 p-2 mt-2 rounded-lg">
 								<p class="font-medium text-yellow-800 text-xs">
-									Ventaja: Uso de IA para ofrecer servicios diferenciales
+									Innovación: Integrar IA en nuestros procesos
 								</p>
 							</div>
 						</div>
@@ -312,36 +307,34 @@
 
 					<!-- Environmental -->
 					<div class="pestel-card">
-						<div class="bg-gray-50 p-2 flex items-center text-center">
-							<div class="pestel-icon bg-environmental mr-3 w-10 h-10 text-sm">
+						<div class="bg-gray-50 p-2 flex items-center">
+							<div class="pestel-icon bg-environmental mr-2 w-8 h-8 text-lg">
 								<i class="fas fa-leaf"></i>
 							</div>
 							<h3 class="text-lg font-semibold text-gray-800">
-								Ecológico
+								Ambiental
 							</h3>
 						</div>
 						<div class="p-3">
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-									<i class="fas fa-check text-blue-600 text-xs"></i>
+								<div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+									<i class="fas fa-check text-green-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Preferencia creciente por proveedores con
-									<span class="font-semibold">prácticas sostenibles</span>
+									Mayor conciencia sobre sustentabilidad digital
 								</p>
 							</div>
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-									<i class="fas fa-check text-blue-600 text-xs"></i>
+								<div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+									<i class="fas fa-check text-green-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Oportunidad de destacar diseños eco-friendly y servidores con
-									huella neutra
+									Demanda de hosting verde y optimización
 								</p>
 							</div>
-							<div class="bg-blue-50 p-2 mt-2 rounded-lg">
-								<p class="font-medium text-blue-800 text-xs">
-									Propuesta: Hosting con energía renovable para clientes
+							<div class="bg-green-50 p-2 mt-2 rounded-lg">
+								<p class="font-medium text-green-800 text-xs">
+									Valor: Webs optimizadas = menor huella carbono
 								</p>
 							</div>
 						</div>
@@ -349,43 +342,74 @@
 
 					<!-- Legal -->
 					<div class="pestel-card">
-						<div class="bg-gray-50 p-2 flex items-center text-center">
-							<div class="pestel-icon bg-legal mr-3 w-10 h-10 text-sm">
+						<div class="bg-gray-50 p-2 flex items-center">
+							<div class="pestel-icon bg-legal mr-2 w-8 h-8 text-lg">
 								<i class="fas fa-gavel"></i>
 							</div>
-							<h3 class="text-lg font-semibold text-gray-800">Legal</h3>
+							<h3 class="text-lg font-semibold text-gray-800">
+								Legal
+							</h3>
 						</div>
 						<div class="p-3">
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-									<i class="fas fa-check text-yellow-600 text-xs"></i>
+								<div class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+									<i class="fas fa-shield-alt text-red-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									Reglamentos de protección de datos
-									<span class="font-semibold">(RGPD)</span> y cookies obligan a
-									las pymes a tener sitios web conformes
+									<span class="font-semibold">RGPD</span> y normativas de
+									privacidad más estrictas
 								</p>
 							</div>
 							<div class="flex items-start mb-2">
-								<div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-									<i class="fas fa-check text-yellow-600 text-xs"></i>
+								<div class="w-5 h-5 rounded-full bg-yellow-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+									<i class="fas fa-exclamation text-yellow-600 text-xs"></i>
 								</div>
 								<p class="text-gray-700 text-sm">
-									AFA Creations provee cumplimiento legal europeo "llave en
-									mano"
+									Regulación de IA y cookies en desarrollo
 								</p>
 							</div>
 							<div class="bg-yellow-50 p-2 mt-2 rounded-lg">
 								<p class="font-medium text-yellow-800 text-xs">
-									Diferencial: Asesoramiento en adaptación a normativas
+									Necesidad: Conocimiento actualizado en compliance
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 
+				<!-- Bottom summary section -->
+				<div class="mt-8 bg-gradient-to-r from-blue-50 to-yellow-50 p-4 rounded-lg">
+					<div class="grid grid-cols-3 gap-4 text-center">
+						<div>
+							<h4 class="font-semibold text-brand-blue mb-1">
+								Oportunidades Clave
+							</h4>
+							<p class="text-sm text-gray-700">
+								Kit Digital + IA + Sustentabilidad
+							</p>
+						</div>
+						<div>
+							<h4 class="font-semibold text-brand-blue mb-1">
+								Desafíos Principales
+							</h4>
+							<p class="text-sm text-gray-700">
+								Crisis económica + Regulación compleja
+							</p>
+						</div>
+						<div>
+							<h4 class="font-semibold text-brand-blue mb-1">
+								Estrategia AFA
+							</h4>
+							<p class="text-sm text-gray-700">
+								Soluciones económicas + Compliance incluido
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
 				<!-- Bottom infographic -->
-				<div class="mt-4 text-center">
+				<div class="mt-8 text-center">
 					<p class="text-lg text-gray-700">
 						El análisis PESTEL muestra un
 						<span class="font-semibold text-brand-blue">entorno favorable</span>
@@ -400,7 +424,6 @@
 				<div
 					class="absolute bottom-8 right-8 bg-gray-100 px-4 py-2 rounded-full"
 				>
-					<span class="text-sm font-medium">06</span>
 				</div>
 			</div>
 		</div>

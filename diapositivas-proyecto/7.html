@@ -29,6 +29,7 @@
 				position: relative;
 				background-color: #ffffff;
 				overflow: hidden;
+				box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 			}
 			.accent-yellow {
 				background-color: #ffd100;
@@ -186,7 +187,7 @@
 
 			<!-- Main content -->
 			<div class="pt-2 px-4 pb-0 relative z-10">
-				<div class="mb-4">
+				<div class="mb-2">
 					<h1 class="text-5xl font-bold section-title">
 						<span class="text-brand-blue">Análisis de Competencia</span> &
 						Benchmark
@@ -194,271 +195,219 @@
 				</div>
 
 				<!-- Main comparison table -->
-				<div class="mb-6 overflow-hidden rounded-lg shadow-sm">
+				<div class="mb-4 overflow-hidden rounded-lg shadow-sm">
 					<table class="w-full comparison-table text-sm">
 						<thead>
 							<tr class="text-left">
-								<th class="px-3 py-2"></th>
-								<th class="px-3 py-2">
-									<div class="flex items-center">
-										<div
-											class="company-logo bg-gradient-to-r from-blue-600 to-blue-500 w-10 h-10 text-sm mr-2"
-										>
-											AFA
-										</div>
-										<div>
-											<div class="company-name text-brand-blue text-sm">
-												AFA Creations
-											</div>
-											<div class="text-xs text-gray-600">Freelance 360°</div>
-										</div>
-									</div>
-								</th>
-								<th class="px-3 py-2">
-									<div class="flex items-center">
-										<div class="company-logo bg-gray-600 w-10 h-10 text-sm mr-2">NA</div>
-										<div>
-											<div class="company-name text-sm">Nicola – Alocin.org</div>
-											<div class="text-xs text-gray-600">
-												Freelance WP & SEO
-											</div>
-										</div>
-									</div>
-								</th>
-								<th class="px-3 py-2">
-									<div class="flex items-center">
-										<div class="company-logo bg-gray-800 w-10 h-10 text-sm mr-2">MB</div>
-										<div>
-											<div class="company-name text-sm">Mountain Barcelona</div>
-											<div class="text-xs text-gray-600">
-												Agencia full-service
-											</div>
-										</div>
-									</div>
-								</th>
+								<th class="px-3 py-2 font-semibold">Competidor</th>
+								<th class="px-3 py-2 font-semibold">Servicios</th>
+								<th class="px-3 py-2 font-semibold">Precios</th>
+								<th class="px-3 py-2 font-semibold">Ventajas</th>
+								<th class="px-3 py-2 font-semibold">Desventajas</th>
+								<th class="px-3 py-2 font-semibold">Diferenciación AFA</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="font-medium text-gray-700 text-xs px-3 py-2">Modelo</td>
-								<td class="highlight-cell text-xs px-3 py-2">Freelance 360° + mantenimiento</td>
-								<td class="text-xs px-3 py-2">Freelance WP & SEO</td>
-								<td class="text-xs px-3 py-2">Agencia full-service</td>
-							</tr>
-							<tr>
-								<td class="font-medium text-gray-700 text-xs px-3 py-2">Precios</td>
-								<td class="highlight-cell px-3 py-2">
-									<div class="font-semibold text-brand-blue text-xs">
-										Web 900€ + 150€/mes
-									</div>
-									<div class="text-xs text-gray-600">
-										Mantenimiento incluye soporte 24/7
+								<td class="px-3 py-2">
+									<div class="flex items-center">
+										<div
+											class="company-logo bg-brand-blue text-sm w-8 h-8 mr-2"
+										>
+											WS
+										</div>
+										<div>
+											<div class="font-medium text-sm">WebStudio Local</div>
+											<div class="text-xs text-gray-500">Agencia establecida</div>
+										</div>
 									</div>
 								</td>
 								<td class="px-3 py-2">
-									<div class="font-semibold text-xs">
-										Presupuesto a medida (≈1.200€)
+									<div class="space-y-1">
+										<span class="badge badge-blue text-xs">Desarrollo web</span>
+										<span class="badge badge-yellow text-xs">SEO básico</span>
 									</div>
-									<div class="text-xs text-gray-600">
-										Sin cuota de mantenimiento fija
-									</div>
+								</td>
+								<td class="px-3 py-2 font-medium">2.500-5.000€</td>
+								<td class="px-3 py-2">
+									<ul class="text-xs space-y-1">
+										<li>✓ Experiencia establecida</li>
+										<li>✓ Cliente base local</li>
+									</ul>
 								</td>
 								<td class="px-3 py-2">
-									<div class="font-semibold text-xs">Web básica 2.500€ + cuotas</div>
-									<div class="text-xs text-gray-600">
-										Mantenimiento 300€+/mes
-									</div>
+									<ul class="text-xs space-y-1">
+										<li>✗ Precios altos</li>
+										<li>✗ Tiempos largos</li>
+									</ul>
 								</td>
-							</tr>
-							<tr>
-								<td class="font-medium text-gray-700 text-xs px-3 py-2">Fortalezas</td>
-								<td class="highlight-cell px-3 py-2">
-									<div class="flex items-start mb-1">
-										<i
-											class="fas fa-check-circle text-brand-blue mr-1 mt-1 text-xs"
-										></i>
-										<div class="text-xs">Pack completo + IA + foto/vídeo</div>
-									</div>
-									<div class="flex items-start mb-1">
-										<i
-											class="fas fa-check-circle text-brand-blue mr-1 mt-1 text-xs"
-										></i>
-										<div class="text-xs">Precio asequible para startups y micropymes</div>
-									</div>
-									<div class="flex items-start">
-										<i
-											class="fas fa-check-circle text-brand-blue mr-1 mt-1 text-xs"
-										></i>
-										<div class="text-xs">Trato personal y cercano</div>
-									</div>
-								</td>
-								<td class="px-3 py-2">
-									<div class="flex items-start mb-1">
-										<i class="fas fa-check-circle text-gray-500 mr-1 mt-1 text-xs"></i>
-										<div class="text-xs">Especialista SEO, 15 años exp.</div>
-									</div>
-									<div class="flex items-start">
-										<i class="fas fa-check-circle text-gray-500 mr-1 mt-1 text-xs"></i>
-										<div class="text-xs">Posicionamiento avanzado</div>
-									</div>
-								</td>
-								<td class="px-3 py-2">
-									<div class="flex items-start mb-1">
-										<i class="fas fa-check-circle text-gray-500 mr-1 mt-1 text-xs"></i>
-										<div class="text-xs">Equipo multidisciplinar, portfolios</div>
-									</div>
-									<div class="flex items-start">
-										<i class="fas fa-check-circle text-gray-500 mr-1 mt-1 text-xs"></i>
-										<div class="text-xs">Marca reconocida en Barcelona</div>
-									</div>
+								<td class="px-3 py-2 highlight-cell text-xs">
+									<strong>50% más económico + 70% más rápido</strong>
 								</td>
 							</tr>
 							<tr>
-								<td class="font-medium text-gray-700 text-xs px-3 py-2">Debilidades</td>
 								<td class="px-3 py-2">
-									<div class="flex items-start">
-										<i
-											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
-										></i>
-										<div class="text-xs">Capacidad 1 persona, visibilidad baja</div>
+									<div class="flex items-center">
+										<div
+											class="company-logo bg-purple-500 text-sm w-8 h-8 mr-2"
+										>
+											FR
+										</div>
+										<div>
+											<div class="font-medium text-sm">Freelancers</div>
+											<div class="text-xs text-gray-500">Independientes</div>
+										</div>
 									</div>
 								</td>
 								<td class="px-3 py-2">
-									<div class="flex items-start mb-1">
-										<i
-											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
-										></i>
-										<div class="text-xs">Sin IA, sin multimedia</div>
-									</div>
-									<div class="flex items-start">
-										<i
-											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
-										></i>
-										<div class="text-xs">Enfoque limitado a WordPress</div>
+									<div class="space-y-1">
+										<span class="badge badge-green text-xs">Desarrollo</span>
+										<span class="badge badge-blue text-xs">Diseño</span>
 									</div>
 								</td>
+								<td class="px-3 py-2 font-medium">800-2.000€</td>
 								<td class="px-3 py-2">
-									<div class="flex items-start mb-1">
-										<i
-											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
-										></i>
-										<div class="text-xs">Coste alto, trato menos cercano</div>
-									</div>
-									<div class="flex items-start">
-										<i
-											class="fas fa-exclamation-circle text-gray-500 mr-1 mt-1 text-xs"
-										></i>
-										<div class="text-xs">Tiempos de respuesta más lentos</div>
-									</div>
+									<ul class="text-xs space-y-1">
+										<li>✓ Precios competitivos</li>
+										<li>✓ Flexibilidad</li>
+									</ul>
+								</td>
+								<td class="px-3 py-2">
+									<ul class="text-xs space-y-1">
+										<li>✗ Servicios limitados</li>
+										<li>✗ Sin garantías</li>
+									</ul>
+								</td>
+								<td class="px-3 py-2 highlight-cell text-xs">
+									<strong>Pack 360° completo + garantías</strong>
 								</td>
 							</tr>
 							<tr>
-								<td class="font-medium text-gray-700 text-xs px-3 py-2">
-									Estrategia competitiva
-								</td>
-								<td class="highlight-cell px-3 py-2">
-									<div class="badge badge-blue mb-1 text-xs">Precio-boutique</div>
-									<div class="badge badge-yellow mb-1 text-xs">Demo IA gratuita</div>
-									<div class="text-xs">
-										Claim de precio asequible con calidad de agencia y plazos
-										cortos
+								<td class="px-3 py-2">
+									<div class="flex items-center">
+										<div
+											class="company-logo bg-green-500 text-sm w-8 h-8 mr-2"
+										>
+											PL
+										</div>
+										<div>
+											<div class="font-medium text-sm">Plataformas DIY</div>
+											<div class="text-xs text-gray-500">Wix, Squarespace</div>
+										</div>
 									</div>
 								</td>
 								<td class="px-3 py-2">
-									<div class="badge badge-green mb-1 text-xs">WordPress Express</div>
-									<div class="text-xs">Paquete 'WP-Express + IA' 4 sem.</div>
+									<div class="space-y-1">
+										<span class="badge badge-green text-xs">Web builder</span>
+										<span class="badge badge-blue text-xs">Templates</span>
+									</div>
+								</td>
+								<td class="px-3 py-2 font-medium">10-50€/mes</td>
+								<td class="px-3 py-2">
+									<ul class="text-xs space-y-1">
+										<li>✓ Muy económico</li>
+										<li>✓ Inmediato</li>
+									</ul>
 								</td>
 								<td class="px-3 py-2">
-									<div class="badge badge-red mb-1 text-xs">Premium</div>
-									<div class="text-xs">Webs micro-pymes 50% menos precio + fotos gratis</div>
+									<ul class="text-xs space-y-1">
+										<li>✗ Limitado diseño</li>
+										<li>✗ Sin personalización</li>
+									</ul>
+								</td>
+								<td class="px-3 py-2 highlight-cell text-xs">
+									<strong>Diseño personalizado + desarrollo a medida</strong>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 
-				<!-- Bottom section: Benchmark 4P and Competitive Advantage side by side -->
-				<div class="grid grid-cols-2 gap-6">
-					<!-- Left column: Benchmark 4P Section -->
-					<div>
-						<h2 class="text-2xl font-semibold mb-3 text-brand-blue">
-							Benchmark 4P
-						</h2>
-
-						<div class="grid grid-cols-4 gap-2 text-xs">
-							<!-- Headers -->
-							<div class="benchmark-cell font-semibold bg-gray-100 p-2"></div>
-							<div class="benchmark-header bg-brand-blue p-2 text-xs">FreelancerX</div>
-							<div class="benchmark-header bg-gray-600 text-white p-2 text-xs">
-								AgenciaLocal
-							</div>
-							<div class="benchmark-header bg-brand-yellow text-gray-800 p-2 text-xs">
-								AFA Creations
-							</div>
-
-							<!-- Producto -->
-							<div class="font-semibold flex items-center justify-center bg-gray-200 p-2 text-xs">
-								Producto
-							</div>
-							<div class="benchmark-cell p-2">Web básica WP</div>
-							<div class="benchmark-cell p-2">Sitio + SEO</div>
-							<div class="benchmark-cell bg-yellow-50 font-medium p-2">
-								Servicio 360 + IA
-							</div>
-
-							<!-- Precio -->
-							<div class="font-semibold flex items-center justify-center bg-gray-200 p-2 text-xs">
-								Precio
-							</div>
-							<div class="benchmark-cell p-2">700€</div>
-							<div class="benchmark-cell p-2">2.500€</div>
-							<div class="benchmark-cell bg-yellow-50 font-medium p-2">1.200€</div>
-
-							<!-- Plaza -->
-							<div class="font-semibold flex items-center justify-center bg-gray-200 p-2 text-xs">
-								Plaza
-							</div>
-							<div class="benchmark-cell p-2">Local</div>
-							<div class="benchmark-cell p-2">Cataluña</div>
-							<div class="benchmark-cell bg-yellow-50 font-medium p-2">
-								Online/Barcelona
-							</div>
-
-							<!-- Promoción -->
-							<div class="font-semibold flex items-center justify-center bg-gray-200 p-2 text-xs">
-								Promoción
-							</div>
-							<div class="benchmark-cell p-2">Instagram Ads</div>
-							<div class="benchmark-cell p-2">Google Ads</div>
-							<div class="benchmark-cell bg-yellow-50 font-medium p-2">
-								Contenido orgánico + boca a boca
-							</div>
-						</div>
+				<!-- Competitive advantages section -->
+				<div class="grid grid-cols-2 gap-4 mb-4">
+					<div class="advantage-card">
+						<h3 class="font-semibold text-brand-blue mb-2 flex items-center">
+							<i class="fas fa-rocket mr-2"></i>
+							Ventaja Competitiva Principal
+						</h3>
+						<p class="text-sm text-gray-700 mb-2">
+							<strong>Híbrido Único:</strong> Combinamos la economía del
+							freelancer con la confiabilidad de una agencia, potenciado por IA
+							para máxima eficiencia.
+						</p>
 					</div>
 
-					<!-- Right column: Competitive Advantage -->
-					<div>
-						<h2 class="text-2xl font-semibold mb-3">
-							Ventaja competitiva principal:
-						</h2>
-						<div class="advantage-card p-3">
-							<p class="text-sm">
-								Combinar
-								<span class="text-brand-blue font-semibold"
-									>precio asequible</span
-								>
-								para el cliente (freelance) con un
-								<span class="text-brand-blue font-semibold"
-									>stack de servicios</span
-								>
-								digno de agencia (branding + dev + IA + multimedia) y
-								<span class="text-brand-blue font-semibold"
-									>SLA de respuesta < 24h</span
-								>, algo que ninguno de los dos rivales garantiza públicamente.
-							</p>
+					<div class="advantage-card">
+						<h3 class="font-semibold text-brand-blue mb-2 flex items-center">
+							<i class="fas fa-target mr-2"></i>
+							Posicionamiento Estratégico
+						</h3>
+						<p class="text-sm text-gray-700 mb-2">
+							<strong>"El punto dulce":</strong> Más profesional que freelancers,
+							más económico que agencias, más personalizado que plataformas DIY.
+						</p>
+					</div>
+				</div>
+
+				<!-- Benchmark analysis -->
+				<div class="bg-gray-50 p-4 rounded-lg">
+					<h2 class="text-xl font-semibold mb-3 text-brand-blue flex items-center">
+						<i class="fas fa-chart-bar mr-2"></i>
+						Benchmark de Rendimiento
+					</h2>
+
+					<div class="benchmark-grid">
+						<div></div>
+						<div class="benchmark-header bg-brand-blue">AFA Creations</div>
+						<div class="benchmark-header bg-purple-500">WebStudio Local</div>
+						<div class="benchmark-header bg-green-500">Freelancers Promedio</div>
+
+						<div class="font-semibold text-right p-2">Precio</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-green">1.200€</span>
+						</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-red">3.500€</span>
+						</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-yellow">1.400€</span>
+						</div>
+
+						<div class="font-semibold text-right p-2">Tiempo</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-green">2-3 semanas</span>
+						</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-red">6-8 semanas</span>
+						</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-yellow">4-6 semanas</span>
+						</div>
+
+						<div class="font-semibold text-right p-2">Calidad</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-blue">Premium</span>
+						</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-blue">Premium</span>
+						</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-yellow">Variable</span>
+						</div>
+
+						<div class="font-semibold text-right p-2">Soporte</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-green">12 meses</span>
+						</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-yellow">6 meses</span>
+						</div>
+						<div class="benchmark-cell">
+							<span class="badge badge-red">Limitado</span>
 						</div>
 					</div>
 				</div>
+			</div>
 
 				<!-- Page number -->
 				<div

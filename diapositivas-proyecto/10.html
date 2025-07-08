@@ -29,6 +29,7 @@
 				position: relative;
 				background-color: #ffffff;
 				overflow: hidden;
+				box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 			}
 			.accent-yellow {
 				background-color: #ffd100;
@@ -67,10 +68,10 @@
 			.section-title::after {
 				content: "";
 				display: block;
-				width: 80px;
-				height: 4px;
+				width: 100px;
+				height: 6px;
 				background-color: #ffd100;
-				margin-top: 10px;
+				margin-top: 16px;
 			}
 			.corner-accent {
 				position: absolute;
@@ -95,42 +96,43 @@
 			}
 			.swot-card {
 				transition: all 0.3s ease;
-				border-radius: 10px;
+				border-radius: 16px;
 				height: 100%;
+				padding-bottom: 12px;
 			}
 			.swot-card:hover {
 				transform: translateY(-5px);
 				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 			}
 			.swot-icon {
-				width: 60px;
-				height: 60px;
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				border-radius: 50%;
-				color: white;
-				font-size: 24px;
-				margin-bottom: 15px;
+				font-size: 32px;
+				margin-bottom: 20px;
 			}
 			.vuca-card {
-				border-radius: 10px;
+				border-radius: 16px;
 				transition: all 0.3s ease;
 				overflow: hidden;
+				padding-bottom: 8px;
 			}
 			.vuca-card:hover {
 				transform: translateY(-3px);
 				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 			}
 			.vuca-icon {
-				width: 50px;
-				height: 50px;
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				border-radius: 50%;
-				font-size: 20px;
-				margin-right: 15px;
+				font-size: 28px;
+				margin-right: 18px;
 			}
 		</style>
 	</head>
@@ -143,127 +145,110 @@
 			<div class="corner-accent bottom-left"></div>
 
 			<!-- Main content -->
-			<div class="pt-4 px-4 pb-0 relative z-10">
+			<div class="pt-4 px-8 pb-8 relative z-10">
 				<div class="mb-8">
 					<h1 class="text-5xl font-bold section-title">
-						<span class="text-brand-blue">Análisis Estratégico:</span> SWOT &
-						VUCA
+						<span class="text-brand-blue">Análisis Estratégico:</span> SWOT & VUCA
 					</h1>
 				</div>
 
-				<!-- SWOT Analysis Matrix -->
-				<div class="grid grid-cols-2 gap-6 mb-12">
+				<!-- SWOT Analysis Matrix - 4 columns in one row -->
+				<div class="grid grid-cols-4 gap-8 mb-8">
 					<!-- Fortalezas -->
 					<div
-						class="swot-card bg-white shadow-md border-t-4 border-brand-blue p-6"
+						class="swot-card bg-white shadow-md border-t-4 border-brand-blue p-3"
 					>
-						<div class="flex items-center mb-4">
-							<div class="swot-icon bg-brand-blue">
-								<i class="fas fa-fist-raised"></i>
+						<div class="flex items-center mb-2">
+							<div class="swot-icon bg-brand-blue w-6 h-6 rounded-full flex items-center justify-center">
+								<i class="fas fa-fist-raised text-sm"></i>
 							</div>
-							<h2 class="text-2xl font-semibold ml-4">Fortalezas</h2>
+							<h2 class="text-xl font-bold ml-4">Fortalezas</h2>
 						</div>
-						<ul class="space-y-3">
+						<ul class="space-y-1">
 							<li class="flex items-start">
-								<i class="fas fa-check-circle text-brand-blue mr-3 mt-1"></i>
-								<span class="text-gray-700"
+								<i class="fas fa-check-circle text-brand-blue mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base"
 									>Amplio skill-set (dev + diseño)</span
 								>
 							</li>
 							<li class="flex items-start">
-								<i class="fas fa-check-circle text-brand-blue mr-3 mt-1"></i>
-								<span class="text-gray-700"
+								<i class="fas fa-check-circle text-brand-blue mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base"
 									>Coste competitivo / Tiempo de entrega rápido</span
 								>
 							</li>
 							<li class="flex items-start">
-								<i class="fas fa-check-circle text-brand-blue mr-3 mt-1"></i>
-								<span class="text-gray-700">Uso de IA para eficiencia</span>
+								<i class="fas fa-check-circle text-brand-blue mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">Uso de IA para eficiencia</span>
 							</li>
 							<li class="flex items-start">
-								<i class="fas fa-check-circle text-brand-blue mr-3 mt-1"></i>
-								<span class="text-gray-700"
+								<i class="fas fa-check-circle text-brand-blue mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base"
 									>Pack 360° completo de servicios</span
 								>
-							</li>
-							<li class="flex items-start">
-								<i class="fas fa-check-circle text-brand-blue mr-3 mt-1"></i>
-								<span class="text-gray-700">Trato personal y cercano</span>
 							</li>
 						</ul>
 					</div>
 
 					<!-- Debilidades -->
 					<div
-						class="swot-card bg-white shadow-md border-t-4 border-brand-yellow p-6"
+						class="swot-card bg-white shadow-md border-t-4 border-brand-yellow p-3"
 					>
-						<div class="flex items-center mb-4">
-							<div class="swot-icon bg-brand-yellow text-gray-800">
-								<i class="fas fa-exclamation-triangle"></i>
+						<div class="flex items-center mb-2">
+							<div class="swot-icon bg-brand-yellow text-gray-800 w-6 h-6 rounded-full flex items-center justify-center">
+								<i class="fas fa-exclamation-triangle text-sm"></i>
 							</div>
-							<h2 class="text-2xl font-semibold ml-4">Debilidades</h2>
+							<h2 class="text-xl font-bold ml-4">Debilidades</h2>
 						</div>
-						<ul class="space-y-3">
+						<ul class="space-y-1">
 							<li class="flex items-start">
-								<i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i>
-								<span class="text-gray-700">Marca poco conocida</span>
+								<i class="fas fa-minus-circle text-yellow-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">Capacidad limitada (1 persona)</span>
 							</li>
 							<li class="flex items-start">
-								<i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i>
-								<span class="text-gray-700">Capacidad limitada (solo)</span>
+								<i class="fas fa-minus-circle text-yellow-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">Marca nueva, sin histórico</span>
 							</li>
 							<li class="flex items-start">
-								<i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i>
-								<span class="text-gray-700">Dependencia de pocos clientes</span>
-							</li>
-							<li class="flex items-start">
-								<i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i>
-								<span class="text-gray-700">Baja inversión en marketing</span>
-							</li>
-							<li class="flex items-start">
-								<i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i>
-								<span class="text-gray-700"
-									>Redes sociales sin continuidad en publicación</span
+								<i class="fas fa-minus-circle text-yellow-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base"
+									>Dependencia de un solo fundador</span
 								>
+							</li>
+							<li class="flex items-start">
+								<i class="fas fa-minus-circle text-yellow-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">Budget limitado para marketing</span>
 							</li>
 						</ul>
 					</div>
 
 					<!-- Oportunidades -->
 					<div
-						class="swot-card bg-white shadow-md border-t-4 border-brand-blue p-6"
+						class="swot-card bg-white shadow-md border-t-4 border-green-500 p-3"
 					>
-						<div class="flex items-center mb-4">
-							<div class="swot-icon bg-brand-blue">
-								<i class="fas fa-lightbulb"></i>
+						<div class="flex items-center mb-2">
+							<div class="swot-icon bg-green-500 w-6 h-6 rounded-full flex items-center justify-center">
+								<i class="fas fa-chart-line text-sm"></i>
 							</div>
-							<h2 class="text-2xl font-semibold ml-4">Oportunidades</h2>
+							<h2 class="text-xl font-bold ml-4">Oportunidades</h2>
 						</div>
-						<ul class="space-y-3">
+						<ul class="space-y-1">
 							<li class="flex items-start">
-								<i class="fas fa-plus-circle text-green-500 mr-3 mt-1"></i>
-								<span class="text-gray-700">Subvenciones Kit Digital</span>
+								<i class="fas fa-plus-circle text-green-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">Mercado pyme subestimado</span>
 							</li>
 							<li class="flex items-start">
-								<i class="fas fa-plus-circle text-green-500 mr-3 mt-1"></i>
-								<span class="text-gray-700"
-									>Demanda creciente de digitalización</span
-								>
+								<i class="fas fa-plus-circle text-green-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">Kit Digital y subvenciones</span>
 							</li>
 							<li class="flex items-start">
-								<i class="fas fa-plus-circle text-green-500 mr-3 mt-1"></i>
-								<span class="text-gray-700">Networking en coworkings</span>
+								<i class="fas fa-plus-circle text-green-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">IA para automatización</span>
 							</li>
 							<li class="flex items-start">
-								<i class="fas fa-plus-circle text-green-500 mr-3 mt-1"></i>
-								<span class="text-gray-700"
-									>Auge de soluciones basadas en IA</span
-								>
-							</li>
-							<li class="flex items-start">
-								<i class="fas fa-plus-circle text-green-500 mr-3 mt-1"></i>
-								<span class="text-gray-700"
-									>Contenido SEO para posicionamiento orgánico</span
+								<i class="fas fa-plus-circle text-green-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base"
+									>Demanda post-COVID digitalización</span
 								>
 							</li>
 						</ul>
@@ -271,166 +256,143 @@
 
 					<!-- Amenazas -->
 					<div
-						class="swot-card bg-white shadow-md border-t-4 border-brand-yellow p-6"
+						class="swot-card bg-white shadow-md border-t-4 border-red-500 p-3"
 					>
-						<div class="flex items-center mb-4">
-							<div class="swot-icon bg-brand-yellow text-gray-800">
-								<i class="fas fa-bolt"></i>
+						<div class="flex items-center mb-2">
+							<div class="swot-icon bg-red-500 w-6 h-6 rounded-full flex items-center justify-center">
+								<i class="fas fa-exclamation-triangle text-sm"></i>
 							</div>
-							<h2 class="text-2xl font-semibold ml-4">Amenazas</h2>
+							<h2 class="text-xl font-bold ml-4">Amenazas</h2>
 						</div>
-						<ul class="space-y-3">
+						<ul class="space-y-1">
 							<li class="flex items-start">
-								<i
-									class="fas fa-exclamation-circle text-orange-500 mr-3 mt-1"
-								></i>
-								<span class="text-gray-700">Alta competencia low-cost</span>
-							</li>
-							<li class="flex items-start">
-								<i
-									class="fas fa-exclamation-circle text-orange-500 mr-3 mt-1"
-								></i>
-								<span class="text-gray-700"
-									>Cambios rápidos en tecnología y regulación IA</span
+								<i class="fas fa-times-circle text-red-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base"
+									>Competencia agencias establecidas</span
 								>
 							</li>
 							<li class="flex items-start">
-								<i
-									class="fas fa-exclamation-circle text-orange-500 mr-3 mt-1"
-								></i>
-								<span class="text-gray-700">Presión fiscal autónomos</span>
+								<i class="fas fa-times-circle text-red-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">Crisis económica global</span>
 							</li>
 							<li class="flex items-start">
-								<i
-									class="fas fa-exclamation-circle text-orange-500 mr-3 mt-1"
-								></i>
-								<span class="text-gray-700"
-									>Posible cambio a estructura fiscal SL</span
+								<i class="fas fa-times-circle text-red-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base"
+									>Saturación mercado freelancers</span
 								>
+							</li>
+							<li class="flex items-start">
+								<i class="fas fa-times-circle text-red-600 mr-2 mt-0.5 text-xs"></i>
+								<span class="text-gray-700 text-base">Evolución rápida tecnología</span>
 							</li>
 						</ul>
 					</div>
 				</div>
 
 				<!-- VUCA Analysis -->
-				<div>
-					<h2 class="text-2xl font-semibold mb-6 flex items-center">
-						<span
-							class="inline-block w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center text-white mr-3"
-						>
-							<i class="fas fa-compass"></i>
-						</span>
-						Entorno VUCA: Navegando la incertidumbre
+				<div class="bg-gray-50 p-6 rounded-lg mt-2">
+					<h2 class="text-xl font-bold mb-4 text-brand-blue flex items-center">
+						<i class="fas fa-globe mr-3"></i>
+						Análisis VUCA: Entorno Empresarial
 					</h2>
 
-					<div class="grid grid-cols-4 gap-6">
+					<div class="grid grid-cols-4 gap-8">
 						<!-- Volatility -->
-						<div class="vuca-card bg-white shadow-sm p-5">
-							<div class="flex items-center mb-3">
-								<div class="vuca-icon bg-brand-blue text-white">
+						<div class="vuca-card bg-white p-3 border-l-4 border-red-500">
+							<div class="flex items-center mb-2">
+								<div class="vuca-icon bg-red-100 text-red-600 w-8 h-8 mr-2">
 									<i class="fas fa-chart-line"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Volatilidad</h3>
+								<div>
+									<h4 class="font-bold text-sm">Volatilidad</h4>
+									<span class="text-base text-gray-500">Cambios rápidos</span>
+								</div>
 							</div>
-							<p class="text-gray-600">
-								Tecnología IA en constante evolución y cambios frecuentes en
-								algoritmos SEO
-							</p>
-							<div class="bg-blue-50 p-3 mt-3 rounded-lg">
-								<p class="text-sm font-medium text-blue-700">
-									Estrategia: Aprendizaje continuo e inversión en formación
-								</p>
-							</div>
+							<ul class="text-xs text-gray-700 space-y-2">
+								<li>• Crisis económica</li>
+								<li>• Cambios tecnológicos</li>
+								<li>• Regulaciones RGPD</li>
+							</ul>
 						</div>
 
 						<!-- Uncertainty -->
-						<div class="vuca-card bg-white shadow-sm p-5">
-							<div class="flex items-center mb-3">
-								<div class="vuca-icon bg-brand-yellow text-gray-800">
+						<div class="vuca-card bg-white p-3 border-l-4 border-yellow-500">
+							<div class="flex items-center mb-2">
+								<div class="vuca-icon bg-yellow-100 text-yellow-600 w-8 h-8 mr-2">
 									<i class="fas fa-question-circle"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Incertidumbre</h3>
+								<div>
+									<h4 class="font-semibold text-sm">Incertidumbre</h4>
+									<span class="text-xs text-gray-500">Futuro impredecible</span>
+								</div>
 							</div>
-							<p class="text-gray-600">
-								Adopción de IA por la competencia y cambios en el mercado de
-								servicios digitales
-							</p>
-							<div class="bg-yellow-50 p-3 mt-3 rounded-lg">
-								<p class="text-sm font-medium text-yellow-700">
-									Estrategia: Flexibilidad y oferta adaptable a necesidades
-								</p>
-							</div>
+							<ul class="text-xs text-gray-700 space-y-1">
+								<li>• Mercado pyme fluctuante</li>
+								<li>• Adopción IA</li>
+								<li>• Comportamiento digital</li>
+							</ul>
 						</div>
 
 						<!-- Complexity -->
-						<div class="vuca-card bg-white shadow-sm p-5">
-							<div class="flex items-center mb-3">
-								<div class="vuca-icon bg-brand-blue text-white">
-									<i class="fas fa-network-wired"></i>
+						<div class="vuca-card bg-white p-3 border-l-4 border-blue-500">
+							<div class="flex items-center mb-2">
+								<div class="vuca-icon bg-blue-100 text-blue-600 w-8 h-8 mr-2">
+									<i class="fas fa-cogs"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Complejidad</h3>
+								<div>
+									<h4 class="font-semibold text-sm">Complejidad</h4>
+									<span class="text-xs text-gray-500">Múltiples factores</span>
+								</div>
 							</div>
-							<p class="text-gray-600">
-								Múltiples disciplinas técnicas requeridas para ofrecer servicio
-								completo
-							</p>
-							<div class="bg-blue-50 p-3 mt-3 rounded-lg">
-								<p class="text-sm font-medium text-blue-700">
-									Estrategia: Especialización en tecnologías clave con alto ROI
-								</p>
-							</div>
+							<ul class="text-xs text-gray-700 space-y-1">
+								<li>• Stack tecnológico</li>
+								<li>• Regulaciones múltiples</li>
+								<li>• Expectativas cliente</li>
+							</ul>
 						</div>
 
 						<!-- Ambiguity -->
-						<div class="vuca-card bg-white shadow-sm p-5">
-							<div class="flex items-center mb-3">
-								<div class="vuca-icon bg-brand-yellow text-gray-800">
-									<i class="fas fa-random"></i>
+						<div class="vuca-card bg-white p-3 border-l-4 border-purple-500">
+							<div class="flex items-center mb-2">
+								<div class="vuca-icon bg-purple-100 text-purple-600 w-8 h-8 mr-2">
+									<i class="fas fa-search"></i>
 								</div>
-								<h3 class="text-xl font-semibold">Ambigüedad</h3>
+								<div>
+									<h4 class="font-semibold text-sm">Ambigüedad</h4>
+									<span class="text-xs text-gray-500">Causa-efecto</span>
+								</div>
 							</div>
-							<p class="text-gray-600">
-								Variabilidad en necesidades de cada pyme y expectativas
-								cambiantes
-							</p>
-							<div class="bg-yellow-50 p-3 mt-3 rounded-lg">
-								<p class="text-sm font-medium text-yellow-700">
-									Estrategia: Procesos iniciales de detección de necesidades
-								</p>
+							<ul class="text-xs text-gray-700 space-y-1">
+								<li>• ROI marketing digital</li>
+								<li>• Preferencias generacionales</li>
+								<li>• Efectividad canales</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Strategic Response -->
+					<div class="mt-8 bg-white p-6 rounded-lg border border-brand-blue">
+						<h3 class="font-bold text-brand-blue mb-4 flex items-center">
+							<i class="fas fa-shield-alt mr-3"></i>
+							Respuesta Estratégica AFA
+						</h3>
+						<div class="grid grid-cols-4 gap-6 text-base">
+							<div>
+								<strong>Anti-Volatilidad:</strong> Diversificación servicios y flexibilidad precios
+							</div>
+							<div>
+								<strong>Anti-Incertidumbre:</strong> Contratos piloto y feedback continuo
+							</div>
+							<div>
+								<strong>Anti-Complejidad:</strong> Stack tecnológico simplificado y documentado
+							</div>
+							<div>
+								<strong>Anti-Ambigüedad:</strong> KPIs claros y reportes transparentes
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- Strategy Summary -->
-				<div
-					class="mt-8 bg-gray-50 p-6 rounded-lg border-l-4 border-brand-blue"
-				>
-					<div class="flex items-start">
-						<div
-							class="w-12 h-12 rounded-full bg-brand-blue flex items-center justify-center text-white mr-4 flex-shrink-0"
-						>
-							<i class="fas fa-chess"></i>
-						</div>
-						<div>
-							<h3 class="text-xl font-semibold mb-2">Estrategia ante retos</h3>
-							<p class="text-gray-700">
-								AFA Creations responde a este entorno con una
-								<span class="font-medium">propuesta de valor diferencial</span>
-								basada en servicio personalizado, tecnología de vanguardia y
-								precios accesibles, maximizando fortalezas que mitigan
-								debilidades y minimizan amenazas.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Page number -->
-				<div
-					class="absolute bottom-8 right-8 bg-gray-100 px-4 py-2 rounded-full"
-				>
-					<span class="text-sm font-medium">10</span>
-				</div>
+			</div>
 			</div>
 		</div>
 	</body>
